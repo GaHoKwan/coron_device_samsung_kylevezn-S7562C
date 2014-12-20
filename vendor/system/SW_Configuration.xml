@@ -1,0 +1,12 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<SW-Configuration>
+	<MobileData>
+	<PublicName>GT-S7562C</PublicName>
+	</MobileData>
+	<CustomerDataSet>
+	<CSCName>S7562CCHU</CSCName>
+	<CSCVersion>AND1</CSCVersion>
+	<NbCustomer>1</NbCustomer>
+	<CustomerData src="/Customer/CHU/customer.xml" />
+	</CustomerDataSet>
+</SW-Configuration>
