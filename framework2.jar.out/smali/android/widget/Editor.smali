@@ -18,6 +18,8 @@
         Landroid/widget/Editor$SelectionStartHandleView;,
         Landroid/widget/Editor$InsertionHandleView;,
         Landroid/widget/Editor$HandleView;,
+        Landroid/widget/Editor$BaiduClipboardPopupWindow;,
+        Landroid/widget/Editor$BaiduActionPopupWindow;,
         Landroid/widget/Editor$ActionPopupWindow;,
         Landroid/widget/Editor$SelectionActionModeCallback;,
         Landroid/widget/Editor$SuggestionsPopupWindow;,
@@ -27,7 +29,8 @@
         Landroid/widget/Editor$EasyEditSpanController;,
         Landroid/widget/Editor$DragLocalState;,
         Landroid/widget/Editor$Blink;,
-        Landroid/widget/Editor$TextViewPositionListener;
+        Landroid/widget/Editor$TextViewPositionListener;,
+        Landroid/widget/Editor$BaiduEditorInjector;
     }
 .end annotation
 
@@ -102,6 +105,8 @@
 .field private mPositionListener:Landroid/widget/Editor$PositionListener;
 
 .field mPreserveDetachedSelection:Z
+
+.field public mSearchText:Ljava/lang/CharSequence;
 
 .field mSelectAllOnFocus:Z
 
@@ -247,7 +252,7 @@
 
     move-result-object v2
 
-    const v3, 0x10103ff
+    const v3, #android:attr@parentIsDeviceDefault#t
 
     invoke-virtual {v2, v3, v1, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -646,7 +651,7 @@
 
     move-result-object v1
 
-    const v2, 0x105004a
+    const v2, #android:dimen@textview_error_popup_default_width#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2333,7 +2338,7 @@
 
     move-result-object v2
 
-    const v3, 0x10900f7
+    const v3, #android:layout@text_drag_thumbnail#t
 
     const/4 v4, 0x0
 
@@ -3635,7 +3640,7 @@
 
     .line 405
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x10900ff
+    const v4, #android:layout@textview_hint#t
 
     const/4 v5, 0x0
 
@@ -4600,13 +4605,11 @@
     .locals 2
 
     .prologue
-    .line 828
     iget-object v0, p0, Landroid/widget/Editor;->mWordIterator:Landroid/text/method/WordIterator;
 
     if-nez v0, :cond_0
 
-    .line 829
-    new-instance v0, Landroid/text/method/WordIterator;
+    new-instance v0, Landroid/text/method/BaiduWordIterator;
 
     iget-object v1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
@@ -4614,7 +4617,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/text/method/WordIterator;-><init>(Ljava/util/Locale;)V
+    invoke-direct {v0, v1}, Landroid/text/method/BaiduWordIterator;-><init>(Ljava/util/Locale;)V
 
     iput-object v0, p0, Landroid/widget/Editor;->mWordIterator:Landroid/text/method/WordIterator;
 
@@ -7285,7 +7288,8 @@
     .parameter "handled"
 
     .prologue
-    .line 964
+    invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->onEventWordSearch(Landroid/widget/Editor;)V
+
     if-nez p1, :cond_0
 
     iget v6, p0, Landroid/widget/Editor;->mLastDownPositionX:F
@@ -8641,9 +8645,7 @@
 
     .line 1663
     .local v6, top:I
-    add-int/lit8 v7, v3, 0x1
-
-    invoke-virtual {v2, v7}, Landroid/text/Layout;->getLineTop(I)I
+    invoke-static {p0, v3}, Landroid/widget/Editor$BaiduEditorInjector;->fixCursorPostion(Landroid/widget/Editor;I)I
 
     move-result v0
 
@@ -8734,7 +8736,7 @@
 
     sget-object v10, Lcom/android/internal/R$styleable;->ActionMenuItemView:[I
 
-    const v11, 0x10102d8
+    const v11, #android:attr@actionButtonStyle#t
 
     const/4 v12, 0x0
 
@@ -8804,7 +8806,7 @@
 
     move-result-object v9
 
-    const v10, 0x1050050
+    const v10, #android:dimen@action_button_min_width#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8938,7 +8940,7 @@
 
     move-result-object v9
 
-    const v10, 0x1050050
+    const v10, #android:dimen@action_button_min_width#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

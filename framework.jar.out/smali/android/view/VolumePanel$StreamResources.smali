@@ -1,4 +1,4 @@
-.class final enum Landroid/view/VolumePanel$StreamResources;
+.class public final enum Landroid/view/VolumePanel$StreamResources;
 .super Ljava/lang/Enum;
 .source "VolumePanel.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x401a
+    accessFlags = 0x401c
     name = "StreamResources"
 .end annotation
 
@@ -70,7 +70,7 @@
 
     const/4 v13, 0x2
 
-    const v12, 0x10802e1
+    const v12, #android:drawable@ic_audio_phone#t
 
     const/4 v11, 0x1
 
@@ -83,11 +83,11 @@
 
     const/4 v3, 0x6
 
-    const v4, 0x1040575
+    const v4, #android:string@volume_icon_description_bluetooth#t
 
-    const v5, 0x10802dc
+    const v5, #android:drawable@ic_audio_bt#t
 
-    const v6, 0x10802dc
+    const v6, #android:drawable@ic_audio_bt#t
 
     move v7, v2
 
@@ -100,11 +100,11 @@
 
     const-string v4, "RingerStream"
 
-    const v7, 0x10407b4
+    const v7, #android:string@volumepanel_ringtone#t
 
-    const v8, 0x10802e2
+    const v8, #android:drawable@ic_audio_ring_notif#t
 
-    const v9, 0x10802e3
+    const v9, #android:drawable@ic_audio_ring_notif_mute#t
 
     move v5, v11
 
@@ -121,7 +121,7 @@
 
     const-string v4, "VoiceStream"
 
-    const v7, 0x1040577
+    const v7, #android:string@volume_icon_description_incall#t
 
     move v5, v13
 
@@ -144,11 +144,11 @@
 
     const/4 v6, 0x4
 
-    const v7, 0x1040572
+    const v7, #android:string@volume_alarm#t
 
-    const v8, 0x10802da
+    const v8, #android:drawable@ic_audio_alarm#t
 
-    const v9, 0x10802db
+    const v9, #android:drawable@ic_audio_alarm_mute#t
 
     move v5, v14
 
@@ -165,11 +165,11 @@
 
     const/4 v5, 0x4
 
-    const v7, 0x10407b5
+    const v7, #android:string@volumepanel_media#t
 
-    const v8, 0x10802e8
+    const v8, #android:drawable@ic_audio_vol#t
 
-    const v9, 0x10802ea
+    const v9, #android:drawable@ic_audio_vol_mute#t
 
     move v6, v14
 
@@ -188,11 +188,11 @@
 
     const/4 v6, 0x5
 
-    const v7, 0x10407b6
+    const v7, #android:string@volumepanel_notification#t
 
-    const v8, 0x10802de
+    const v8, #android:drawable@ic_audio_notification#t
 
-    const v9, 0x10802df
+    const v9, #android:drawable@ic_audio_notification_mute#t
 
     move v10, v11
 
@@ -209,11 +209,11 @@
 
     const/16 v6, -0x64
 
-    const v7, 0x1040578
+    const v7, #android:string@volume_icon_description_media#t
 
-    const v8, 0x10802e8
+    const v8, #android:drawable@ic_audio_vol#t
 
-    const v9, 0x10802ea
+    const v9, #android:drawable@ic_audio_vol_mute#t
 
     move v10, v2
 
@@ -230,11 +230,11 @@
 
     const/16 v6, -0xc8
 
-    const v7, 0x1040578
+    const v7, #android:string@volume_icon_description_media#t
 
-    const v8, 0x108036b
+    const v8, #android:drawable@ic_media_route_on_holo_dark#t
 
-    const v9, 0x1080365
+    const v9, #android:drawable@ic_media_route_disabled_holo_dark#t
 
     move v10, v2
 
@@ -251,11 +251,11 @@
 
     const/16 v6, 0xa
 
-    const v7, 0x10407b5
+    const v7, #android:string@volumepanel_media#t
 
-    const v8, 0x10802e8
+    const v8, #android:drawable@ic_audio_vol#t
 
-    const v9, 0x10802ea
+    const v9, #android:drawable@ic_audio_vol_mute#t
 
     move v10, v2
 
@@ -272,7 +272,7 @@
 
     const/16 v6, 0xb
 
-    const v7, 0x1040577
+    const v7, #android:string@volume_icon_description_incall#t
 
     move v8, v12
 
@@ -291,11 +291,11 @@
 
     const/16 v5, 0xa
 
-    const v7, 0x10407b7
+    const v7, #android:string@volumepanel_system#t
 
-    const v8, 0x10802e5
+    const v8, #android:drawable@ic_audio_system#t
 
-    const v9, 0x10802e6
+    const v9, #android:drawable@ic_audio_system_mute#t
 
     move v6, v11
 

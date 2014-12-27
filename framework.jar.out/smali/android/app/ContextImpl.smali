@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/app/ContextImpl$BaiduApplicationContentResolver;,
         Landroid/app/ContextImpl$ApplicationContentResolver;,
         Landroid/app/ContextImpl$StaticServiceFetcher;,
         Landroid/app/ContextImpl$ServiceFetcher;
@@ -4352,24 +4353,19 @@
 
     iput-object v0, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;
 
-    .line 1868
     :cond_0
     iput-object p3, p0, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    .line 1869
-    new-instance v0, Landroid/app/ContextImpl$ApplicationContentResolver;
+    new-instance v0, Landroid/app/ContextImpl$BaiduApplicationContentResolver;
 
-    invoke-direct {v0, p0, p3}, Landroid/app/ContextImpl$ApplicationContentResolver;-><init>(Landroid/content/Context;Landroid/app/ActivityThread;)V
+    invoke-direct {v0, p0, p3}, Landroid/app/ContextImpl$BaiduApplicationContentResolver;-><init>(Landroid/content/Context;Landroid/app/ActivityThread;)V
 
     iput-object v0, p0, Landroid/app/ContextImpl;->mContentResolver:Landroid/app/ContextImpl$ApplicationContentResolver;
 
-    .line 1871
     invoke-virtual {p0, p2}, Landroid/app/ContextImpl;->setActivityToken(Landroid/os/IBinder;)V
 
-    .line 1872
     return-void
 
-    .line 1855
     .restart local p5
     :cond_1
     iget-object p5, p1, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
@@ -4385,26 +4381,20 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1875
     iput-object v0, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
 
-    .line 1876
     iput-object v0, p0, Landroid/app/ContextImpl;->mBasePackageName:Ljava/lang/String;
 
-    .line 1877
     iput-object p1, p0, Landroid/app/ContextImpl;->mResources:Landroid/content/res/Resources;
 
-    .line 1878
     iput-object p2, p0, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    .line 1879
-    new-instance v0, Landroid/app/ContextImpl$ApplicationContentResolver;
+    new-instance v0, Landroid/app/ContextImpl$BaiduApplicationContentResolver;
 
-    invoke-direct {v0, p0, p2}, Landroid/app/ContextImpl$ApplicationContentResolver;-><init>(Landroid/content/Context;Landroid/app/ActivityThread;)V
+    invoke-direct {v0, p0, p2}, Landroid/app/ContextImpl$BaiduApplicationContentResolver;-><init>(Landroid/content/Context;Landroid/app/ActivityThread;)V
 
     iput-object v0, p0, Landroid/app/ContextImpl;->mContentResolver:Landroid/app/ContextImpl$ApplicationContentResolver;
 
-    .line 1880
     return-void
 .end method
 
@@ -6351,4 +6341,15 @@
     move-exception v1
 
     goto :goto_0
+.end method
+
+.method static refreshFontCache()V
+    .locals 0
+
+    .prologue
+    invoke-static {}, Landroid/graphics/Canvas;->freeCaches()V
+
+    invoke-static {}, Landroid/graphics/Canvas;->freeTextLayoutCaches()V
+
+    return-void
 .end method

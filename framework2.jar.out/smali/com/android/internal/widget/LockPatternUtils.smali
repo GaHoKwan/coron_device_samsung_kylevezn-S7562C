@@ -1873,6 +1873,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
+    const-string v0, "lockscreen.lockmode_type"
+
+    const-wide/16 v1, 0x2
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->setLong(Ljava/lang/String;J)V
+
     .line 571
     return-void
 .end method
@@ -2831,7 +2837,7 @@
 
     move-result-object v0
 
-    const v1, 0x111002a
+    const v1, #android:bool@config_voice_capable#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2851,7 +2857,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110022
+    const v1, #android:bool@config_enable_emergency_call_while_sim_locked#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3295,7 +3301,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110021
+    const v1, #android:bool@config_enable_puk_unlock_screen#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -5867,41 +5873,32 @@
 
     move-result v1
 
-    .line 1480
     .local v1, newState:I
     const/4 v4, 0x2
 
     if-ne v1, v4, :cond_0
 
-    .line 1482
-    const v3, 0x104045a
+    const v3, #android:string@lockscreen_return_to_call#t
 
-    .line 1483
     .local v3, textId:I
-    const v2, 0x1080084
+    const v2, #android:drawable@stat_sys_phone_call#t
 
-    .line 1484
     .local v2, phoneCallIcon:I
     invoke-virtual {p1, v2, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 1490
     .end local v2           #phoneCallIcon:I
     :goto_0
     invoke-virtual {p1, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 1491
     return-void
 
-    .line 1486
     .end local v3           #textId:I
     :cond_0
-    const v3, 0x1040459
+    const v3, #android:string@lockscreen_emergency_call#t
 
-    .line 1487
     .restart local v3       #textId:I
-    const v0, 0x1080314
+    const v0, #android:drawable@ic_emergency#t
 
-    .line 1488
     .local v0, emergencyIcon:I
     invoke-virtual {p1, v0, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
@@ -5926,36 +5923,28 @@
 
     if-eqz p3, :cond_0
 
-    .line 1413
     invoke-virtual {p1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1437
     const/4 v3, 0x2
 
     if-ne p2, v3, :cond_1
 
-    .line 1439
-    const v2, 0x104045a
+    const v2, #android:string@lockscreen_return_to_call#t
 
-    .line 1440
     .local v2, textId:I
-    const v1, 0x1080084
+    const v1, #android:drawable@stat_sys_phone_call#t
 
-    .line 1441
     .local v1, phoneCallIcon:I
     invoke-virtual {p1, v1, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 1447
     .end local v1           #phoneCallIcon:I
     :goto_0
     invoke-virtual {p1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 1449
     .end local v2           #textId:I
     :goto_1
     return-void
 
-    .line 1415
     :cond_0
     const/16 v3, 0x8
 
@@ -5963,15 +5952,12 @@
 
     goto :goto_1
 
-    .line 1443
     :cond_1
-    const v2, 0x1040459
+    const v2, #android:string@lockscreen_emergency_call#t
 
-    .line 1444
     .restart local v2       #textId:I
-    const v0, 0x1080314
+    const v0, #android:drawable@ic_emergency#t
 
-    .line 1445
     .local v0, emergencyIcon:I
     invoke-virtual {p1, v0, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
@@ -5999,57 +5985,43 @@
 
     if-eqz p4, :cond_0
 
-    .line 1454
     invoke-virtual {p1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1455
     invoke-virtual {p2, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1462
     const/4 v2, 0x2
 
     if-ne p3, v2, :cond_1
 
-    .line 1464
     invoke-virtual {p1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1465
-    const v1, 0x104045a
+    const v1, #android:string@lockscreen_return_to_call#t
 
-    .line 1466
     .local v1, textId:I
-    const v0, 0x1080084
+    const v0, #android:drawable@stat_sys_phone_call#t
 
-    .line 1467
     .local v0, phoneCallIcon:I
     invoke-virtual {p2, v0, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 1468
     invoke-virtual {p2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1469
     invoke-virtual {p2, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 1474
     .end local v0           #phoneCallIcon:I
     .end local v1           #textId:I
     :goto_0
     return-void
 
-    .line 1457
     :cond_0
     invoke-virtual {p1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1458
     invoke-virtual {p2, v4}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 1471
     :cond_1
     invoke-virtual {p1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1472
     invoke-virtual {p2, v4}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0

@@ -385,21 +385,18 @@
     #setter for: Lcom/android/server/NotificationManagerService;->mScreenOn:Z
     invoke-static {v11, v12}, Lcom/android/server/NotificationManagerService;->access$1302(Lcom/android/server/NotificationManagerService;Z)Z
 
-    .line 627
     const-string v11, "STATUSBAR-NotificationService"
 
     const-string v12, "ACTION_SCREEN_OFF"
 
     invoke-static {v11, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 628
     iget-object v11, p0, Lcom/android/server/NotificationManagerService$2;->this$0:Lcom/android/server/NotificationManagerService;
 
     iget-object v11, v11, Lcom/android/server/NotificationManagerService;->mPickupPlayer:Lcom/android/server/NotificationManagerService$PickupPlayer;
 
     if-eqz v11, :cond_c
 
-    .line 629
     iget-object v11, p0, Lcom/android/server/NotificationManagerService$2;->this$0:Lcom/android/server/NotificationManagerService;
 
     iget-object v11, v11, Lcom/android/server/NotificationManagerService;->mPickupPlayer:Lcom/android/server/NotificationManagerService$PickupPlayer;

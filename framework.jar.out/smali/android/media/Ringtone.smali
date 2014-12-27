@@ -244,7 +244,7 @@
 
     .line 142
     .local v6, actualTitle:Ljava/lang/String;
-    const v1, 0x104057b
+    const v1, #android:string@ringtone_default_with_actual#t
 
     new-array v2, v11, [Ljava/lang/Object;
 
@@ -262,28 +262,23 @@
     :goto_0
     if-nez v10, :cond_1
 
-    .line 173
-    const v1, 0x104057e
+    const v1, #android:string@ringtone_unknown#t
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 175
     if-nez v10, :cond_1
 
-    .line 176
     const-string v10, ""
 
     :cond_1
     move-object v1, v10
 
-    .line 180
     :cond_2
     :goto_1
     return-object v1
 
-    .line 148
     .restart local v8       #authority:Ljava/lang/String;
     :cond_3
     :try_start_0
@@ -590,6 +585,10 @@
 
     iget-object v3, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
 
+    if-eqz v3, :cond_baidu_0
+
+    iget-object v3, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
+
     iget v4, p0, Landroid/media/Ringtone;->mStreamType:I
 
     invoke-interface {v1, v2, v3, v4}, Landroid/media/IRingtonePlayer;->play(Landroid/os/IBinder;Landroid/net/Uri;I)V
@@ -631,6 +630,7 @@
     .line 253
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_2
+    :cond_baidu_0
     const-string v1, "Ringtone"
 
     const-string v2, "Neither local nor remote playback available"

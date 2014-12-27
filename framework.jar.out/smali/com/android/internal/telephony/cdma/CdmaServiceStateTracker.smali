@@ -10086,7 +10086,7 @@
 
     move-result-object v22
 
-    const v23, 0x1040184
+    const v23, #android:string@roamingTextSearching#t
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -10742,43 +10742,40 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 777
     new-instance v0, Landroid/content/Intent;
 
     const-string v3, "android.provider.Telephony.SPN_STRINGS_UPDATED"
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 778
     .local v0, intent:Landroid/content/Intent;
     const/high16 v3, 0x2000
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 779
-    const-string/jumbo v3, "showSpn"
+    const-string v3, "showSpn"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 780
-    const-string/jumbo v3, "spn"
+    const-string v3, "spn"
 
     const-string v4, ""
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 781
-    const-string/jumbo v3, "showPlmn"
+    const-string v3, "showPlmn"
 
     invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 782
-    const-string/jumbo v3, "plmn"
+    const-string v3, "plmn"
+
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->updatePlmnOrSpnDisplay(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 783
-    const-string/jumbo v3, "simSlot"
+    const-string v3, "simSlot"
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->phone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 

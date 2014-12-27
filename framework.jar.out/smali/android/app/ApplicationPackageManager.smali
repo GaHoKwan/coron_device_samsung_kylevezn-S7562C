@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/app/ApplicationPackageManager$ResourceName;
+        Landroid/app/ApplicationPackageManager$ResourceName;,
+        Landroid/app/ApplicationPackageManager$BaiduInjector;
     }
 .end annotation
 
@@ -2078,7 +2079,7 @@
 
     move-result-object v0
 
-    const v1, 0x1080093
+    const v1, #android:drawable@sym_def_app_icon#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2218,30 +2219,25 @@
 
     move-result-object p3
 
-    .line 645
     :cond_2
     :try_start_2
     invoke-virtual {p0, p3}, Landroid/app/ApplicationPackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
     move-result-object v7
 
-    .line 647
     .local v7, r:Landroid/content/res/Resources;
     iget-object v9, p3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iput-object v9, v7, Landroid/content/res/Resources;->mPackageName:Ljava/lang/String;
 
-    .line 648
     iget v9, p3, Landroid/content/pm/ApplicationInfo;->icon:I
 
     iput v9, v7, Landroid/content/res/Resources;->mAppIconResId:I
 
-    .line 650
     invoke-virtual {v7, p2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 663
     invoke-direct {p0, v6, v1}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
     :try_end_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1

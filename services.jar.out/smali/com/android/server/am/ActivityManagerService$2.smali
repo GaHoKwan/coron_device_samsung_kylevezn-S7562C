@@ -180,7 +180,6 @@
 
     if-nez v4, :cond_3
 
-    .line 1010
     new-instance v25, Lcom/android/server/am/AppErrorDialog;
 
     move-object/from16 v0, p0
@@ -489,7 +488,6 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    .line 1054
     .local v21, cmPackagename:Ljava/lang/String;
     :try_start_9
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
@@ -2174,7 +2172,7 @@
 
     iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040562
+    const v5, #android:string@heavy_weight_notification#t
 
     const/4 v6, 0x1
 
@@ -2208,7 +2206,7 @@
 
     .line 1287
     .local v37, notification:Landroid/app/Notification;
-    const v4, 0x1080722
+    const v4, #android:drawable@stat_sys_adb#t
 
     move-object/from16 v0, v37
 
@@ -2263,7 +2261,7 @@
 
     iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040563
+    const v5, #android:string@heavy_weight_notification_detail#t
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -2309,7 +2307,7 @@
     .local v42, outId:[I
     const-string v4, "android"
 
-    const v5, 0x1040562
+    const v5, #android:string@heavy_weight_notification#t
 
     move-object/from16 v0, v33
 
@@ -2383,7 +2381,7 @@
     :try_start_26
     const-string v4, "android"
 
-    const v5, 0x1040562
+    const v5, #android:string@heavy_weight_notification#t
 
     move-object/from16 v0, v33
 

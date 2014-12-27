@@ -1420,7 +1420,7 @@
 
     move-result-object v9
 
-    const v10, 0x1110007
+    const v10, #android:bool@config_sf_limitedAlpha#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1556,7 +1556,7 @@
 
     move-result-object v9
 
-    const v11, 0x10e0040
+    const v11, #android:integer@config_multiWindowDefaultArrangeMode#t
 
     invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1688,7 +1688,7 @@
 
     move-result-object v9
 
-    const v10, 0x10e0037
+    const v10, #android:integer@config_windowManagerDefaultRotation#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1702,7 +1702,7 @@
 
     move-result-object v9
 
-    const v10, 0x111003c
+    const v10, #android:bool@config_isCameraSpecialized#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1730,7 +1730,7 @@
 
     move-result-object v9
 
-    const v10, 0x111003c
+    const v10, #android:bool@config_isCameraSpecialized#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -5385,7 +5385,7 @@
     .line 4171
     iget-object v2, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x10c0003
+    const v4, #android:interpolator@decelerate_cubic#t
 
     invoke-static {v2, v4}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
@@ -5420,7 +5420,7 @@
 
     move-result-object v4
 
-    const/high16 v5, 0x10e
+    const/high16 v5, #android:integer@config_shortAnimTime#h
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5648,7 +5648,7 @@
 
     iget-object v3, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const v5, 0x10c0001
+    const v5, #android:interpolator@decelerate_quad#t
 
     invoke-static {v3, v5}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
@@ -5719,7 +5719,7 @@
 
     move-result-object v3
 
-    const/high16 v5, 0x10e
+    const/high16 v5, #android:integer@config_shortAnimTime#h
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9581,7 +9581,7 @@
 
     iget-object v2, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const v8, 0x10a006d
+    const v8, #android:anim@window_move_from_decor#t
 
     invoke-static {v2, v8}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -20799,7 +20799,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050062
+    const v1, #android:dimen@multiwindow_default_center_bar_width#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -20834,7 +20834,7 @@
 
     move-result-object v0
 
-    const v1, 0x105000a
+    const v1, #android:dimen@status_bar_height#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -31872,7 +31872,7 @@
 
     move-result-object v3
 
-    const v4, 0x1110026
+    const v4, #android:bool@config_enableWallpaperService#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -33025,14 +33025,12 @@
     .parameter "confirm"
 
     .prologue
-    .line 6433
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const-string v1, "GlobalActions restart"
+    const/4 v1, 0x0
 
     invoke-static {v0, v1, p1}, Lcom/android/server/pm/ShutdownThread;->reboot(Landroid/content/Context;Ljava/lang/String;Z)V
 
-    .line 6434
     return-void
 .end method
 

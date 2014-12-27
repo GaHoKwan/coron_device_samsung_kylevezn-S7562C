@@ -666,12 +666,10 @@
 
     invoke-static {v0, v7, v10, v10}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
-    .line 354
     invoke-virtual {p1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 355
     .local v4, filename:Ljava/lang/String;
     const-string v7, "RecoverySystem"
 

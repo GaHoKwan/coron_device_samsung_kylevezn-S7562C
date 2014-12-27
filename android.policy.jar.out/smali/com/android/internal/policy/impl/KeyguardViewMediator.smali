@@ -10,7 +10,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/policy/impl/KeyguardViewMediator$5;
+        Lcom/android/internal/policy/impl/KeyguardViewMediator$5;,
+	Lcom/android/internal/policy/impl/KeyguardViewMediator$BaiduInjector;
     }
 .end annotation
 
@@ -606,7 +607,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0006
+    const v1, #android:integer@config_lockSoundVolumeDb#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1144,7 +1145,7 @@
     .line 1513
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mContext:Landroid/content/Context;
 
-    const v3, 0x10406ce
+    const v3, #android:string@status_bar_device_locked#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1156,7 +1157,7 @@
 
     const-string v3, "secure"
 
-    const v4, 0x108076a
+    const v4, #android:drawable@stat_sys_secure#t
 
     invoke-virtual {v2, v3, v4, v5, v0}, Landroid/app/StatusBarManager;->setIcon(Ljava/lang/String;IILjava/lang/String;)V
 
@@ -2496,7 +2497,7 @@
 
     move-result-object v3
 
-    const v4, 0x111003c
+    const v4, #android:bool@config_isCameraSpecialized#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -5192,4 +5193,34 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+.end method
+
+.method static synthetic access$iget-mStatusBarManager-216b72(Lcom/android/internal/policy/impl/KeyguardViewMediator;)Landroid/app/StatusBarManager;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
+
+    return-object v0
+.end method
+
+.method static synthetic access$iget-mUpdateMonitor-c3d0c7(Lcom/android/internal/policy/impl/KeyguardViewMediator;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    return-object v0
+.end method
+
+.method static synthetic access$iget-mShowing-2d9652(Lcom/android/internal/policy/impl/KeyguardViewMediator;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowing:Z
+
+    return v0
 .end method

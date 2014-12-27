@@ -1631,24 +1631,20 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 2532
-    const/high16 v2, 0x1080
+    const/high16 v2, #android:drawable@alert_dark_frame#h0
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 2533
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 2535
     const-string v2, ""
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mInputtedEmergencyNumber:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 2526
     .end local v0           #intent:Landroid/content/Intent;
     :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2865,7 +2861,7 @@
 
     move-result-object v4
 
-    const v7, 0x111004b
+    const v7, #android:bool@config_isWaterRippleEnabled#t
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3063,7 +3059,7 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
-    const v2, 0x10403d5
+    const v2, #android:string@policylab_wipeData#t
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3103,7 +3099,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110009
+    const v1, #android:bool@config_sf_slowBlur#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3868,31 +3864,26 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mSuppressBiometricUnlock:Z
 
-    .line 1681
     :cond_2
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
 
-    .line 1682
     invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->useBiometricUnlock()Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    .line 1686
-    const v0, 0x102035a
+    const v0, #android:id@faceLockAreaView#t
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
-    .line 1687
     .local v7, biometricUnlockView:Landroid/view/View;
     if-eqz v7, :cond_8
 
-    .line 1688
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mIsVoiceUnlockOn:Z
 
     if-eqz v0, :cond_3
@@ -4007,8 +3998,7 @@
     .parameter "view"
 
     .prologue
-    .line 1631
-    const v0, 0x1020359
+    const v0, #android:id@transport#t
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5052,7 +5042,7 @@
     .local v0, count:I
     iget-object v3, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040488
+    const v4, #android:string@lockscreen_failed_attempts_almost_glogin#t
 
     const/4 v5, 0x3
 
@@ -5115,7 +5105,7 @@
     .local v1, timeoutInSeconds:I
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040489
+    const v3, #android:string@lockscreen_failed_attempts_almost_at_wipe#t
 
     const/4 v4, 0x2
 
@@ -5177,7 +5167,7 @@
 
     move-result-object v1
 
-    const v2, 0x104000a
+    const v2, #android:string@ok#t
 
     const/4 v3, 0x0
 
@@ -5269,37 +5259,30 @@
     .locals 8
 
     .prologue
-    .line 1963
     const/16 v2, 0x1e
 
-    .line 1964
     .local v2, timeoutInSeconds:I
-    const v1, 0x1040483
+    const v1, #android:string@lockscreen_too_many_failed_attempts_dialog_message#t
 
-    .line 1966
     .local v1, messageId:I
     invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getUnlockMode()Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     move-result-object v3
 
-    .line 1968
     .local v3, unlockMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
     sget-object v4, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Signature:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     if-ne v3, v4, :cond_0
 
-    .line 1969
     invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getUnlockModeForFallback()Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     move-result-object v3
 
-    .line 1972
     :cond_0
     sget-object v4, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Password:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     if-ne v3, v4, :cond_1
 
-    .line 1973
     iget-object v4, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v4}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality()I
@@ -5310,10 +5293,8 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 1975
-    const v1, 0x1040487
+    const v1, #android:string@lockscreen_too_many_failed_pin_attempts_dialog_message#t
 
-    .line 1980
     :cond_1
     :goto_0
     iget-object v4, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
@@ -5360,7 +5341,7 @@
     .line 1977
     .end local v0           #message:Ljava/lang/String;
     :cond_2
-    const v1, 0x1040484
+    const v1, #android:string@lockscreen_too_many_failed_password_attempts_dialog_message#t
 
     goto :goto_0
 .end method
@@ -5424,7 +5405,7 @@
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
-    const v3, 0x104048a
+    const v3, #android:string@lockscreen_failed_attempts_now_wiping#t
 
     const/4 v4, 0x1
 
@@ -5446,7 +5427,7 @@
 
     move-result-object v1
 
-    const v2, 0x104000a
+    const v2, #android:string@ok#t
 
     new-instance v3, Lcom/android/internal/policy/impl/LockPatternKeyguardView$7;
 
@@ -6237,10 +6218,8 @@
     .locals 6
 
     .prologue
-    .line 1490
     const/4 v0, 0x0
 
-    .line 1491
     .local v0, lockView:Landroid/view/View;
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isParentControlSupported()Z
 
@@ -7119,7 +7098,7 @@
 
     .line 1095
     .local v1, resources:Landroid/content/res/Resources;
-    const v2, 0x111001f
+    const v2, #android:bool@config_enableLockBeforeUnlockScreen#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

@@ -63,7 +63,7 @@
 
     move-result-object v1
 
-    const v2, 0x10103ff
+    const v2, #android:attr@parentIsDeviceDefault#t
 
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050097
+    const v2, #android:dimen@tw_action_bar_up_margin#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -169,8 +169,7 @@
     .locals 3
 
     .prologue
-    .line 1653
-    const v2, 0x102025c
+    const v2, #android:id@up#t
 
     invoke-virtual {p0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -178,8 +177,7 @@
 
     iput-object v2, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/view/View;
 
-    .line 1654
-    const v2, 0x102002c
+    const v2, #android:id@home#t
 
     invoke-virtual {p0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -846,4 +844,14 @@
     const/16 v0, 0x8
 
     goto :goto_0
+.end method
+
+.method setmUpWidth(I)V
+    .locals 0
+    .parameter "w"
+
+    .prologue
+    iput p1, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpWidth:I
+
+    return-void
 .end method
