@@ -99,6 +99,16 @@
     .locals 7
 
     .prologue
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/NotificationManagerService$SettingsObserver;->updateHook()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_baidu_0
+
+    goto :goto_baidu_0
+
+    :cond_baidu_0
+
     const/4 v3, 0x1
 
     const/4 v4, 0x0
@@ -180,6 +190,7 @@
 
     .line 706
     :cond_1
+    :goto_baidu_0
     iget-object v3, p0, Lcom/android/server/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
     #getter for: Lcom/android/server/NotificationManagerService;->mMissedNotificationLightEnabled:Z

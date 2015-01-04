@@ -331,6 +331,10 @@
 
     or-int/2addr v0, v1
 
+    const/high16 v1, -0x8000
+
+    or-int/2addr v0, v1
+
     and-int/2addr v0, p0
 
     if-eqz v0, :cond_0
@@ -1062,6 +1066,10 @@
 
     .line 932
     :cond_13
+    invoke-static {p0, p1, v0}, Landroid/content/res/Configuration$BaiduInjector;->multiTheme_dealThemeChange2(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+
+    move-result v0
+
     return v0
 .end method
 
@@ -1276,6 +1284,10 @@
     add-int v0, v1, v2
 
     :cond_0
+    invoke-static {p0, v0}, Landroid/content/res/Configuration$BaiduInjector;->hashCode(Landroid/content/res/Configuration;I)I
+
+    move-result v0
+
     return v0
 
     :cond_1
@@ -1581,6 +1593,8 @@
     iput-object v0, p0, Landroid/content/res/Configuration;->centerBarRect:Landroid/graphics/Rect;
 
     :goto_1
+    invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->readFromParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+
     return-void
 
     :cond_1
@@ -1727,6 +1741,8 @@
 
     .line 509
     :cond_1
+    invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChanged(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
+
     return-void
 .end method
 
@@ -1793,6 +1809,8 @@
     sget-object v0, Landroid/content/res/Configuration;->sDefaultCenterBarRect:Landroid/graphics/Rect;
 
     iput-object v0, p0, Landroid/content/res/Configuration;->centerBarRect:Landroid/graphics/Rect;
+
+    invoke-static/range {p0 .. p0}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChangedToDefault(Landroid/content/res/Configuration;)V
 
     return-void
 .end method
@@ -2168,6 +2186,8 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     :cond_1
+    invoke-static {p0, v0}, Landroid/content/res/Configuration$BaiduInjector;->appendToString(Landroid/content/res/Configuration;Ljava/lang/StringBuilder;)V
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3188,6 +3208,10 @@
     iput-object v1, p0, Landroid/content/res/Configuration;->centerBarRect:Landroid/graphics/Rect;
 
     :cond_1a
+    invoke-static {p0, p1, v0}, Landroid/content/res/Configuration$BaiduInjector;->multiTheme_dealThemeChange(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+
+    move-result v0
+
     return v0
 
     :cond_1b
@@ -3319,6 +3343,8 @@
     invoke-virtual {v0, p1, v1}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_2
+    invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->writeToParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+
     return-void
 
     :cond_0

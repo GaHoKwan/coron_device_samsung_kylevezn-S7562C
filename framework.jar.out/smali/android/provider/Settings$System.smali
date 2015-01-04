@@ -138,6 +138,8 @@
 
 .field public static final BUTTON_KEY_LIGHT_ON_IF_DARK:I = -0x2
 
+.field public static final BUTTON_LIGHT_OFF:Ljava/lang/String; = "button_light_off"
+
 .field public static final CALL_AUTO_RETRY:Ljava/lang/String; = "call_auto_retry"
 
 .field public static final CAR_DOCK_SOUND:Ljava/lang/String; = "car_dock_sound"
@@ -566,6 +568,16 @@
 .field public static final NOTIFICATION_PANEL_CANDIDATE_NUMBER_OF_APPS:Ljava/lang/String; = "notification_panel_candidate_number_of_apps"
 
 .field public static final NOTIFICATION_PANEL_DEFAULT_ACTIVE_APP_LIST:Ljava/lang/String; = "notification_panel_default_active_app_list"
+
+.field public static final NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE:Ljava/lang/String; = "notification_light_pulse_custom_enable"
+
+.field public static final NOTIFICATION_LIGHT_PULSE_CUSTOM_VALUES:Ljava/lang/String; = "notification_light_pulse_custom_values"
+
+.field public static final NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR:Ljava/lang/String; = "notification_light_pulse_default_color"
+
+.field public static final NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF:Ljava/lang/String; = "notification_light_pulse_default_led_off"
+
+.field public static final NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON:Ljava/lang/String; = "notification_light_pulse_default_led_on"
 
 .field public static final NOTIFICATION_SOUND:Ljava/lang/String; = "notification_sound"
 

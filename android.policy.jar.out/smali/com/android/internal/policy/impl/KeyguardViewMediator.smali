@@ -1309,6 +1309,8 @@
 
     invoke-virtual {v2, v1}, Landroid/app/StatusBarManager;->disable(I)V
 
+    invoke-static {p0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator$BaiduInjector;->processStatusBarExpandEnable(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
+
     goto/16 :goto_0
 
     .line 1521

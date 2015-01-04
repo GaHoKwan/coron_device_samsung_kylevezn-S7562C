@@ -6237,7 +6237,7 @@
     if-eqz v1, :cond_0
 
     .line 1493
-    new-instance v0, Lcom/android/internal/policy/impl/sec/ParentControlLockScreen;
+    #new-instance v0, Lcom/android/internal/policy/impl/sec/ParentControlLockScreen;
 
     .end local v0           #lockView:Landroid/view/View;
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
@@ -6250,7 +6250,9 @@
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mKeyguardScreenCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/internal/policy/impl/sec/ParentControlLockScreen;-><init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
+    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/internal/policy/impl/BaiduKeyguardManager;->createLockScreen(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)Landroid/view/View;
+
+    move-result-object v0
 
     .line 1515
     .restart local v0       #lockView:Landroid/view/View;

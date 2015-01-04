@@ -122,6 +122,12 @@
 
 .field private mUpMargin:I
 
+.field mUseActivityIcon:Z
+
+.field mUseActivityLogo:Z
+
+.field mUseCustomIcon:Z
+
 .field private mUserTitle:Z
 
 .field mWindowCallback:Landroid/view/Window$Callback;

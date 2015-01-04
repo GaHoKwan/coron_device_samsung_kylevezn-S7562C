@@ -3001,7 +3001,6 @@
     <public type="style" name="wifi_item_content" id="0x0103029b" />
     <public type="style" name="wifi_section" id="0x0103029c" />
     <public type="style" name="Widget.DeviceDefault.TextView.SpinnerItem.ActionBar" id="0x0103029d" />
-    <public type="style" name="Widget.DeviceDefault.ActionButton.MultiWindow" id="0x0103029e" />
     <public type="style" name="Widget.DeviceDefault.Button.AlertDialog" id="0x0103029f" />
     <public type="style" name="Widget.DeviceDefault.TabText" id="0x010302a0" />
     <public type="style" name="Widget.DeviceDefault.Light.TabText" id="0x010302a1" />
@@ -3059,7 +3058,6 @@
     <public type="style" name="TextAppearance.DeviceDefault.Light.Widget.TextView.SpinnerItem.ActionBar" id="0x010302d5" />
     <public type="style" name="TextAppearance.DeviceDefault.Light.DialogWindowTitle" id="0x010302d6" />
     <public type="style" name="TextAppearance.DeviceDefault.CalendarViewWeekDayView" id="0x010302d7" />
-    <public type="style" name="TextAppearance.DeviceDefault.Light.CalendarViewWeekDayView" id="0x010302d8" />
     <public type="style" name="TextAppearance.DeviceDefault.Light.OptionMenu" id="0x010302d9" />
     <public type="style" name="TextAppearance.DeviceDefault.Light" id="0x010302da" />
     <public type="style" name="TextAppearance.DeviceDefault.Light.Inverse" id="0x010302db" />
@@ -3098,8 +3096,6 @@
     <public type="style" name="AlertDialog.DeviceDefault.Light.ProgressDialog" id="0x010302fc" />
     <public type="style" name="WindowTitle.DeviceDefault" id="0x010302fd" />
     <public type="style" name="WindowTitleBackground.DeviceDefault" id="0x010302fe" />
-    <public type="style" name="DeviceDefault.Pointer" id="0x010302ff" />
-    <public type="style" name="Widget.DeviceDefault.MultiWindow" id="0x01030300" />
     <public type="style" name="ActiveWallpaperSettings" id="0x01030301" />
     <public type="style" name="PreviewWallpaperSettings" id="0x01030302" />
     <public type="style" name="Theme.Dialog.NoFrame" id="0x01030303" />

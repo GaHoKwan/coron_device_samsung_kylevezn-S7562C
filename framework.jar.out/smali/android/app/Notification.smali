@@ -1807,6 +1807,14 @@
     invoke-virtual {v3, p1, v5}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_6
+    iget v0, p0, Landroid/app/Notification;->simInfoType:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-wide v0, p0, Landroid/app/Notification;->simId:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
     iget v3, p0, Landroid/app/Notification;->audioStreamType:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V

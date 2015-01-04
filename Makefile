@@ -47,14 +47,14 @@ vendor_modify_images := boot
 # The default value is nothing.
 # You can configure the file name which relative to the vendor/system directory.
 #-----------------------------------------------------------------------------
-#vendor_remove_files := bin/zchgd
+vendor_remove_files := etc/PowerOn.wav media/audio/ui/PowerOn.ogg media/bootsamsung.qmg media/bootsamsungloop.qmg media/video/shutdown/shutdown.qmg media/video/AndroidInSpace.240p.mp4 media/video/Sunset.240p.mp4
 
 ##############################################################################
 # The value decides the vendor apk which you want to save in the vendor directory for the ota package.
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth Stk Stk2
+vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.

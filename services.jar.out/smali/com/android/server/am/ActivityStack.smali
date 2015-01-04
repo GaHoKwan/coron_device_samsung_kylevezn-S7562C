@@ -21781,6 +21781,20 @@
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-boolean v3, v3, Lcom/android/server/am/ActivityManagerService;->mSystemReady:Z
+
+    if-nez v3, :cond_baidu_0
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_baidu_0
+
+    :cond_baidu_0
+
     const/16 v23, 0x0
 
     .local v23, callerApp:Lcom/android/server/am/ProcessRecord;
@@ -22220,6 +22234,7 @@
     .end local v37           #launchFlags:I
     .end local v50           #sourceRecord:Lcom/android/server/am/ActivityRecord;
     :goto_7
+    :goto_baidu_0
     return v3
 
     .end local v24           #cmp:Landroid/content/ComponentName;

@@ -14,6 +14,7 @@
         Lcom/android/internal/policy/impl/PhoneWindowManager$HoldKeyConcept;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$ServiceConnectionForCaptureEffect;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$ScreenshotRunnable;,
+        Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$ScreenShotForEffect;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$MyOrientationListenerForPenGesture;,
@@ -258,6 +259,8 @@
 .field mBlockCollapseStatusBar:Z
 
 .field mBootCompleteReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mBaiduLongPressRunnable:Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector$KillRunnable;
 
 .field mBootMsgDialog:Landroid/app/ProgressDialog;
 
@@ -12226,6 +12229,8 @@
     .line 2209
     :cond_7
     :goto_3
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashRegister(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+
     const-string v11, "vibrator"
 
     invoke-virtual {p1, v11}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -14266,6 +14271,12 @@
     if-ne v0, v1, :cond_32
 
     :cond_30
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashOpen(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;)V
+
     if-eqz v33, :cond_31
 
     const/16 v49, 0x7d9

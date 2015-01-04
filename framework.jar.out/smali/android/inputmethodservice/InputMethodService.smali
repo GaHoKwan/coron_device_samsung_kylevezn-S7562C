@@ -2049,6 +2049,8 @@
 
     invoke-virtual {p0}, Landroid/inputmethodservice/InputMethodService;->updateFullscreenMode()V
 
+    invoke-static/range {p0 .. p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeHide(Landroid/inputmethodservice/InputMethodService;)V
+
     return-void
 .end method
 
@@ -4186,6 +4188,8 @@
 
     .end local v0           #maxCpuFreqLevel:I
     :cond_0
+    invoke-static/range {p0 .. p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeShown(Landroid/inputmethodservice/InputMethodService;)V
+
     return-void
 
     .restart local v0       #maxCpuFreqLevel:I

@@ -696,7 +696,7 @@
     .line 447
     sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
 
-    const v1, #android:string@power_off#t
+    const v1, 0x10401ab
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -707,7 +707,7 @@
     .line 448
     sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
 
-    const v1, #android:string@shutdown_progress#t
+    const v1, 0x10401af
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -2078,12 +2078,14 @@
 
     if-lt v8, v9, :cond_3
 
+    .line 217
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
-    const v8, #android:style@Theme.DeviceDefault.Light#t
+    const v8, 0x103012b
 
     invoke-direct {v1, p0, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
+    .line 222
     .local v1, context:Landroid/content/Context;
     :goto_1
     new-instance v3, Ljava/lang/Exception;
@@ -2124,19 +2126,22 @@
 
     move-result-object v8
 
-    const v9, #android:integer@config_longPressOnPowerBehavior#t
+    const v9, 0x10e0017
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v5
 
+    .line 229
     .local v5, longPressBehavior:I
     sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
     if-eqz v8, :cond_5
 
-    const v6, #android:string@reboot_safemode_confirm#t
+    .line 230
+    const v6, 0x10401b5
 
+    .line 239
     .local v6, resourceId:I
     :goto_3
     const-string v8, "ShutdownThread"
@@ -2186,7 +2191,7 @@
 
     move-result-object v8
 
-    const v9, #android:string@yes#t
+    const v9, 0x1040013
 
     new-instance v10, Lcom/android/server/pm/ShutdownThread$2;
 
@@ -2196,7 +2201,7 @@
 
     move-result-object v8
 
-    const v9, #android:string@no#t
+    const v9, 0x1040009
 
     new-instance v10, Lcom/android/server/pm/ShutdownThread$1;
 
@@ -2210,12 +2215,14 @@
 
     move-result-object v2
 
+    .line 258
     .local v2, dialog:Landroid/app/AlertDialog;
     sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
     if-eqz v8, :cond_9
 
-    const v8, #android:string@reboot_safemode_title#t
+    .line 259
+    const v8, 0x10401b4
 
     invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2278,7 +2285,7 @@
     :cond_3
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
-    const v8, #android:style@Theme.DeviceDefault#t
+    const v8, 0x1030128
 
     invoke-direct {v1, p0, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
@@ -2302,7 +2309,7 @@
     .line 232
     if-ne v5, v12, :cond_6
 
-    const v6, #android:string@restart_confirm_question#t
+    const v6, 0x10401b3
 
     .restart local v6       #resourceId:I
     :goto_6
@@ -2310,7 +2317,7 @@
 
     .end local v6           #resourceId:I
     :cond_6
-    const v6, #android:string@restart_confirm#t
+    const v6, 0x10401b1
 
     goto :goto_6
 
@@ -2318,7 +2325,7 @@
     :cond_7
     if-ne v5, v12, :cond_8
 
-    const v6, #android:string@shutdown_confirm_question#t
+    const v6, 0x10401b2
 
     .restart local v6       #resourceId:I
     :goto_7
@@ -2326,7 +2333,7 @@
 
     .end local v6           #resourceId:I
     :cond_8
-    const v6, #android:string@shutdown_confirm#t
+    const v6, 0x10401b0
 
     goto :goto_7
 
@@ -2339,7 +2346,8 @@
 
     if-eqz v8, :cond_a
 
-    const v8, #android:string@global_action_restart#t
+    .line 261
+    const v8, 0x10401bb
 
     invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2351,7 +2359,7 @@
 
     .line 263
     :cond_a
-    const v8, #android:string@global_action_power_off#t
+    const v8, 0x10401ba
 
     invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3096,35 +3104,4 @@
     move-exception v2
 
     goto/16 :goto_3
-.end method
-
-# Remove the first '#' if you want to enable this method. It might be invoked from codes of BOSP.
-#.method static synthetic access$invoke-beginShutdownSequence-c75801(Landroid/content/Context;)V
-#    .locals 0
-#    .parameter "x0"
-#    .prologue
-#    invoke-static {p0}, Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
-#    return-void
-#.end method
-
-
-
-.method static synthetic access$sput-mRebootReason-4d6e43(Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    sput-object p0, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$sput-mReboot-f45f2d(Z)Z
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    sput-boolean p0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
-
-    return p0
 .end method

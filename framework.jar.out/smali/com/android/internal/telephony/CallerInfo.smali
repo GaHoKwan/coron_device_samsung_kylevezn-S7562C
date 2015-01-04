@@ -64,6 +64,14 @@
     .end annotation
 .end field
 
+.field public mPhotoHeight:I
+
+.field public mPhotoID:I
+
+.field public mPhotoWidth:I
+
+.field public mViewMode:I
+
 .field public name:Ljava/lang/String;
 
 .field public namePresentation:I

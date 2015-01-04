@@ -76882,7 +76882,7 @@
     invoke-virtual {v2, v0, v1}, Lcom/android/server/am/ActivityStack;->ensureActivitiesVisibleLocked(Lcom/android/server/am/ActivityRecord;I)V
 
     :cond_f
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_baidu_0
 
     .line 14586
     move-object/from16 v0, p0
@@ -76904,7 +76904,7 @@
     :cond_baidu_0
     move-object/from16 v0, p0
 
-    move/from16 v1, v23
+    move/from16 v1, v26
 
     invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService$BaiduInjector;->broadcastConfigTheme(Lcom/android/server/am/ActivityManagerService;I)V
 

@@ -3229,6 +3229,8 @@
 
     .line 277
     :cond_7
+    invoke-static {p0, v4, v5}, Lcom/android/server/AlarmManagerService$BaiduInjector;->setLockAgain(Lcom/android/server/AlarmManagerService;Lcom/android/server/AlarmManagerService$Alarm;I)V
+
     monitor-exit v9
 
     goto/16 :goto_0

@@ -9,6 +9,7 @@
         Lcom/android/server/NotificationManagerService$OverTurnPlayer;,
         Lcom/android/server/NotificationManagerService$PickupPlayer;,
         Lcom/android/server/NotificationManagerService$PickupSettingsObserver;,
+        Lcom/android/server/NotificationManagerService$BaiduLedInjector;,
         Lcom/android/server/NotificationManagerService$WorkerHandler;,
         Lcom/android/server/NotificationManagerService$SettingsObserver;,
         Lcom/android/server/NotificationManagerService$ToastRecord;,
@@ -594,6 +595,17 @@
     iput-boolean p1, p0, Lcom/android/server/NotificationManagerService;->mScreenOn:Z
 
     return p1
+.end method
+
+.method static synthetic access$1300(Lcom/android/server/NotificationManagerService;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 87
+    invoke-direct {p0}, Lcom/android/server/NotificationManagerService;->updateNotificationPulse()V
+
+    return-void
 .end method
 
 .method static synthetic access$1500(Lcom/android/server/NotificationManagerService;)V
@@ -2547,6 +2559,16 @@
     .locals 7
 
     .prologue
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/NotificationManagerService;->updateLightsLockedHook()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_baidu_0
+
+    goto :goto_baidu_0
+
+    :cond_baidu_0
+
     iget-object v5, p0, Lcom/android/server/NotificationManagerService;->mLedNotification:Lcom/android/server/NotificationManagerService$NotificationRecord;
 
     if-nez v5, :cond_0
@@ -5722,7 +5744,7 @@
 
     move-object/from16 v8, p5
 
-    invoke-virtual/range {v1 .. v8}, Lcom/android/server/NotificationManagerService;->enqueueNotificationInternal(Ljava/lang/String;IILjava/lang/String;ILandroid/app/Notification;[I)V
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/NotificationManagerService;->enqueueNotificationInternalBaidu(Ljava/lang/String;IILjava/lang/String;ILandroid/app/Notification;[I)V
 
     .line 1069
     :cond_1

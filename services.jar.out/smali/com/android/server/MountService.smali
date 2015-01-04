@@ -7119,6 +7119,8 @@
 
     :cond_1
     :goto_1
+    invoke-direct/range {p0 .. p2}, Lcom/android/server/MountService;->updateAsecVolumeStateBaidu(Ljava/lang/String;Ljava/lang/String;)V
+
     iget-object v7, p0, Lcom/android/server/MountService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v7

@@ -831,6 +831,10 @@
     or-int/lit16 v4, v4, 0x400
 
     :cond_1
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$BaiduInjector;->addNoLimitsFlag(Lcom/android/internal/policy/impl/KeyguardViewManager;)I
+
+    move-result v4
+
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mNeedsInput:Z
 
     if-nez v1, :cond_2
@@ -1315,6 +1319,11 @@
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewManager$BaiduInjector;->sendBroadcast(Lcom/android/internal/policy/impl/KeyguardViewManager;Z)V
+
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

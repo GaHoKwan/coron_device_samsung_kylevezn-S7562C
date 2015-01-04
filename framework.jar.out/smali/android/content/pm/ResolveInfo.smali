@@ -1072,7 +1072,7 @@
 
     .line 195
     .local v2, data:Ljava/lang/CharSequence;
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_baidu_0
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -1082,8 +1082,10 @@
 
     move-result-object v2
 
-    :cond_a
-    move-object v3, v2
+    :cond_baidu_0
+    invoke-direct {p0, p1, v2}, Landroid/content/pm/ResolveInfo;->interceptLabelResBaidu(Landroid/content/pm/PackageManager;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v3
 
     .line 196
     goto/16 :goto_0

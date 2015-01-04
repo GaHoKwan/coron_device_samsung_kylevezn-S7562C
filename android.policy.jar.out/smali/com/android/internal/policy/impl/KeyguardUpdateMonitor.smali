@@ -104,6 +104,10 @@
     .end annotation
 .end field
 
+.field private mBaiduBroadcastReceiver:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BaiduBroadcastReceiver;
+
+.field private mBaiduHandler:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BaiduHandler;
+
 .field private mBatteryStatus:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;
 
 .field private mBootCompleted:Z
@@ -637,6 +641,8 @@
     const-string v2, "com.sec.mms.intent.action.LOCKSCREEN_HOVER_UNREAD_MSG"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    invoke-static {p0, v0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BaiduInjector;->registerBaiduReceiver(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/IntentFilter;)V
 
     new-instance v2, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$3;
 

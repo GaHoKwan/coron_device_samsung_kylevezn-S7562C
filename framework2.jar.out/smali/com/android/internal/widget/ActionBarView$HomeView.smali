@@ -126,6 +126,8 @@
     .locals 3
 
     .prologue
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->getOffset(Lcom/android/internal/widget/ActionBarView$HomeView;)V
+
     const/16 v2, 0x8
 
     const/4 v0, 0x0

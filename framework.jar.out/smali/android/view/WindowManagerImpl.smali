@@ -162,6 +162,16 @@
     check-cast v7, Landroid/view/WindowManager$LayoutParams;
 
     .local v7, wparams:Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {p0, p1, v7}, Landroid/view/WindowManagerImpl;->disablePopupWindow(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_baidu_0
+
+    goto :goto_baidu_0
+
+    :cond_baidu_0
+
     const/4 v5, 0x0
 
     .local v5, panelParentView:Landroid/view/View;
