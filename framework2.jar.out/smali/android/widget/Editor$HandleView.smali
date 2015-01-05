@@ -467,6 +467,8 @@
     .locals 2
 
     .prologue
+    invoke-static {}, Landroid/widget/Editor$BaiduEditorInjector;->dismiss()V
+
     const/4 v1, 0x0
 
     .line 3524
@@ -1133,6 +1135,8 @@
     iput v4, p0, Landroid/widget/Editor$HandleView;->mPositionY:I
 
     :goto_2
+    invoke-virtual {p0, v1}, Landroid/widget/Editor$HandleView;->recaculateHandleViewVerticalPosition(I)V
+
     iget v4, p0, Landroid/widget/Editor$HandleView;->mPositionX:I
 
     iget-object v5, p0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;

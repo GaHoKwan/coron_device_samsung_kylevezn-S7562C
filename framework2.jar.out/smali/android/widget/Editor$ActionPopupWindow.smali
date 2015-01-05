@@ -30,7 +30,9 @@
 
 .field private mDividerImageView:Landroid/widget/ImageView;
 
-.field private mPasteTextView:Landroid/widget/TextView;
+.field mPasteTextView:Landroid/widget/TextView;
+
+.field mReplaceTextView:Landroid/widget/TextView;
 
 .field final synthetic this$0:Landroid/widget/Editor;
 
