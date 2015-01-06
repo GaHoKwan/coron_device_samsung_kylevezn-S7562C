@@ -63,7 +63,7 @@ vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpA
 # You need ro decode FMRadio.apk to the project directory(use apktool d FMRadio.apk) first,
 # and then you can make it by:   make FMRadio
 #-----------------------------------------------------------------------------
-#vendor_modify_apps := FMRadio
+vendor_modify_apps := SamsungCamera SecGallery2
 
 ##############################################################################
 # The value decides which vendor jar you want to modify.
@@ -72,7 +72,7 @@ vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpA
 # You need to decode android.policy.jar to the project directory (use apktool d android.policy.jar) first,
 # and then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := android.policy framework framework2 pm services twframework
+vendor_modify_jars := framework framework2 pm services twframework
 
 ##############################################################################
 # The value decides which baidu system directory you want to save.
@@ -106,7 +106,6 @@ vendor_modify_jars := android.policy framework framework2 pm services twframewor
 # and then use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"(XXXX is the directory where you decode baidu system apk).
 #-----------------------------------------------------------------------------
 baidu_modify_apps := Phone Settings
-
 ##############################################################################
 # The value decides which jar you want to modify, when the jar is based on the baidu framework jar.
 # The default value is nothing.
@@ -116,7 +115,7 @@ baidu_modify_apps := Phone Settings
 # The command idtoname how to use: first use "apktool d source/system/framework/framework-res.apk other/TMP/framework-res",
 # and then use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"(XXXX is the directory where you decode baidu system jar).
 #-----------------------------------------------------------------------------
-#baidu_modify_jars := android.policy
+baidu_modify_jars := android.policy
 
 ##############################################################################
 # The value decides which property you will override in the build.prop.
@@ -153,6 +152,11 @@ override_property += \
 # remove_property += \
 #     dev.defaultwallpaper
 
+override_property += \
+ro.baidu.home.wakeup=true \
+persist.sys.baidu.default_write=first_storage \
+ro.baidu.2nd_storage.format=enable \
+ro.camera.sound.forced=0
 
 ##############################################################################
 # The value decides whether add the assert function which verify the device in the update-script of the ota package.

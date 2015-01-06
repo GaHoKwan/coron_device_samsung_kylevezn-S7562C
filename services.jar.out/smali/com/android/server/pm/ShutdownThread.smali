@@ -2222,7 +2222,7 @@
     if-eqz v8, :cond_9
 
     .line 259
-    const v8, 0x10401b4
+    const v8, #string@power_off#t
 
     invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2285,7 +2285,7 @@
     :cond_3
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
-    const v8, 0x1030128
+    const v8, #style@Theme.DeviceDefault.Light#t
 
     invoke-direct {v1, p0, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
