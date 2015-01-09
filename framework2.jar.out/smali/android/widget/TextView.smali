@@ -2401,7 +2401,7 @@
 
     move-result v63
     
-    const v63, #drawable@yi_text_select_handle_right#t
+    const v63, #drawable@yi_text_select_handle_left#t
 
     move/from16 v0, v63
 
@@ -2420,8 +2420,8 @@
     invoke-virtual {v5, v9, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v63
-
-    const v63, #drawable@yi_text_select_handle_middle#t
+    
+    const v63, #drawable@yi_text_select_handle_right#t
 
     move/from16 v0, v63
 
@@ -2440,6 +2440,8 @@
     invoke-virtual {v5, v9, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v63
+    
+    const v63, #drawable@yi_text_select_handle_right#t
 
     move/from16 v0, v63
 
@@ -2458,6 +2460,8 @@
     invoke-virtual {v5, v9, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v63
+    
+    const v63, #drawable@yi_text_select_handle_middle#t
 
     move/from16 v0, v63
 
