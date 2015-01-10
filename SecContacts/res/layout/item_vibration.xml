@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.app.contacts.editor.VibrationEditorView android:orientation="vertical" android:background="?android:selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_weight="1.0">
+            <TextView android:textAppearance="@style/TwContactDetailTextAppearanceListTwoLinePrimary" android:ellipsize="marquee" android:gravity="left|center" android:id="@id/kind_title" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textAppearance="@style/TwContactDetailTextAppearanceListTwoLineSecondary" android:ellipsize="marquee" android:gravity="left|center" android:id="@id/vibration_list" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="52.0dip" android:layout_height="?android:listPreferredItemHeight">
+            <ImageView android:layout_gravity="center" android:id="@id/more_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tw_btn_round_more" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+</com.sec.android.app.contacts.editor.VibrationEditorView>

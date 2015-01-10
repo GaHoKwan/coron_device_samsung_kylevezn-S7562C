@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/menu_context_delete_contacts_in_group" android:title="@string/menu_deleteContact" />
+    <item android:id="@id/menu_context_add_to_group" android:title="@string/menu_add_to_group" />
+    <item android:id="@id/menu_context_remove_member" android:title="@string/remove_member" />
+    <item android:id="@id/menu_context_share_contact_information" android:title="@string/menu_share_contact_info" />
+    <item android:id="@id/menu_context_add_to_favorite" android:title="@string/menu_addStar" />
+</menu>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/dtmfDialerLayout" android:background="@drawable/APKTOOL_DUMMY_01fa" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="7.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <EditText android:textSize="48.0dip" android:textColor="@color/dtmf_dialer_display_text" android:ellipsize="start" android:gravity="right" android:id="@id/dtmfDialerField" android:background="@drawable/APKTOOL_DUMMY_0270" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="604.0dip" android:layout_height="53.0dip" android:cursorVisible="false" android:maxLines="1" android:scrollHorizontally="true" android:singleLine="true" />
+        <include layout="@layout/non_drawer_dialpad_vt_mw" />
+    </LinearLayout>
+</LinearLayout>

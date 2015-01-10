@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/pref_title_notification_enabled" android:key="pref_key_enable_notifications_sim2" android:summary="@string/pref_summary_notification_enabled" android:defaultValue="true" />
+    <CheckBoxPreference android:title="@string/pref_title_notification_backlight" android:key="pref_key_backlight_sim2" android:summary="@string/pref_summary_notification_backlight" android:dependency="pref_key_enable_notifications_sim2" android:defaultValue="true" />
+    <RingtonePreference android:title="@string/pref_title_notification_ringtone" android:key="pref_key_ringtone_sim2" android:widgetLayout="@layout/round_more_icon" android:dependency="pref_key_enable_notifications_sim2" android:defaultValue="content://settings/system/notification_sound_2" android:ringtoneType="notification2" />
+    <CheckBoxPreference android:title="@string/pref_title_notification_vibrateWhen" android:key="pref_key_vibrateWhen_checkbox_sim2" android:summary="@string/pref_summary_notification_vibrateWhen" android:dependency="pref_key_enable_notifications_sim2" android:defaultValue="true" />
+    <ListPreference android:entries="@array/msg_repetition_alert_Array" android:title="@string/pref_msg_repetition_alert" android:key="pref_key_msg_reminder_alert_sim2" android:widgetLayout="@layout/round_more_icon" android:dependency="pref_key_enable_notifications_sim2" android:defaultValue="1" android:entryValues="@array/msg_repetition_alert_Array_values" />
+    <CheckBoxPreference android:title="@string/pref_title_preview_message_notification" android:key="pref_key_enable_preview_message_sim2" android:summary="@string/pref_summary_preview_message_notification" android:dependency="pref_key_enable_notifications_sim2" android:defaultValue="false" />
+</PreferenceScreen>

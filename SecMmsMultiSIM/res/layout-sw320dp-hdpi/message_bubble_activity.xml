@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:id="@id/appbody" android:background="@*android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/message_bubble_history" android:background="#ff2b2d30" android:focusable="false" android:animationCache="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true" android:layout_alignWithParentIfMissing="true"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+        <HorizontalScrollView android:id="@id/scroll_receive" android:background="@*android:color/black" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <GridView android:gravity="center" android:id="@id/gallery_bubble_receive" android:paddingLeft="14.0dip" android:paddingTop="10.0dip" android:paddingRight="14.0dip" android:paddingBottom="10.0dip" android:focusable="false" android:scrollbars="vertical" android:layout_width="648.0dip" android:layout_height="wrap_content" android:listSelector="#00000000" android:horizontalSpacing="30.0dip" android:verticalSpacing="10.0dip" android:stretchMode="none" android:columnWidth="100.0dip" android:numColumns="5" android:layout_weight="0.0"
+                  xmlns:android="http://schemas.android.com/apk/res/android" />
+            </LinearLayout>
+        </HorizontalScrollView>
+        <HorizontalScrollView android:id="@id/scroll_sent" android:background="@*android:color/black" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/scroll_receive">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <GridView android:gravity="center" android:id="@id/gallery_bubble_sent" android:paddingLeft="14.0dip" android:paddingTop="10.0dip" android:paddingRight="14.0dip" android:paddingBottom="10.0dip" android:focusable="false" android:scrollbars="vertical" android:layout_width="648.0dip" android:layout_height="wrap_content" android:listSelector="#00000000" android:horizontalSpacing="30.0dip" android:verticalSpacing="10.0dip" android:stretchMode="none" android:columnWidth="100.0dip" android:numColumns="5" android:layout_weight="0.0"
+                  xmlns:android="http://schemas.android.com/apk/res/android" />
+            </LinearLayout>
+        </HorizontalScrollView>
+        <HorizontalScrollView android:id="@id/scroll_background" android:background="@*android:color/black" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <GridView android:gravity="center" android:id="@id/gallery_bubble_background" android:paddingLeft="14.0dip" android:paddingTop="10.0dip" android:paddingRight="14.0dip" android:paddingBottom="10.0dip" android:focusable="false" android:scrollbars="vertical" android:layout_width="778.0dip" android:layout_height="120.0dip" android:listSelector="#00000000" android:horizontalSpacing="30.0dip" android:verticalSpacing="10.0dip" android:stretchMode="none" android:columnWidth="100.0dip" android:numColumns="6" android:layout_weight="0.0"
+                  xmlns:android="http://schemas.android.com/apk/res/android" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/gallery_layout" android:layout_width="wrap_content" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <GridView android:gravity="center" android:id="@id/gallery_receive_vertical" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:scrollbars="horizontal" android:layout_width="120.0dip" android:layout_height="fill_parent" android:listSelector="#00000000" android:horizontalSpacing="15.0dip" android:verticalSpacing="7.5dip" android:stretchMode="none" android:columnWidth="100.0dip" android:numColumns="1"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+        <GridView android:gravity="center" android:id="@id/gallery_send_vertical" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:scrollbars="horizontal" android:layout_width="120.0dip" android:layout_height="fill_parent" android:listSelector="#00000000" android:horizontalSpacing="15.0dip" android:verticalSpacing="7.5dip" android:stretchMode="none" android:columnWidth="100.0dip" android:numColumns="1"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+        <GridView android:gravity="center" android:id="@id/gallery_background_vertical" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:scrollbars="horizontal" android:layout_width="120.0dip" android:layout_height="fill_parent" android:listSelector="#00000000" android:horizontalSpacing="15.0dip" android:verticalSpacing="7.5dip" android:stretchMode="none" android:columnWidth="100.0dip" android:numColumns="1"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+    </LinearLayout>
+</LinearLayout>

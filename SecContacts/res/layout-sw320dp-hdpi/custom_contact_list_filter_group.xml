@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/selectable_layout" android:background="@drawable/tw_expandable_list_bg_dark" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:background="@drawable/group_child_row_background" android:paddingLeft="@dimen/tw_expandableChildListPreferredItemPaddingLeft" android:paddingRight="?android:scrollbarSize" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="?android:listPreferredItemHeight">
+        <RelativeLayout android:paddingTop="6.0dip" android:paddingRight="6.0dip" android:paddingBottom="6.0dip" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="@dimen/tw_expandableListPrimaryTextSize" android:ellipsize="marquee" android:id="@*android:id/text1" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textSize="@dimen/tw_expandableListSecondaryTextSize" android:textColor="@color/list_account_filter_child_secondary_color" android:id="@*android:id/text2" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_below="@*android:id/text1" android:layout_alignLeft="@*android:id/text1" />
+        </RelativeLayout>
+        <com.sec.android.touchwiz.widget.TwCheckBox android:gravity="center_vertical" android:orientation="vertical" android:id="@*android:id/checkbox" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" />
+    </LinearLayout>
+    <View android:id="@id/list_divider" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+</LinearLayout>

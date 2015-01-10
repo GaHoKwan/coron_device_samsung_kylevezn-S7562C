@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/select_all" android:background="@drawable/select_all_background" android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="49.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@touchwiz:style/TwTextAppearanceListOneLine" android:gravity="center_vertical" android:id="@id/delete_all_messages" android:paddingLeft="12.0dip" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/select_all" android:layout_weight="0.8" />
+    <CheckBox android:id="@id/chButton" android:paddingRight="12.0dip" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+</LinearLayout>

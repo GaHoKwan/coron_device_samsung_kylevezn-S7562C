@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/mms_single_page_image_layout" android:paddingLeft="10.0px" android:paddingRight="10.0px" android:visibility="gone" android:layout_width="384.0px" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/mms_single_page_image_layout_inner_1" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="11.0px" android:paddingTop="11.0px" android:paddingRight="64.0px" android:paddingBottom="0.0px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/media_image" android:background="@drawable/msg_image_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noitems_missing_picture" android:adjustViewBounds="true" />
+                <ImageView android:layout_gravity="center" android:id="@id/videp_play_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/msg_play_button" />
+            </FrameLayout>
+        </LinearLayout>
+        <ImageButton android:id="@id/image_save_button_1" android:background="@drawable/mms_single_page_save_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/save" />
+    </RelativeLayout>
+</LinearLayout>

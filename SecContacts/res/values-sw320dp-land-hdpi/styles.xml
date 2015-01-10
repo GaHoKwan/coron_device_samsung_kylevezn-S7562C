@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ContactPickerTheme" parent="@style/PeopleTheme">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowActionBar">true</item>
+        <item name="android:actionBarStyle">@style/InteractionContactsActionBarStyleWithoutDisplayOptions</item>
+        <item name="call_log_header_color">#ff33b5e5</item>
+    </style>
+</resources>

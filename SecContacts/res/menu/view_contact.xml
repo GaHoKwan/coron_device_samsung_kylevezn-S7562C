@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/tw_action_bar_icon_history_holo_dark" android:id="@id/menu_history" android:title="@string/menu_history" />
+    <item android:icon="@drawable/tw_action_bar_icon_edit_holo_dark" android:id="@id/menu_edit" android:title="@string/menu_editContact" android:alphabeticShortcut="e" />
+    <item android:icon="@drawable/tw_action_bar_icon_delete_holo_dark" android:id="@id/menu_delete" android:title="@string/menu_deleteContact" />
+    <item android:icon="@drawable/tw_action_bar_icon_join_holo_dark" android:id="@id/menu_join" android:title="@string/menu_join" />
+    <item android:icon="@drawable/tw_action_bar_icon_join_seperate_holo_dark" android:id="@id/menu_separate" android:title="@string/splitConfirmation_title" />
+    <item android:icon="@drawable/tw_action_bar_icon_markasdef_holo_dark" android:id="@id/menu_set_defalt" android:title="@string/menu_mark_as_default" />
+    <item android:icon="@drawable/ic_menu_mark" android:id="@id/menu_set_ringtone" android:title="@string/menu_set_ring_tone" />
+    <item android:icon="@drawable/tw_action_bar_icon_speeddialset_holo_dark" android:id="@id/menu_assign_speeddial" android:title="@string/menu_assign_speeddial_setting" />
+    <item android:icon="@drawable/tw_action_bar_icon_share_holo_dark" android:id="@id/menu_share" android:title="@string/menu_share_namecard_via" android:alphabeticShortcut="s" />
+    <item android:id="@id/menu_reject_list" android:title="@string/menu_add_reject_list" />
+    <item android:icon="@drawable/tw_action_bar_icon_add_to_white_list" android:id="@id/menu_add_to_white_list" android:title="@string/menu_white_list_setting" />
+    <item android:icon="@drawable/tw_action_bar_icon_add_to_black_list" android:id="@id/menu_add_to_black_list" android:title="@string/menu_black_list_setting" />
+    <item android:icon="@drawable/tw_action_bar_icon_copy_to_dialingscreen_log" android:id="@id/menu_copy_to_dialing_screen" android:title="@string/menu_copy_to_dialing" />
+    <item android:icon="@drawable/tw_action_bar_icon_print_holo_dark" android:id="@id/menu_print_namecard" android:title="@string/menu_print_namecard" />
+    <item android:icon="@drawable/tw_action_bar_icon_home_holo_dark" android:id="@id/menu_place_on_home_screen" android:title="@string/menu_place_on_home_screen" />
+    <item android:id="@id/menu_send_to_voicemail" android:title="@string/menu_redirect_calls_to_vm" android:checkable="true" />
+    <item android:icon="@drawable/ic_menu_autosync_on" android:id="@id/menu_enable_directory_sync" android:visible="false" android:title="@string/enable_directory_sync" />
+    <item android:icon="@drawable/ic_menu_autosync_off" android:id="@id/menu_disable_directory_sync" android:visible="false" android:title="@string/disable_directory_sync" />
+</menu>

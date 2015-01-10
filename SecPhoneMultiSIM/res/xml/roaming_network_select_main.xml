@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lgt_service_global_auto_roaming_network_setting"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:persistent="false" android:title="@string/roaming_network_auto_setting" android:key="auto_setting_key" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/roaming_network_manual_setting" android:key="manual_setting_key" />
+</PreferenceScreen>

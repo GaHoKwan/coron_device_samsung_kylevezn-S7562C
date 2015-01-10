@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="16" android:versionName="4.1.2-S7562CZNUAND1" package="com.android.mms"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <original-package android:name="com.android.mms" />
+    <permission android:name="com.android.samsung.rmt_exercise.permission.KEYSTRING" android:protectionLevel="signatureOrSystem" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_DEV_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INSTALL_DRM" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="com.wsomacp.permission.PROVIDER" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
+    <uses-permission android:name="android.permission.RECEIVE_EMERGENCY_BROADCAST" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.STATUS_BAR" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
+    <uses-permission android:name="javax.microedition.gba.USE_GBA_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_CELL_ID" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="com.sec.android.provider.logsprovider.permission.READ_LOGS" />
+    <uses-permission android:name="com.sec.android.provider.logsprovider.permission.WRITE_LOGS" />
+    <uses-permission android:name="com.sec.android.app.gallery3d.READ" />
+    <uses-permission android:name="com.sec.android.app.gallery3d.WRITE" />
+    <uses-permission android:name="com.sec.android.app.gallery3d.READ_SNS" />
+    <uses-permission android:name="com.sec.android.app.gallery3d.WRITE_SNS" />
+    <uses-permission android:name="com.sec.android.app.twdvfs.DVFS_BOOSTER_PERMISSION" />
+    <uses-permission android:name="com.android.phone.permission.READ_CALL_SETTINGS" />
+    <uses-permission android:name="com.android.phone.permission.WRITE_CALL_SETTINGS" />
+    <uses-permission android:name="com.sec.android.app.sysscope.permission.SYSSCOPE_ACCESS_SYSTEM_INFO" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_EXCHANGE_MESSAGE" />
+    <uses-permission android:name="com.samsung.noida.solutions.carecall" />
+    <permission android:name="sec.android.permission.READ_MSG_PREF" android:protectionLevel="normal" />
+    <permission android:name="sec.android.permission.WRITE_MSG_PREF" android:protectionLevel="normal" />
+    <application android:theme="@*android:style/Theme.DeviceDefault" android:label="@string/app_label" android:icon="@drawable/ic_launcher_smsmms" android:name="MmsApp" android:taskAffinity="android.task.mms" android:allowTaskReparenting="true">
+        <meta-data android:name="android.nfc.disable_beam_default" android:value="true" />
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/mw_app_minimumsize_w" />
+        <service android:name=".transaction.TransactionService" android:exported="false" />
+        <service android:name=".transaction.TransactionService2" android:exported="false" />
+        <service android:name=".transaction.MessageBackgroundSenderService" android:permission="android.permission.SEND_SMS_NO_CONFIRMATION" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.mms.transaction.IMessageBackgroundSender" />
+                <action android:name="com.android.mms.transaction.ISnsRemoteService" />
+            </intent-filter>
+        </service>
+        <service android:name=".ui.NoConfirmationSendService" android:permission="android.permission.SEND_SMS_NO_CONFIRMATION" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.mms.intent.action.SENDTO_NO_CONFIRMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+            </intent-filter>
+        </service>
+        <service android:name=".transaction.SmsReceiverService" android:exported="false" />
+        <service android:name=".transaction.MessagingNotificationAlert" android:exported="false" />
+        <service android:name=".transaction.WapPushReceiverService" android:exported="false" />
+        <service android:name=".transaction.CmasReceiverService" android:exported="false" />
+        <receiver android:name=".transaction.AlarmReceiver" />
+        <receiver android:name=".transaction.CmasAlarmReceiver" />
+        <activity android:label="@string/pref_cb_settings_title" android:name=".ui.CbSettingPreferenceActivity" android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/pref_cb_settings_title" android:name=".ui.CbSettingTabActivity" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/pref_title_channel_configuration" android:name=".ui.CbConfigPreferenceActivityDs" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/pref_notification_settings_title" android:name=".ui.MsgNotificationPreferenceActivity" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/pref_notification_settings_title" android:name=".ui.MsgNotificationTabActivity" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/app_label" android:name=".ui.ConversationComposer" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|uiMode|screenSize" android:allowTaskReparenting="false" android:windowSoftInputMode="stateUnchanged">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/mms" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android-dir/mms-sms" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android-dir/mms-sms" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SPELL" />
+            </intent-filter>
+            <meta-data android:name="android.app.spellscroll" android:resource="@xml/spellscroll" />
+            <meta-data android:name="android.app.default_searchable" android:value=".ui.SearchActivity" />
+        </activity>
+        <activity android:name=".ui.ComposeMessageActivityNoLockScreen" android:exported="false" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden" />
+        <activity-alias android:name=".ui.ComposeMessageMms" android:enabled="true" android:targetActivity=".ui.ConversationComposer">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="audio/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/x-vcard" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/x-imelody" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/x-vCalendar" />
+                <data android:mimeType="text/x-vcalendar" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/x-vnote" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/x-vtodo" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:name=".ui.ComposeMessageMmsNoVItem" android:enabled="false" android:targetActivity=".ui.ConversationComposer">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="audio/*" />
+            </intent-filter>
+        </activity-alias>
+        <activity android:label="@string/pref_title_channel_configuration" android:name=".ui.CbConfigPreferenceActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity-alias android:name=".ui.ComposeMessage" android:configChanges="keyboardHidden|orientation|screenSize" android:targetActivity=".ui.ConversationComposer" android:windowSoftInputMode="stateHidden" />
+        <activity-alias android:name=".ui.ForwardMessageActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:targetActivity=".ui.ConversationComposer" android:windowSoftInputMode="stateHidden" />
+        <activity-alias android:name=".ui.ReplyMessageActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:targetActivity=".ui.ConversationComposer" android:windowSoftInputMode="stateHidden" />
+        <activity-alias android:name=".ui.ConversationList" android:configChanges="keyboardHidden|orientation|screenSize" android:targetActivity=".ui.ConversationComposer" android:windowSoftInputMode="stateHidden" />
+        <activity android:theme="@*android:style/Theme.Dialog" android:label="@string/delivery_report_activity" android:name=".ui.DeliveryReportActivity" />
+        <activity android:theme="@*android:style/Theme.Dialog" android:label="@string/storage_limits_activity" android:name=".ui.WarnOfStorageLimitsActivity" android:excludeFromRecents="true" />
+        <activity android:label="@string/slideshow_activity" android:name=".ui.SlideshowActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/pdu" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/slideshow_activity" android:name=".ui.MmsSinglePageActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="false" />
+        <activity android:theme="@style/Theme.Translucent" android:label="@string/class_0_message_activity" android:name=".ui.ClassZeroActivity" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/Theme.Translucent" android:name=".ui.RetryActivity" android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/preferences_title" android:name=".ui.MessagingPreferenceActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name=".ui.BackgroundColorPicker" android:configChanges="locale|keyboardHidden|orientation|screenSize|fontScale" android:hardwareAccelerated="false" />
+        <activity android:name=".ui.BubbleTypePicker" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <receiver android:name=".transaction.PushReceiver" android:permission="android.permission.BROADCAST_WAP_PUSH">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
+                <data android:mimeType="application/vnd.wap.mms-message" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
+                <data android:mimeType="application/vnd.wap.sic" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
+                <data android:mimeType="application/vnd.wap.slc" />
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent" android:label="@string/push_message_dialog_title" android:name=".ui.PushMessageDialog" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.samsung.mms.ui.SaveThreadActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.samsung.mms.ui.SavedMsgsList" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.samsung.mms.ui.RestorePreviewActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.samsung.mms.ui.ConversationListRestore" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <receiver android:name=".transaction.MmsSystemEventReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.CONTENT_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.IMEI_TRACKER_SMS_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.TETHER_STATE_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.GET_SMSC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT_CS_SIM_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="CARE_CONNECT_REJECT_NOTIFICATION" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".transaction.IMEITrackerService_DS">
+            <intent-filter>
+                <action android:name="com.android.mms.transaction.IMEITracker.IMEITrackerService_DS" />
+            </intent-filter>
+        </service>
+        <service android:name=".transaction.IMEITrackerService">
+            <intent-filter>
+                <action android:name="com.android.mms.transaction.IMEITracker.IMEITrackerService" />
+            </intent-filter>
+        </service>
+        <activity android:label="@string/sim_manage_messages_title" android:name=".ui.ManageSimMessages" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.DirectCallTutorialActivity" android:launchMode="singleInstance" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name=".ui.FakeCallActivity" android:launchMode="singleInstance" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/Theme.Translucent" android:name=".ui.MmsRetryActivity" android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboardHidden|orientation" />
+        <receiver android:name=".ui.DirectCallTutorialReceiver">
+            <intent-filter>
+                <action android:name="com.android.mms.ui.DirectCallTutorial" />
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/pref_summary_manage_smsc_messages" android:name=".ui.MessageSmscActivityDS" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".transaction.PrivilegedSmsReceiver" android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="1">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.GET_SMSC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_CB_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SCPT_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.CB_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.CB_SETTINGS_AVAILABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SET_CB_ERR_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.GET_CB_ERR_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.DEVICE_READY" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_EMERGENCY_CB_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.provider.Telephony.EMERGENCY_CDMA_MESSAGE_RECEIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DATA_SMS_RECEIVED" />
+                <data android:scheme="sms" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.SmsReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.mms.transaction.MESSAGE_SENT" />
+                <data android:scheme="content" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.internal.policy.impl.Keyguard.PCW_LOCKED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.internal.policy.impl.Keyguard.PCW_UNLOCKED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.MessageStatusReceiver">
+            <intent-filter>
+                <action android:name="com.android.mms.transaction.MessageStatusReceiver.MESSAGE_STATUS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.SimFullReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SIM_FULL" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.SmsRejectedReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_REJECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.DebugSettingReceiver">
+            <intent-filter>
+                <action android:name="com.android.mms.transaction.LogOn" />
+                <action android:name="com.android.mms.transaction.pdu" />
+                <action android:name="com.android.mms.transaction.ua" />
+                <action android:name="com.android.mms.transaction.optionalfieldattendance" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".MessagingGateReceiver">
+            <intent-filter>
+                <action android:name="com.sec.android.gate.GATE" />
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@*android:style/Theme.Dialog" android:name=".ui.ConfirmRateLimitActivity">
+            <intent-filter>
+                <action android:name="com.android.mms.RATE_LIMIT_SURPASSED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/search" android:name=".ui.SearchActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+        </activity>
+        <activity android:label="@string/sms_viewer_activity" android:name=".ui.SmsViewerActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/sms" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/drmcontents" android:name=".ui.DrmContentsActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/pref_title_notification_cmas" android:name=".ui.CMASPreferenceActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".transaction.SimChangeReceiver">
+            <intent-filter>
+                <action android:name="com.android.samsung.sim_change" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.CmasRmtReceiver" android:permission="com.android.samsung.rmt_exercise.permission.KEYSTRING">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE" />
+                <data android:scheme="android_secret_code" android:host="com.android.samsung.rmt_exercise" />
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Translucent" android:name=".ui.CMASDialog" android:excludeFromRecents="true" android:configChanges="keyboardHidden|orientation" />
+        <activity android:theme="@style/Theme.Translucent" android:name=".ui.CMASUserPromptDialog" android:excludeFromRecents="true" android:configChanges="keyboardHidden|orientation" />
+        <activity android:label="@string/menu_locked_message_manager" android:name=".ui.LockedMessageManager" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden" />
+        <activity android:label="@string/spam_messages" android:name=".ui.SpamMessageManager" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden" />
+        <activity android:label="@string/menu_scheduled_message_manager" android:name=".ui.ReservationMessageManager" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden" />
+        <activity android:label="@string/draft_messages" android:name=".ui.DraftMessageManager" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name=".ui.RecipientListActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.GroupMessagingRecipientListActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.SelectMapActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden" />
+        <activity android:theme="@style/locationActionBar" android:label="@string/location_activity" android:name="com.samsung.mms.location.LocationMapActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysVisible" android:hardwareAccelerated="false" android:uiOptions="splitActionBarWhenNarrow" />
+        <activity android:theme="@style/locationActionBar" android:label="@string/location_activity" android:name="com.samsung.mms.location.FavoritePlacesList" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/locationActionBar" android:label="@string/location_activity" android:name="com.samsung.mms.location.RecentPlacesList" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <service android:name=".oem.AutoSmsReceiverService" android:exported="false" />
+        <receiver android:name=".oem.AutoSmsReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.mms.oem.AUTO_SMS_MESSAGE_SENT_ACTION" />
+                <action android:name="com.android.mms.oem.AUTO_SMS_MESSAGE_RESTART_ACTION" />
+                <data android:scheme="content" />
+            </intent-filter>
+        </receiver>
+        <provider android:name="SuggestionsProvider" android:readPermission="android.permission.READ_SMS" android:authorities="com.android.mms.SuggestionsProvider">
+            <path-permission android:readPermission="android.permission.GLOBAL_SEARCH" android:pathPrefix="/search_suggest_query" />
+            <path-permission android:readPermission="android.permission.GLOBAL_SEARCH" android:pathPrefix="/search_suggest_shortcut" />
+        </provider>
+        <activity android:label="@string/app_label" android:name=".ui.BoxListViewActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="false">
+            <meta-data android:name="android.app.default_searchable" android:value=".ui.SearchActivity" />
+        </activity>
+        <uses-library android:name="touchwiz" />
+        <uses-library android:name="sechardware" />
+        <uses-library android:name="com.google.android.maps" android:required="false" />
+        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false" />
+        <receiver android:name="com.android.mms.ReadChangedReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.Threads.action.READ_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <activity android:label="Mms Provisioning" android:name=".provisioning.MmsProvisionActivity" />
+        <receiver android:name=".provisioning.MmsProvisionReceiver">
+            <intent-filter>
+                <action android:name="com.sec.android.app.mmsprovision" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CHAMELEON_SMS_MMS_UPDATE" />
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/pref_title_manage_SD_messages" android:name=".ui.ManageSDMessages" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/import_label" android:name=".ui.VMessageViewerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.IMPORT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/x-vMessage" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".spam.SetupSpamNumberList" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".spam.SetupSpamKeywordList" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".spam.SetupSpamNumberWriteForm" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateVisible|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".spam.SetupSpamKeywordWriteForm" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateVisible|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.SettingsReservationActivity" android:enabled="true" android:launchMode="singleTop" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="com.android.mms.Intent.action.SETTINGS_RESERVATION" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".transaction.MessageReservationSendReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.mms.Intent.ACTION_SEND_RESERVATION" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.android.mms.ContextualReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE" />
+                <data android:scheme="android_secret_code" android:host="36742833674283" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".transaction.MessageBackgroundHiddenKeystringReceiver">
+            <intent-filter>
+                <action android:name="com.android.mms.Intent.ACTION_SEND_MESSAGE_BACKGROUND_KEYSTRING" />
+                <action android:name="android.provider.Telephony.SECRET_CODE" />
+                <data android:scheme="android_secret_code" android:host="66723646" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".ui.MessageDatabaseBackupActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".util.SecATTCommandReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BCS_REQUEST" />
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/app_label" android:name=".widget.MmsWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.mms.intent.action.ACTION_NOTIFY_DATASET_CHANGED" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
+        <service android:name=".widget.MmsWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS" android:exported="false" />
+        <service android:name="com.samsung.mms.content.MmsPartExportService" android:exported="false" />
+        <activity android:theme="@style/Theme.Translucent" android:name="com.samsung.mms.content.MmsPartExportDialogActivity" android:launchMode="singleTop" android:configChanges="orientation|screenSize" />
+        <activity android:theme="@style/Theme.Translucent" android:name="com.samsung.mms.content.MmsPartExportDialogActivityAlien" android:taskAffinity="com.samsung.mms.content.MmsPartExportDialogActivityAlien" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="orientation|screenSize" />
+        <activity android:label="@string/set_text_templates" android:name=".template.TextTemplateListActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".template.TextTemplateEditActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysVisible" />
+        <provider android:name=".csc.PreferenceProvider" android:readPermission="sec.android.permission.READ_MSG_PREF" android:writePermission="sec.android.permission.WRITE_MSG_PREF" android:exported="true" android:authorities="com.android.mms.csc.PreferenceProvider" />
+    </application>
+</manifest>

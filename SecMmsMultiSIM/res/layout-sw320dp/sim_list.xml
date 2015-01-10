@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:nextFocusDown="@id/messages" android:layout_width="fill_parent" android:layout_height="56.0dip" layout="@layout/selectall" />
+    <ListView android:scrollbarStyle="insideOverlay" android:id="@id/messages" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="false" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/empty_message" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textSize="19.0dip" android:textColor="@color/conversation_no_message_color_hvga" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sim_empty" android:drawableTop="@drawable/no_text_templates" android:drawablePadding="10.0dip" />
+    </LinearLayout>
+</LinearLayout>

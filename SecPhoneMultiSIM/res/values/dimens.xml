@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="call_banner_height">80.0dip</dimen>
+    <dimen name="in_call_touch_ui_upper_margin">1.0dip</dimen>
+    <dimen name="call_banner_side_padding">12.0dip</dimen>
+    <dimen name="call_banner_top_bottom_padding">8.0dip</dimen>
+    <dimen name="call_banner_2nd_line_margin">3.0dip</dimen>
+    <dimen name="provider_info_top_bottom_padding">8.0dip</dimen>
+    <dimen name="call_banner_name_number_right_padding">50.0sp</dimen>
+    <dimen name="call_state_label_right_padding">10.0dip</dimen>
+    <dimen name="call_state_label_top_bottom_padding">5.0dip</dimen>
+    <dimen name="in_call_buttons_height">255.0dip</dimen>
+    <dimen name="in_call_buttons_height_easymode">147.0dip</dimen>
+    <dimen name="in_call_upper_buttons_height">119.0dip</dimen>
+    <dimen name="in_call_toggle_buttons_height">124.0dip</dimen>
+    <dimen name="in_call_button_height">123.0dip</dimen>
+    <dimen name="in_call_end_button_height">131.0dip</dimen>
+    <dimen name="extra_row_button_width">56.0dip</dimen>
+    <item type="dimen" name="extra_row_button_height">@dimen/in_call_button_height</item>
+    <dimen name="button_cluster_side_padding">20.0dip</dimen>
+    <dimen name="contact_photo_inset_width">197.0dip</dimen>
+    <dimen name="contact_photo_inset_height">197.0dip</dimen>
+    <dimen name="contact_photo_inset_left_margin">0.0dip</dimen>
+    <dimen name="otabase_layout_marginTop">30.0dip</dimen>
+    <dimen name="otabase_minHeight">270.0dip</dimen>
+    <dimen name="otaactivate_layout_marginTop">10.0dip</dimen>
+    <dimen name="otalistenprogress_layout_marginTop">5.0dip</dimen>
+    <dimen name="otasuccessfail_layout_marginTop">10.0dip</dimen>
+    <dimen name="dialpad_horizontal_margin">4.0dip</dimen>
+    <dimen name="dialpad_vertical_margin">2.0dip</dimen>
+    <dimen name="dialpad_digits_text_size">35.0dip</dimen>
+    <dimen name="emergency_dialer_digits_height">0.0px</dimen>
+    <dimen name="provider_overlay_top_margin">160.0dip</dimen>
+    <dimen name="notification_icon_size">64.0dip</dimen>
+    <dimen name="incoming_call_widget_circle_size">94.0dip</dimen>
+    <dimen name="incoming_call_widget_asset_margin">28.0dip</dimen>
+    <dimen name="action_bar_switch_padding">16.0dip</dimen>
+    <dimen name="one_call_name_text_height">42.0dip</dimen>
+    <dimen name="one_call_number_text_height">30.0dip</dimen>
+    <dimen name="one_call_name_text_size">33.0dip</dimen>
+    <dimen name="one_call_number_text_size">21.0dip</dimen>
+    <dimen name="one_call_cdnip_number_text_size">19.0dip</dimen>
+    <dimen name="record_text_size">21.0sp</dimen>
+    <dimen name="record_icon_left_margin">5.0dip</dimen>
+    <dimen name="record_icon_right_margin">8.0dip</dimen>
+    <dimen name="multiple_choice_right_padding">24.0dip</dimen>
+    <dimen name="vt_call_top_margin">12.0dip</dimen>
+    <dimen name="vt_end_call_contact_button_height">102.0dip</dimen>
+    <dimen name="vt_end_call_dial_buttons_height">104.0dip</dimen>
+    <dimen name="vt_end_call_dial_buttons_margin_bottom">0.0dip</dimen>
+    <dimen name="list_header_height">56.0dip</dimen>
+    <dimen name="list_divider_margin_left">14.0dip</dimen>
+    <dimen name="list_divider_margin_right">4.0dip</dimen>
+    <dimen name="res_threshold_width_blurring">96.0px</dimen>
+    <dimen name="reject_call_with_msg_create_text_size">22.0sp</dimen>
+    <dimen name="incoming_call_widget_bottom_margin">44.0dip</dimen>
+    <dimen name="emergency_callback_mode_title_margin_top">56.0dip</dimen>
+    <dimen name="emergency_callback_mode_icon_margin_top">26.0dip</dimen>
+    <dimen name="emergency_call_btn_margin_top">27.0dip</dimen>
+    <dimen name="emergency_callback_mode_description_margin_top">17.0dip</dimen>
+    <dimen name="emergency_callback_mode_title_text_size">26.0dip</dimen>
+    <dimen name="emergency_callback_mode_description_text_size">18.0dip</dimen>
+    <dimen name="call_state_lable_height">30.0dip</dimen>
+    <dimen name="in_call_buttons_padding_bottom">4.0dip</dimen>
+    <dimen name="in_call_buttons_padding_top">4.0dip</dimen>
+    <dimen name="in_call_buttons_padding_left">3.0dip</dimen>
+    <dimen name="in_call_buttons_padding_right">4.0dip</dimen>
+    <dimen name="in_call_upper_buttons_margin_bottom">2.0dip</dimen>
+    <dimen name="in_call_upper_buttons_margin_top">2.0dip</dimen>
+    <dimen name="in_call_upper_buttons_margin_right">4.0dip</dimen>
+    <dimen name="in_call_toggle_buttons_margin_right">4.0dip</dimen>
+    <dimen name="extra_vol_button_margin_top">14.0dip</dimen>
+    <dimen name="geo_description_width_ratio">12.0dip</dimen>
+    <dimen name="appwidget_cf_text_size">22.0dip</dimen>
+    <dimen name="appwidget_cf_min_width">384.0dip</dimen>
+    <dimen name="appwidget_cf_min_height">190.0dip</dimen>
+    <dimen name="appwidget_smart_network_text_size">20.0dip</dimen>
+    <dimen name="appwidget_smart_network_min_width">110.0dip</dimen>
+    <dimen name="appwidget_smart_network_min_height">40.0dip</dimen>
+    <dimen name="dsa_select_sim_list_height">64.0dip</dimen>
+    <dimen name="mw_app_defaultsize_w">632.0dip</dimen>
+    <dimen name="mw_app_defaultsize_h">689.0dip</dimen>
+    <dimen name="mw_app_minimumsize_w">632.0dip</dimen>
+    <dimen name="mw_app_minimumsize_h">689.0dip</dimen>
+    <dimen name="mw_call_info_1_name_text_size">30.0dip</dimen>
+    <dimen name="mw_call_info_1_number_text_size">20.0dip</dimen>
+    <dimen name="mw_call_info_2_text_size">24.0dip</dimen>
+    <dimen name="quick_panel_call_end_button_margin_left">15.0dip</dimen>
+    <dimen name="list_header_right_padding">14.0dip</dimen>
+    <dimen name="tw_pop_up_dialog_padding_top">5.0dip</dimen>
+    <dimen name="tw_pop_up_dialog_padding_bottom">5.0dip</dimen>
+    <dimen name="tw_pop_up_dialog_padding_left">17.0dip</dimen>
+    <dimen name="tw_pop_up_dialog_padding_right">17.0dip</dimen>
+    <dimen name="botton_btns_width">346.0dip</dimen>
+    <dimen name="prev_btn_width">168.0dip</dimen>
+    <dimen name="finish_btn_width">168.0dip</dimen>
+    <dimen name="next_btn_width">168.0dip</dimen>
+    <dimen name="dsa_btn_width">180.0dip</dimen>
+    <dimen name="dsa_btn_height">43.0dip</dimen>
+    <dimen name="dsa_btn_margin_side">7.0dip</dimen>
+    <dimen name="dsa_btn_margin_bottom">10.0dip</dimen>
+    <dimen name="dsa_btn_layout_height">53.0dip</dimen>
+    <dimen name="button_text_size">19.0dip</dimen>
+    <item type="dimen" name="APKTOOL_DUMMY_006d">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_006e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_006f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0070">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0071">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0072">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0073">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0074">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0075">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0076">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0077">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0078">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0079">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_007a">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_007b">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_007c">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_007d">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_007e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_007f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0080">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0081">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0082">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0083">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0084">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0085">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0086">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0087">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0088">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0089">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_008a">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_008b">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_008c">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_008d">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_008e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_008f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0090">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0091">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0092">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0093">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0094">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0095">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0096">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0097">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0098">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0099">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_009a">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_009b">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_009c">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_009d">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_009e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_009f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a0">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a1">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a2">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a3">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a4">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a5">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a6">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a7">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a8">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00a9">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00aa">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00ab">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00ac">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00ad">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00ae">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00af">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b0">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b1">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b2">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b3">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b4">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b5">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b6">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b7">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b8">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b9">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00ba">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bb">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bc">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bd">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00be">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bf">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00c0">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00c1">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00c2">false</item>
+</resources>

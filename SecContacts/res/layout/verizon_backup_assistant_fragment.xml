@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/VZWBackupAssistantMessageTextAppearance" android:id="@id/vzw_backup_assistant_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="12.0dip" android:layout_marginRight="12.0dip" android:text="@string/contact_vzw_backup_assistant_message" android:layout_alignParentTop="true" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginRight="32.0dip" android:layout_marginBottom="12.0dip" android:layout_alignParentBottom="true">
+        <Button android:id="@id/vzw_backup_assistant_start_button" android:layout_width="296.0dip" android:layout_height="48.0dip" android:layout_marginBottom="12.0dip" android:text="@string/contact_vzw_backup_assistant_start" />
+        <Button android:id="@id/vzw_backup_assistant_not_now_button" android:layout_width="296.0dip" android:layout_height="48.0dip" android:text="@string/contact_vzw_backup_assistant_not_now" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/header_button_icon_edit" android:id="@id/menu_action_edit" android:title="@string/menu_editGroup" android:showAsAction="always" />
+    <item android:id="@id/menu_star" android:showAsAction="always" />
+</menu>

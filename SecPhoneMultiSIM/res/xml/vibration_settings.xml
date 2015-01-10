@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/callsettings_callalert_answer_vibration" android:key="answer_vibration_preference" android:summary="@string/callsettings_callalert_answer_vibration_summary" />
+    <CheckBoxPreference android:title="@string/callsettings_callalert_end_vibration" android:key="end_vibration_preference" android:summary="@string/callsettings_callalert_end_vibration_summary" />
+</PreferenceScreen>

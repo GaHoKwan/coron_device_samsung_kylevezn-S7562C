@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/list_title_bar" android:visibility="gone" layout="@layout/group_browse_list_account_header" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/list_item_container" android:background="@drawable/group_child_row_background" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/list_one_line_height">
+        <View android:id="@id/indent" android:layout_width="@dimen/list_item_left_padding" android:layout_height="fill_parent" />
+        <View android:id="@id/indent_child" android:layout_width="@dimen/tw_expandableChildListPreferredItemPaddingLeft" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textAppearance="@style/ListPrimaryTextAppearance" android:ellipsize="marquee" android:id="@id/group_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+            <TextView android:textAppearance="@style/ListSecondaryTextAppearance" android:ellipsize="marquee" android:id="@id/group_account" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+        <TextView android:textAppearance="@style/ListPrimaryTextAppearance" android:textSize="17.0sp" android:ellipsize="marquee" android:id="@id/group_count" android:paddingLeft="@dimen/list_item_left_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <ImageView android:id="@id/group_indicator" android:focusable="false" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_marginLeft="4.0dip" android:layout_marginRight="2.0dip" android:src="@drawable/list_icon_expandable_open_01" />
+        <View android:id="@id/preference_contents_indent" android:layout_width="@dimen/preference_contents_right_padding" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <View android:id="@id/list_divider" android:background="#ff464646" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+</LinearLayout>

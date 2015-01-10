@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/layout_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/assisted_dialing_country_code" />
+    <EditText android:id="@id/countrycode" android:layout_width="200.0dip" android:layout_height="35.0dip" android:layout_marginRight="10.0dip" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/assisted_dialing_IDD" />
+    <EditText android:textColor="#ffffffff" android:id="@id/IDD" android:layout_width="200.0dip" android:layout_height="35.0dip" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/assisted_dialing_NDD" />
+    <EditText android:textColor="#ffffffff" android:id="@id/NDD" android:layout_width="200.0dip" android:layout_height="35.0dip" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/assisted_dialing_area_code" />
+    <EditText android:textColor="#ffffffff" android:id="@id/areacode" android:layout_width="200.0dip" android:layout_height="35.0dip" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/assisted_dialing_national_number_length" />
+    <EditText android:textColor="#ffffffff" android:id="@id/numberlength" android:layout_width="200.0dip" android:layout_height="35.0dip" />
+</LinearLayout>

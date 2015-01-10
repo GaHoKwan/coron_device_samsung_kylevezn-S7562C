@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/button_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="48.0dip">
+        <LinearLayout android:id="@id/revert_menu_item" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/menu_doNotSave">
+            <View android:layout_gravity="center_vertical" android:id="@id/revert_menu_vertical_divider" android:background="?android:dividerVertical" android:layout_width="1.0dip" android:layout_height="32.0dip" />
+            <LinearLayout android:gravity="center_vertical" android:background="@drawable/tw_common_list_item_background" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:description="@string/menu_doNotSave" android:layout_gravity="center_vertical" android:id="@id/revert_menu_icon" android:duplicateParentState="true" android:layout_width="32.0dip" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:src="@drawable/header_btn_action_icon_cancel" android:scaleType="fitXY" />
+                <TextView android:textSize="17.0dip" android:textColor="@color/tw_action_bar_button_text_color" android:layout_gravity="center_vertical" android:id="@id/revert_menu_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginRight="@dimen/custom_action_menu_text_right_margin" android:text="@*android:string/cancel" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@id/save_menu_item" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:contentDescription="@string/menu_done">
+            <View android:layout_gravity="center_vertical" android:id="@id/save_menu_vertical_divider" android:background="?android:dividerVertical" android:layout_width="1.0dip" android:layout_height="32.0dip" />
+            <LinearLayout android:gravity="center_vertical" android:background="@drawable/tw_common_list_item_background" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:description="@string/menu_done" android:layout_gravity="center_vertical" android:id="@id/save_menu_icon" android:duplicateParentState="true" android:layout_width="32.0dip" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:src="@drawable/header_btn_action_icon_check" android:scaleType="fitXY" />
+                <TextView android:textSize="17.0dip" android:textColor="@color/tw_action_bar_button_text_color" android:layout_gravity="center_vertical" android:id="@id/save_menu_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginRight="@dimen/custom_action_menu_text_right_margin" android:text="@string/menu_done" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

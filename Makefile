@@ -54,7 +54,7 @@ vendor_remove_files := etc/PowerOn.wav media/audio/ui/PowerOn.ogg media/bootsams
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2
+vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2  SecContactsProvider SecTelephonyProviderMultiSIM LogsProvider Samsungservice
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -63,7 +63,7 @@ vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpA
 # You need ro decode FMRadio.apk to the project directory(use apktool d FMRadio.apk) first,
 # and then you can make it by:   make FMRadio
 #-----------------------------------------------------------------------------
-#vendor_modify_apps := 
+vendor_modify_apps := SecContacts SecMmsMultiSIM SecPhoneMultiSIM
 
 ##############################################################################
 # The value decides which vendor jar you want to modify.
@@ -93,7 +93,7 @@ vendor_modify_jars := framework framework2 pm services twframework
 # The default value is nothing.
 # You can configure the baidu system apk name in the value.
 #-----------------------------------------------------------------------------
-#baidu_remove_apps := BaiduUserFeedback
+baidu_remove_apps := Contacts ContactsProvider Phone TelephonyProvider
 
 ##############################################################################
 # The value decides which apk you want to modify, when the apk is based on the baidu system apk.
@@ -105,7 +105,8 @@ vendor_modify_jars := framework framework2 pm services twframework
 # The command idtoname how to use: first use "apktool d source/system/framework/framework-res.apk other/TMP/framework-res",
 # and then use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"(XXXX is the directory where you decode baidu system apk).
 #-----------------------------------------------------------------------------
-baidu_modify_apps := Phone Settings
+baidu_modify_apps := Phone Settings HomePro
+
 ##############################################################################
 # The value decides which jar you want to modify, when the jar is based on the baidu framework jar.
 # The default value is nothing.

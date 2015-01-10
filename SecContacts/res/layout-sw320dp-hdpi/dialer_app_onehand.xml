@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/dialer_part_onehand" android:visibility="gone" android:layout_width="320.0dip" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/Linewrapper" android:layout_width="320.0dip" android:layout_height="324.0dip">
+        <ImageButton android:id="@id/leftarrowbutton" android:background="@null" android:visibility="visible" android:nextFocusRight="@id/videocallbutton" android:clickable="true" android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginLeft="12.0dip" android:layout_marginTop="122.0dip" android:layout_marginRight="12.0dip" android:src="@drawable/call_btn_arrow_left_btn" android:scaleType="center" />
+        <LinearLayout android:id="@id/leftarrowbuttondummy1" android:visibility="gone" android:layout_width="69.0dip" android:layout_height="24.0dip" />
+        <LinearLayout android:id="@id/leftarrowbuttondummy" android:visibility="gone" android:layout_width="5.0dip" android:layout_height="24.0dip" />
+        <LinearLayout android:orientation="vertical" android:id="@id/keypadani" android:background="@drawable/dialer_onehand_bg" android:layout_width="246.0dip" android:layout_height="237.0dip" android:layout_marginTop="26.0dip">
+            <include layout="@layout/dialpad_onehand" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/dialbuttonset" android:layout_width="246.0dip" android:layout_height="45.0dip" android:layout_marginTop="3.0dip">
+                <ImageButton android:id="@id/videocallbutton" android:background="@drawable/call_dial_onehand_btn_bg" android:layout_width="80.0dip" android:layout_height="45.0dip" android:src="@drawable/call_onehand_contacts_icon" android:scaleType="center" android:contentDescription="@string/video_call" />
+                <ImageButton android:id="@id/messagebutton" android:background="@drawable/call_dial_onehand_btn_bg" android:visibility="gone" android:layout_width="80.0dip" android:layout_height="45.0dip" android:src="@drawable/call_onehand_message_icon" android:scaleType="center" android:contentDescription="@string/message" />
+                <ImageButton android:id="@id/callbutton" android:background="@drawable/call_dial_onehand_btn_bg" android:layout_width="80.0dip" android:layout_height="45.0dip" android:layout_marginLeft="3.5dip" android:src="@drawable/call_onehand_outgoingcall_icon" android:scaleType="center" android:contentDescription="@string/call" />
+                <ImageButton android:id="@id/deleteButton" android:background="@drawable/call_dial_onehand_btn_bg" android:layout_width="80.0dip" android:layout_height="45.0dip" android:layout_marginLeft="3.5dip" android:src="@drawable/call_onehand_back_icon" android:scaleType="center" android:contentDescription="@string/description_delete_button" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageButton android:id="@id/rightarrowbutton" android:background="@null" android:visibility="visible" android:nextFocusLeft="@id/deleteButton" android:clickable="true" android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginLeft="12.0dip" android:layout_marginTop="122.0dip" android:src="@drawable/call_btn_arrow_right_btn" android:scaleType="center" />
+    </LinearLayout>
+</LinearLayout>

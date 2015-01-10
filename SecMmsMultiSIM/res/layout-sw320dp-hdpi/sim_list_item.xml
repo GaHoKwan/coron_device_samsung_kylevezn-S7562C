@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/sim_list_item" android:background="@drawable/sim_list_selector" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingLeft="16.0dip" android:paddingTop="8.0dip" android:paddingRight="12.0dip" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:id="@id/sim_list_item_line1_layout" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/sim_list_item_type" android:background="@drawable/msg_list_icon_receive" android:duplicateParentState="true" android:layout_width="20.0dip" android:layout_height="20.0dip" />
+            <TextView android:textSize="18.0sp" android:textColor="#ff387586" android:id="@id/sim_list_item_name" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/sim_list_item_line1_layout" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip">
+            <TextView android:textSize="18.0sp" android:textColor="#ffd7d7d7" android:id="@id/sim_list_item_line2" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <TextView android:textSize="17.0sp" android:textColor="#ff989898" android:id="@id/sim_list_item_date" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/sim_list_item_checkbox_layout" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip">
+        <CheckBox android:id="@id/sim_list_item_checkbox" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

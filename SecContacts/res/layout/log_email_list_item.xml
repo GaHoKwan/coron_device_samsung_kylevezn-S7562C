@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view android:layout_width="fill_parent" android:layout_height="wrap_content" class="com.sec.android.app.dialertab.calllog.LogsDeleteActivity$ItemView"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/listview_item_bg" android:layout_width="fill_parent" android:layout_height="69.0dip">
+        <ImageView android:id="@id/image1" android:layout_width="@dimen/call_log_list_contact_photo_size" android:layout_height="@dimen/call_log_list_contact_photo_size" android:layout_marginLeft="5.0dip" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" android:scaleType="fitXY" android:layout_alignParentLeft="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="12.0dip" android:layout_toLeftOf="@id/checkbox1" android:layout_toRightOf="@id/image1" android:layout_centerVertical="true">
+            <TextView android:textAppearance="@style/TwTextAppearanceListTwoLinePrimary" android:textColor="@color/color_txt_white_black" android:id="@id/mainText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:singleLine="true" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textAppearance="@style/TwTextAppearanceListTwoLineSecondary1" android:textColor="@color/color_text_blue" android:ellipsize="marquee" android:id="@id/subText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentLeft="true" />
+                    <TextView android:textAppearance="@style/TwTextAppearanceListTwoLineSecondary2" android:textColor="@color/color_text_gray_white" android:gravity="right" android:id="@id/time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/checkbox1" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <com.sec.android.touchwiz.widget.TwCheckBox android:id="@id/checkbox1" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="3.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="9.0dip" android:layout_alignParentRight="true" android:onClick="clickHandler" />
+        <View android:gravity="bottom" android:id="@id/divider_bottom" android:background="#ff464646" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</view>

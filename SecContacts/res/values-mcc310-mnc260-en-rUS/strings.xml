@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_addStar">Add to Favorites</string>
+    <string name="menu_removeStar">Remove from Favorites</string>
+    <string name="contact_tips_message">Swipe left to send a message</string>
+    <string name="no_favourites_text">Press the menu key then tap Add to Favorites to add contacts to your favorite contact list</string>
+    <string name="no_logs_text">After you make/receive a call or send/receive a message, logs will be shown.</string>
+</resources>

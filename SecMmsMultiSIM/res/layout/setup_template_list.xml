@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:nextFocusDown="@id/templates" android:layout_width="fill_parent" android:layout_height="56.0dip" layout="@layout/select_all" />
+    <ListView android:id="@id/templates" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="false" />
+    <FrameLayout android:orientation="vertical" android:id="@id/empty_texttemplatescreen" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/empty_templatelist" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="19.0dip" android:textColor="@color/conversation_no_message_color" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:id="@id/empty_list_textView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_text_templates" android:singleLine="true" android:drawableTop="@drawable/no_text_templates" android:drawablePadding="13.0dip" />
+        </LinearLayout>
+    </FrameLayout>
+    <View android:id="@id/view" android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_below="@id/empty_texttemplatescreen" />
+</LinearLayout>

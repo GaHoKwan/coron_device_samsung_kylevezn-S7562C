@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/contacts_default_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:paddingLeft="@dimen/detail_photo_padding" android:paddingTop="@dimen/detail_photo_padding" android:paddingRight="@dimen/detail_photo_padding" android:paddingBottom="@dimen/detail_photo_padding" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="@dimen/detail_tab_width_to_height_ratio">
+        <ImageView android:id="@id/photo" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+        <View android:id="@id/photo_touch_intercept_overlay" android:background="?android:selectableItemBackground" android:focusable="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@string/label_photo" />
+    </FrameLayout>
+    <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="@dimen/width_of_detail_header_extra_space_ratio" />
+</LinearLayout>

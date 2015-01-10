@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/search_bar_layout" layout="@layout/tw_contacts_search_bar" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <com.sec.android.touchwiz.widget.TwListView android:id="@*android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:id="@id/tw_index_scroll_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.sec.android.touchwiz.widget.TwIndexScrollView android:id="@id/tw_index_scroll_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+              xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/setup_profile_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/user_profile_header" />
+        <LinearLayout android:id="@id/setup_profile_button" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/user_profile_button" />
+        </LinearLayout>
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    </LinearLayout>
+    <include android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="410.0dip" layout="@layout/tw_no_contacts_layout" />
+    <LinearLayout android:orientation="vertical" android:id="@id/no_contacts_help_text" android:layout_width="480.0dip" android:layout_height="wrap_content" android:layout_marginLeft="160.0dip" android:layout_marginTop="234.0dip">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/no_contacts_help_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noitem_add_contacts" />
+            <TextView android:textAppearance="@style/TwMainListNoContactsHelpTextAppearance" android:id="@id/no_contacts_help_text_above" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:text="@string/twNoContactsHelpText2" />
+        </LinearLayout>
+        <TextView android:textAppearance="@style/TwMainListNoContactsHelpTextAppearance" android:id="@id/no_contacts_help_text_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:layout_marginBottom="15.0dip" android:text="@string/twNoContactsHelpText" />
+    </LinearLayout>
+</LinearLayout>

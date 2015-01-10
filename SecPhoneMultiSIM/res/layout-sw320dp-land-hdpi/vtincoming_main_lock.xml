@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/mainLayout" android:background="@*android:color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:paddingLeft="69.0dip" android:paddingRight="69.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <SurfaceView android:id="@id/near_end" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="96.0dip">
+            <LinearLayout android:background="#7f000000" android:paddingLeft="6.0dip" android:layout_width="fill_parent" android:layout_height="68.0dip">
+                <ImageView android:id="@id/incoming_contact_image" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginTop="4.0dip" android:src="@drawable/call_img_incoming_small" />
+                <LinearLayout android:orientation="vertical" android:id="@id/caller_info" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="11.0dip">
+                    <TextView android:textSize="28.0dip" android:textColor="@color/videocall_text" android:gravity="left" android:id="@id/caller_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="18.0dip" android:textColor="@color/videocall_text" android:gravity="left" android:id="@id/caller_num" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="right" android:background="#7f000000" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="28.0dip">
+                <TextView android:textSize="21.0dip" android:textColor="@color/videocall_text" android:gravity="left" android:id="@id/caller_city" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:singleLine="true" android:layout_weight="1.0" />
+                <TextView android:textSize="15.0dip" android:textColor="@color/videocall_text" android:id="@id/state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/card_title_dialing" />
+            </LinearLayout>
+        </LinearLayout>
+        <ViewStub android:id="@id/social_status_stub" android:layout="@layout/social_status_view_vt" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </FrameLayout>
+    <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/videoCall_Fallback" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false">
+        <Button android:textSize="17.0dip" android:textColor="@color/tw_color001" android:gravity="center" android:layout_gravity="bottom" android:id="@id/accept_by_voice_call_button" android:background="@drawable/green_button" android:layout_width="102.0dip" android:layout_height="66.66dip" android:layout_marginLeft="7.0dip" android:layout_marginBottom="8.0dip" android:text="@string/accept_by_n_voice_call" />
+        <Button android:textSize="17.0dip" android:textColor="@color/tw_color001" android:gravity="center" android:layout_gravity="bottom" android:id="@id/rej_msg_button" android:background="@drawable/red_button" android:layout_width="102.0dip" android:layout_height="66.66dip" android:layout_marginLeft="424.0dip" android:layout_marginBottom="8.0dip" android:text="@string/reject_with_n_message" />
+    </LinearLayout>
+    <com.android.phone.IncomingCallWidget android:id="@id/incomingCallWidgetForVT" android:paddingBottom="55.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <include layout="@layout/reject_call_with_msg_sliding_drawer" />
+</FrameLayout>

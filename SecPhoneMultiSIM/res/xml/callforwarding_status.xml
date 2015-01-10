@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:persistent="false" android:title="@string/voicecallforwarding" android:key="button_cf_voicecall_key">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.GsmUmtsCallForwardOptions" />
+    </PreferenceScreen>
+    <PreferenceScreen android:persistent="false" android:title="@string/videocallforwarding" android:key="button_cf_videocall_key">
+        <intent android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.GsmUmtsVideoCallForwardOptions" />
+    </PreferenceScreen>
+</PreferenceScreen>

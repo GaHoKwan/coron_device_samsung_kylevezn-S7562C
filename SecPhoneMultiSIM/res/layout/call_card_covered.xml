@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.phone.CallCardCovered android:paddingTop="9.0dip" android:paddingBottom="9.0dip" android:layout_width="fill_parent" android:layout_height="155.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/call_info_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="16.0dip" android:layout_gravity="center" android:id="@id/callStateLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="23.0dip" android:layout_gravity="center" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" />
+        <TextView android:textSize="23.0dip" android:layout_gravity="center" android:id="@id/phoneNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" />
+        <TextView android:textSize="16.0dip" android:textColor="#ff6a6a6a" android:layout_gravity="center" android:id="@id/helpTextLine1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        <TextView android:textSize="16.0dip" android:textColor="#ff6a6a6a" android:layout_gravity="center" android:id="@id/helpTextLine2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" />
+        <TextView android:textSize="16.0dip" android:textColor="#ff6a6a6a" android:layout_gravity="center" android:id="@id/helpTextLine3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" />
+    </LinearLayout>
+    <com.android.phone.IncomingCallImageWidget android:layout_gravity="bottom" android:id="@id/incomingCallImageWidget" android:tag="useHoverToAction" android:layout_width="fill_parent" android:layout_height="195.0dip" android:layout_marginLeft="9.0dip" android:layout_marginRight="9.0dip" android:layout_marginBottom="27.0dip" />
+</com.android.phone.CallCardCovered>

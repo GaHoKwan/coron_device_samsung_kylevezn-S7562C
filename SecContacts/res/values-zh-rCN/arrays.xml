@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dialog_items">
+        <item>通话</item>
+        <item>发送信息</item>
+    </string-array>
+    <string-array name="save_new_contacts_to_array">
+        <item>手机</item>
+        <item>SIM卡</item>
+        <item>Google</item>
+        <item>雅虎</item>
+        <item>MSN</item>
+    </string-array>
+    <string-array name="view_contacts_from_array">
+        <item>全部</item>
+        <item>手机</item>
+        <item>SIM卡</item>
+    </string-array>
+    <string-array name="order_of_display_name_array">
+        <item>名 姓</item>
+        <item>姓 名</item>
+    </string-array>
+    <string-array name="delete_group_menu">
+        <item>Only group</item>
+        <item>分组和组内所有联系人</item>
+    </string-array>
+    <string-array name="day_of_week">
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+        <item>星期日</item>
+    </string-array>
+    <string-array name="index_string_array">
+        <item>ABCDEFGHIJKLMNOPQRSTUVWXYZ</item>
+    </string-array>
+    <string-array name="index_string_array_compare">
+        <item>ABCDEFGHIJKLMNOPQRSTUVWXYZ</item>
+    </string-array>
+    <string-array name="yellowpage_citylist">
+        <item>北京</item>
+        <item>广州</item>
+        <item>深圳</item>
+        <item>重庆</item>
+        <item>大连</item>
+        <item>福州</item>
+        <item>杭州</item>
+        <item>济南</item>
+        <item>茂名</item>
+        <item>南京</item>
+        <item>宁波</item>
+        <item>青岛</item>
+        <item>汕头</item>
+        <item>沈阳</item>
+        <item>石家庄</item>
+        <item>苏州</item>
+        <item>天津</item>
+        <item>温州</item>
+        <item>武汉</item>
+        <item>无锡</item>
+        <item>厦门</item>
+        <item>西安</item>
+        <item>湛江</item>
+        <item>成都</item>
+    </string-array>
+    <string-array name="otherLabels">
+        <item>组织</item>
+        <item>注释</item>
+    </string-array>
+</resources>

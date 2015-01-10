@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:id="@id/tw_header_editor" android:background="?android:selectableItemBackground" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:focusable="true" android:clickable="true" android:layout_width="65.0dip" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="#ffb3b3b3" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/tw_editor" android:layout_width="32.0dip" android:layout_height="fill_parent" android:layout_marginLeft="14.0dip" android:src="@drawable/APKTOOL_DUMMY_053c" android:scaleType="centerInside" android:contentDescription="@string/menu_editContact" />
+</LinearLayout>

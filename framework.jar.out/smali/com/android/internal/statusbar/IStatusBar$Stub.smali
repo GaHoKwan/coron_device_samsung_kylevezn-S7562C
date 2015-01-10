@@ -677,3 +677,10 @@
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method
+
+.method public hideCallOnGoingView()V
+    .locals 0
+
+    .prologue
+    return-void
+.end method

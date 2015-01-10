@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/yp_mobile_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@id/yp_mobile_button" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/att_yellow_pages_header" />
+        </LinearLayout>
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/setup_profile_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/user_profile_header" />
+        <LinearLayout android:id="@id/setup_profile_button" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/user_profile_button" />
+        </LinearLayout>
+        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/tw_common_empty_item_layout_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/no_contacts_help_text" layout="@layout/tw_common_empty_item_layout" />
+        <LinearLayout android:orientation="vertical" android:id="@id/no_contacts_help_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/no_contacts_help_image" android:layout_width="65.0dip" android:layout_height="35.0dip" android:src="@drawable/noitem_add_contacts" />
+                <TextView android:textAppearance="@style/TwMainListNoContactsHelpTextAppearance" android:id="@id/no_contacts_help_text_above" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="@string/twNoContactsHelpText2" android:layout_weight="1.0" />
+            </LinearLayout>
+            <TextView android:textAppearance="@style/TwMainListNoContactsHelpTextAppearance" android:id="@id/no_contacts_help_text_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="9.0dip" android:text="@string/twNoContactsHelpText" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

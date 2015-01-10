@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable android:label="@string/tab_logs" android:icon="@drawable/call_dial_tab_call_focused" android:hint="@string/searchHint" android:searchMode="queryRewriteFromText" android:searchSuggestAuthority="com.sec.android.app.dialertab.calllog.LogsSuggestionsProvider" android:searchSuggestSelection="content MATCH ?" android:searchSuggestIntentAction="android.intent.action.VIEW" android:includeInGlobalSearch="true" android:queryAfterZeroResults="false" android:searchSettingsDescription="@string/tab_logs"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

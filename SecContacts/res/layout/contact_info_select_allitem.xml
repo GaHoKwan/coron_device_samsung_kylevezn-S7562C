@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="@drawable/select_all_item_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/select_all_margin_bottom"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/SelectAllTextAppearance" android:gravity="center_vertical" android:paddingLeft="@dimen/select_all_padding" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="@dimen/select_all_height" android:text="@string/select_all" android:layout_weight="1.0" />
+    <com.sec.android.touchwiz.widget.TwCheckBox android:id="@id/checkbox" android:paddingRight="@dimen/select_all_padding" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

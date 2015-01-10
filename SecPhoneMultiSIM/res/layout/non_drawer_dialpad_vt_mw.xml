@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.phone.DTMFTwelveKeyDialerViewForVT android:orientation="vertical" android:id="@id/non_drawer_dtmf_dialer_vt_mw" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="58.0dip" android:layout_marginTop="8.0dip">
+        <ImageButton android:id="@id/one" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_m_01" />
+        <ImageButton android:id="@id/two" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="9.0dip" android:src="@drawable/call_keypad_m_02" />
+        <ImageButton android:id="@id/three" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_m_03" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="58.0dip" android:layout_marginTop="8.0dip">
+        <ImageButton android:id="@id/four" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_m_04" />
+        <ImageButton android:id="@id/five" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="9.0dip" android:src="@drawable/call_keypad_m_05" />
+        <ImageButton android:id="@id/six" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_m_06" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="58.0dip" android:layout_marginTop="8.0dip">
+        <ImageButton android:id="@id/seven" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_m_07" />
+        <ImageButton android:id="@id/eight" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="9.0dip" android:src="@drawable/call_keypad_m_08" />
+        <ImageButton android:id="@id/nine" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_m_09" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="58.0dip" android:layout_marginTop="8.0dip">
+        <ImageButton android:id="@id/star" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_star" />
+        <ImageButton android:id="@id/zero" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="9.0dip" android:src="@drawable/call_keypad_m_00" />
+        <ImageButton android:id="@id/pound" android:background="@drawable/btn_dial_incall_mw" android:layout_width="195.0dip" android:layout_height="58.0dip" android:src="@drawable/call_keypad_shap" />
+    </LinearLayout>
+</com.android.phone.DTMFTwelveKeyDialerViewForVT>

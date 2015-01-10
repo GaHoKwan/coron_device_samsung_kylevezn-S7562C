@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/boxlist_header" android:background="@drawable/hub_title_bg" android:layout_width="fill_parent" android:layout_height="52.0dip">
+            <TextView android:textSize="18.659973sp" android:textColor="@touchwiz:color/tw_color001" android:id="@id/boxlist_TitleView" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:text="@string/new_message" android:shadowColor="@touchwiz:color/tw_color002" android:shadowDx="-1.0" android:shadowDy="-1.0" android:shadowRadius="0.3" android:layout_weight="1.0" />
+            <LinearLayout android:id="@id/boxlist_btn" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="7.0dip">
+                <LinearLayout android:gravity="right|center" android:id="@id/box_type_btn" android:focusable="true" android:nextFocusLeft="@id/box_type_btn" android:nextFocusRight="@id/compose_btn" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                    <Button android:id="@id/box_type_btn_text" android:background="@drawable/msg_btn_compose_selector" android:focusable="true" android:nextFocusRight="@id/compose_btn" android:clickable="false" android:duplicateParentState="true" android:layout_width="81.0dip" android:layout_height="45.659973dip" android:layout_marginRight="4.0dip" android:text="@string/inbox" />
+                </LinearLayout>
+                <LinearLayout android:gravity="right|center" android:id="@id/compose_btn" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                    <ImageButton android:id="@id/compose_btn_img" android:background="@drawable/msg_btn_compose_selector" android:focusable="true" android:clickable="false" android:duplicateParentState="true" android:layout_width="81.0dip" android:layout_height="45.659973dip" android:src="@drawable/email_write_icon_02" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/boxlist_title" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="25.329987dip" style="?android:attr/windowTitleBackgroundStyle">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:text="@string/delete" style="?android:attr/windowTitleStyle" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/boxlist_move_title" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="25.329987dip" style="?android:attr/windowTitleBackgroundStyle">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:text="@string/move" style="?android:attr/windowTitleStyle" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/box_select_all" android:background="@drawable/sub_header_bg" android:focusable="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="13.0dip" android:text="@string/select_all" android:layout_weight="1.0" />
+            <CheckBox android:id="@id/box_select_all_chButton" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" />
+        </LinearLayout>
+        <com.android.mms.ui.MsgSweepActionListView android:scrollbarStyle="insideOverlay" android:id="@*android:id/list" android:fadingEdgeLength="16.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:drawSelectorOnTop="false" android:layout_weight="1.0"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+        <com.sec.android.touchwiz.widget.TwSoftkeyView android:id="@id/box_softkeyview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="60.0dip"
+          xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+            <com.sec.android.touchwiz.widget.TwSoftkeyItem android:id="@id/box_softkeyleft" android:layout_width="fill_parent" android:layout_height="fill_parent" touchwiz:twSoftkeyItemType="text" touchwiz:twSoftkeyItemText="@string/delete" />
+            <com.sec.android.touchwiz.widget.TwSoftkeyItem android:id="@id/box_softkeymoveleft" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" touchwiz:twSoftkeyItemType="text" touchwiz:twSoftkeyItemText="@string/move" />
+            <com.sec.android.touchwiz.widget.TwSoftkeyItem android:id="@id/box_softkeyright" android:layout_width="fill_parent" android:layout_height="fill_parent" touchwiz:twSoftkeyItemType="text" touchwiz:twSoftkeyItemText="@string/no" />
+        </com.sec.android.touchwiz.widget.TwSoftkeyView>
+    </LinearLayout>
+    <FrameLayout android:orientation="vertical" android:id="@id/empty_screen" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:id="@id/empty_screen_portrait" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/emptyIconPort" android:layout_width="126.0dip" android:layout_height="126.0dip" android:layout_marginTop="89.0dip" android:layout_marginBottom="13.0dip" android:src="@drawable/no_text_messages" />
+            <TextView android:textSize="19.0dip" android:textColor="@color/conversation_no_message_color" android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/empty_list_textView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/message_count_zero" android:singleLine="true" />
+            <RelativeLayout android:gravity="bottom" android:id="@id/empty_template_port" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_marginBottom="57.0dip" android:layout_weight="1.0">
+                <ImageView android:id="@id/emptyTemplateIcon" android:layout_width="65.0dip" android:layout_height="35.0dip" android:src="@drawable/no_text_templates_create" android:layout_centerVertical="true" />
+                <TextView android:textSize="17.0dip" android:textColor="@color/conversation_no_message_color_wvga" android:ellipsize="marquee" android:id="@id/empty_list_templateView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/empty_template_string" android:layout_toRightOf="@id/emptyTemplateIcon" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/empty_screen_landscape" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:id="@id/empty_layout_left" android:layout_width="233.0dip" android:layout_height="fill_parent">
+                <ImageView android:layout_gravity="center" android:id="@id/emptyIconLand" android:layout_width="126.0dip" android:layout_height="126.0dip" android:layout_marginTop="50.0dip" android:src="@drawable/no_text_messages" />
+                <TextView android:textSize="19.0dip" android:textColor="@color/conversation_no_message_color" android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/empty_list_textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/message_count_zero" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/empty_layout_right" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/emptyTemplateIcon" android:layout_width="65.0dip" android:layout_height="35.0dip" android:layout_marginBottom="15.0dip" android:src="@drawable/no_text_templates_create" />
+                <TextView android:textSize="17.0dip" android:textColor="@color/conversation_no_message_color_wvga" android:ellipsize="marquee" android:layout_gravity="center_vertical" android:id="@id/empty_list_templateView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginBottom="15.0dip" android:text="@string/empty_template_string" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/empty_screen_multiwindow" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/emptyIconMW" android:layout_width="126.0dip" android:layout_height="126.0dip" android:src="@drawable/no_text_messages" />
+            <TextView android:textSize="19.0dip" android:textColor="@color/conversation_no_message_color" android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/empty_list_textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/message_count_zero" android:singleLine="true" />
+            <RelativeLayout android:id="@id/empty_template_multiwindow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="30.0dip" android:layout_marginRight="15.0dip">
+                <ImageView android:layout_gravity="center_horizontal" android:id="@id/emptyTemplateIcon" android:layout_width="65.0dip" android:layout_height="35.0dip" android:layout_marginTop="5.0dip" android:src="@drawable/no_text_templates_create" android:layout_alignParentTop="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="17.0dip" android:textColor="@color/conversation_no_message_color" android:ellipsize="marquee" android:id="@id/empty_list_templateView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="@string/empty_template_string" android:layout_toRightOf="@id/emptyTemplateIcon" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

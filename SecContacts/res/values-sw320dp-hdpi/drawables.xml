@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="screen_background_black">#ff000000</item>
+    <item type="drawable" name="orange_n">#ffffae00</item>
+    <item type="drawable" name="orange_p">#ffffffff</item>
+    <item type="drawable" name="orange_f">#ffffffff</item>
+    <item type="drawable" name="black_n">#ff000000</item>
+    <item type="drawable" name="blue_p">#ff0883d3</item>
+    <item type="drawable" name="blue_f">#ff20c4ee</item>
+</resources>

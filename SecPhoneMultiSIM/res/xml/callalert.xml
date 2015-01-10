@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/callsettings_callalert_callstatusvibrations" android:key="callsettings_vibrations_preference" android:summary="@string/callsettings_callalert_callstatusvibrations_summary" android:fragment="com.android.phone.callsettings.CallSettingsVibrationsPreference" />
+    <CheckBoxPreference android:title="@string/callsettings_callalert_end_vibration" android:key="end_vibration_preference" />
+    <com.android.phone.callsettings.CallStatusTonesPreference android:title="@string/callsettings_callalert_callstatustones" android:key="callstatustones_preference" android:summary="@string/callsettings_callalert_callstatustones_summary" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/callsettings_callalert_callstatustones" />
+    <CheckBoxPreference android:title="@string/callsettings_alertsoncall_title" android:key="alertoncall_preference" android:summary="@string/callsettings_alertsoncall_summary" />
+</PreferenceScreen>

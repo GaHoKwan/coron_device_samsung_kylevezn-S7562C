@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_IMAGE_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_IMAGE_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_VIDEO_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_VIDEO_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_SOUND_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_SOUND_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="TAKE_PICTURE_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="TAKE_PICTURE_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="RECORD_VIDEO_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="RECORD_VIDEO_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="RECORD_SOUND_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="RECORD_SOUND_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_VCARD_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_VCARD_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_VCAL_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_VCAL_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_VNOTE_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_VNOTE_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_VTODO_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_VTODO_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_LOCATION_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_LOCATION_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_SMEMO_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_SMEMO_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_SNOTE_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_SNOTE_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="ADD_DRAWINGPAD_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="ADD_DRAWINGPAD_key" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prov_transaction_timeout_category_title" android:key="DEBUG_mBlockContextAwareness_category_key">
+        <EditTextPreference android:title="@string/prov_transaction_timeout_title" android:key="DEBUG_mBlockContextAwareness" android:defaultValue="0" android:inputType="number" />
+    </PreferenceCategory>
+</PreferenceScreen>

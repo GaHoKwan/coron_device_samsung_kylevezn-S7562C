@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@*android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@null" />
+    <LinearLayout android:id="@*android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/port_empty" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:gravity="center" android:id="@id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noitems_text_based" />
+            <TextView android:textAppearance="@style/TwMainListNoContactsTextAppearance" android:gravity="center" android:id="@id/logslist_noitem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_logs" />
+            <TextView android:textAppearance="@style/TwMainListNoContactsTextAppearance" android:gravity="left" android:id="@id/logslist_noitem1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="18.0dip" android:layout_marginRight="15.0dip" android:text="@string/no_logs_text" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/land_empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/land_empty2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="472.0">
+                <ImageView android:gravity="center" android:id="@id/ImageView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:src="@drawable/noitems_text_based" />
+                <TextView android:textAppearance="@style/TwMainListNoContactsTextAppearance" android:gravity="center" android:id="@id/logslist_noitem2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/no_logs" />
+            </LinearLayout>
+            <TextView android:textAppearance="@style/TwMainListNoContactsTextAppearance" android:gravity="left" android:id="@id/logslist_noitem3" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="46.0dip" android:text="@string/no_logs_text" android:layout_weight="528.0" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_add_contact_holo_dark" android:id="@id/menu_add_contact" android:title="@string/menu_create" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/tw_action_bar_icon_group_holo_dark" android:id="@id/menu_add_group" android:title="@string/menu_create" />
+    <item android:icon="@drawable/tw_action_bar_icon_search_holo_dark" android:id="@id/menu_search" android:title="@string/menu_search" />
+    <item android:icon="@drawable/tw_action_bar_icon_delete_holo_dark" android:id="@id/menu_delete_contacts" android:title="@string/menu_multiple_delete_for_tablet" />
+    <item android:icon="@drawable/tw_action_bar_icon_changeorder_holo_dark" android:id="@id/menu_change_order" android:title="@string/change_order" />
+    <item android:icon="@drawable/tw_action_bar_icon_vzw_backup_holo_dark" android:id="@id/menu_backup" android:visible="false" android:title="@string/menu_backup" />
+    <item android:icon="@drawable/tw_action_bar_icon_delete_holo_dark" android:id="@id/menu_multiple_delete" android:title="@string/menu_multiple_delete" />
+    <item android:icon="@drawable/tw_action_bar_icon_delete_holo_dark" android:id="@id/menu_delete_groups" android:title="@string/menu_delete_groups" />
+    <item android:icon="@drawable/tw_action_bar_icon_sim_holo_dark" android:id="@id/menu_sim_management" android:visible="false" android:title="@string/sim_management" />
+    <item android:icon="@drawable/tw_action_bar_icon_exportimport_holo_dark" android:id="@id/menu_import_export" android:title="@string/menu_import_export" />
+    <item android:icon="@drawable/tw_action_bar_icon_samsung_holo_dark" android:id="@id/menu_merge_with_samsung" android:title="@string/menu_merge_with_samsung" />
+    <item android:icon="@drawable/tw_action_bar_icon_google_holo_dark" android:id="@id/menu_merge_with_google" android:title="@string/menu_merge_with_google" />
+    <item android:icon="@drawable/tw_action_bar_icon_account_holo_dark" android:id="@id/menu_accounts" android:title="@string/menu_accounts" />
+    <item android:icon="@drawable/tw_action_bar_icon_speeddialset_holo_dark" android:id="@id/menu_speed_dial_setting" android:title="@string/menu_speed_dial_setting" />
+    <item android:icon="@drawable/tw_action_bar_icon_edit_holo_dark" android:id="@id/menu_edit_group" android:title="@string/menu_editGroup" />
+    <item android:icon="@drawable/tw_action_bar_icon_sendemail_holo_dark" android:id="@id/menu_send_email" android:title="@string/menu_send_email" />
+    <item android:icon="@drawable/tw_action_bar_icon_sendmsg_holo_dark" android:id="@id/menu_send_message" android:title="@string/menu_send_message" />
+    <item android:icon="@drawable/tw_action_bar_icon_contacttodisplay_holo_dark" android:id="@id/menu_contacts_filter" android:title="@string/menu_contacts_filter" />
+    <item android:icon="@drawable/tw_action_bar_icon_contact_counter" android:id="@id/menu_contact_counter" android:title="@string/menu_contact_counter" />
+    <item android:icon="@drawable/tw_action_bar_icon_personal_connections_holo_dark" android:id="@id/menu_my_network" android:title="@string/menu_my_network" />
+    <item android:icon="@drawable/tw_action_bar_icon_setting_holo_dark" android:id="@id/menu_settings" android:title="@string/menu_settings" />
+    <item android:id="@id/menu_add_member" android:title="@string/add_member" />
+    <item android:id="@id/menu_remove_member" android:title="@string/remove_member" />
+    <item android:icon="@drawable/tw_action_bar_icon_sendmsg_holo_dark" android:id="@id/menu_send_message_in_group" android:title="@string/menu_send_message" />
+    <item android:icon="@drawable/tw_action_bar_icon_sendemail_holo_dark" android:id="@id/menu_send_email_in_group" android:title="@string/menu_send_email" />
+    <item android:icon="@drawable/tw_action_bar_icon_addtofav_holo_dark" android:id="@id/menu_add_favorite" android:title="@string/menu_addStar" />
+    <item android:icon="@drawable/tw_action_bar_icon_removefromfav_holo_dark" android:id="@id/menu_delete_favorite" android:title="@string/menu_removeStar" />
+    <item android:icon="@drawable/tw_action_bar_icon_thumbnail_holo_dark" android:id="@id/menu_change_view" android:title="View change" />
+</menu>

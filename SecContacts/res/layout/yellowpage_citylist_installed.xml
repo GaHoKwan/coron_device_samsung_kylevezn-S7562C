@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioButton android:id="@id/currentcitycheck" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginTop="7.0dip" android:layout_alignParentLeft="true" />
+    <TextView android:textSize="22.0sp" android:textStyle="normal" android:textColor="#ffd7d7d7" android:id="@id/citynameinst" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="50.0dip" android:layout_marginTop="6.0dip" android:layout_alignParentLeft="true" />
+    <ImageButton android:id="@id/citystate" android:background="?android:selectableItemBackground" android:focusable="false" android:clickable="true" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_marginLeft="12.0dip" android:layout_marginTop="6.0dip" android:scaleType="fitXY" android:layout_alignParentRight="true" />
+    <Button android:textSize="19.0sp" android:textStyle="normal" android:textColor="#ffd7d7d7" android:gravity="center" android:id="@id/citydataupdate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_toLeftOf="@id/citystate" android:layout_alignTop="@id/citystate" />
+    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="#ff8d9ca3" android:id="@id/citysize" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="50.0dip" android:layout_marginTop="2.0dip" android:layout_below="@id/citynameinst" android:layout_alignParentLeft="true" />
+</RelativeLayout>

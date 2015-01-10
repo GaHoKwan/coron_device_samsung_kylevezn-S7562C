@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/tw_action_bar_icon_removemember_holo_dark" android:id="@id/menu_remove_member" android:title="@string/remove_member" android:alphabeticShortcut="e" />
+    <item android:icon="@drawable/tw_action_bar_icon_delete_holo_dark" android:id="@id/menu_delete_contacts" android:title="@string/menu_multiple_delete_for_tablet" />
+    <item android:icon="@drawable/tw_action_bar_icon_sendmsg_holo_dark" android:id="@id/menu_send_message" android:title="@string/menu_send_message" android:alphabeticShortcut="e" />
+    <item android:icon="@drawable/tw_action_bar_icon_sendemail_holo_dark" android:id="@id/menu_send_email" android:title="@string/menu_send_email" android:alphabeticShortcut="e" />
+    <item android:icon="@drawable/tw_action_bar_icon_edit_holo_dark" android:id="@id/menu_edit_group" android:title="@string/menu_editGroup" android:alphabeticShortcut="e" />
+</menu>

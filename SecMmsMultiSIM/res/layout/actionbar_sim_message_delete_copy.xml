@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="19.0dip" android:textColor="@color/actionbar_title_color_normal" android:gravity="center_vertical" android:id="@id/actionbar_sim_title" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/pref_title_manage_sim_messages" android:singleLine="true" android:shadowColor="@color/action_bar_shadow" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="0.3" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/sim_commandbar" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <TextView android:id="@id/actionbar_sim_message_delete_cancel_btn" android:layout_width="wrap_content" android:layout_height="fill_parent" android:drawableLeft="@drawable/selector_actionbar_delete_cancel_button" style="@style/AcionBarMenuText" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/actionbar_sim_message_delete_list_separator_2" android:background="@drawable/tw_divider_vertical_holo_dark" android:focusable="false" android:layout_width="1.0dip" android:layout_height="28.0dip" />
+        <TextView android:id="@id/actionbar_sim_message_delete_done_btn" android:layout_width="wrap_content" android:layout_height="fill_parent" android:drawableLeft="@drawable/selector_actionbar_delete_done_button" style="@style/AcionBarMenuText" />
+    </LinearLayout>
+</LinearLayout>

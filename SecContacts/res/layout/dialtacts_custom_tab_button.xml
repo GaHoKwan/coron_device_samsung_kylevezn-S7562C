@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="vertical" android:id="@id/tab_custom_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/tab_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <Button android:id="@id/tab_custom_view_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawableTop="@drawable/action_bar_icon_contact" android:layout_alignLeft="@id/tab_view" android:layout_alignTop="@id/tab_view" android:layout_alignRight="@id/tab_view" android:layout_alignBottom="@id/tab_view" />
+</RelativeLayout>

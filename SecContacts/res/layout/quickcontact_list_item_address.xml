@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/actions_view_container" android:nextFocusRight="@id/secondary_action_button" style="@style/QuickContactListItemStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_marginTop="6.0dip" android:layout_marginBottom="12.0dip" style="@style/QuickContactListItemTextWrapperStyle">
+        <TextView android:textSize="17.0dip" android:textColor="@color/tw_contact_detail_list_secondary" android:id="@*android:id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="22.0dip" android:textColor="@color/tw_contact_detail_list_primary" android:id="@*android:id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <include layout="@layout/quickcontact_list_item_base" />
+</LinearLayout>

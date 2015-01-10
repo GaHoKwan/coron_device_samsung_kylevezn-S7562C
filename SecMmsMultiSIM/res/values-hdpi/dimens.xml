@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="group_message_width">124.0dip</dimen>
+    <dimen name="individual_message_width">124.0dip</dimen>
+    <dimen name="individual_message_paddingLeft">0.0dip</dimen>
+    <dimen name="group_message_paddingLeft">2.0dip</dimen>
+    <dimen name="reply_all_banner_height">40.0dip</dimen>
+    <dimen name="recipient_button_height">54.0px</dimen>
+</resources>
