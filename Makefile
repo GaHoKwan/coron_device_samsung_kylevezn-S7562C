@@ -54,7 +54,7 @@ vendor_remove_files := etc/PowerOn.wav media/audio/ui/PowerOn.ogg media/bootsams
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2  SecContactsProvider SecTelephonyProviderMultiSIM LogsProvider Samsungservice
+vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2  SecContactsProvider SecTelephonyProviderMultiSIM LogsProvider
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -93,7 +93,7 @@ vendor_modify_jars := framework framework2 pm services twframework
 # The default value is nothing.
 # You can configure the baidu system apk name in the value.
 #-----------------------------------------------------------------------------
-baidu_remove_apps := Contacts ContactsProvider Phone TelephonyProvider
+baidu_remove_apps := BaiduCamera BaiduGallery3D
 
 ##############################################################################
 # The value decides which apk you want to modify, when the apk is based on the baidu system apk.
