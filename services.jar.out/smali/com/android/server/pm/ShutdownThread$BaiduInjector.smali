@@ -32,7 +32,7 @@
 
     .prologue
     .line 237
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->access$500()Z
+    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->access$sget-mReboot-0a52af()Z
 
     move-result v1
 
@@ -112,7 +112,7 @@
 
     .prologue
     .line 254
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->access$500()Z
+    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->access$sget-mReboot-0a52af()Z
 
     move-result v0
 

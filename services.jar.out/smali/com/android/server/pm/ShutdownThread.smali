@@ -1,28 +1,25 @@
 .class public final Lcom/android/server/pm/ShutdownThread;
-.super Lcom/android/server/pm/ShutdownThreadFeature;
+.super Ljava/lang/Thread;
 .source "ShutdownThread.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/pm/ShutdownThread$Led;,
-        Lcom/android/server/pm/ShutdownThread$Log;,
-        Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
+        Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;,
+        Lcom/android/server/pm/ShutdownThread$BaiduInjector;
     }
 .end annotation
 
 
 # static fields
-.field public static LOG_BACKUP_FILE_NAME:Ljava/lang/String; = null
-
-.field public static LOG_FILE_NAME:Ljava/lang/String; = null
-
 .field private static final MAX_BROADCAST_TIME:I = 0x2710
 
 .field private static final MAX_RADIO_WAIT_TIME:I = 0x2ee0
 
-.field private static final MAX_SHUTDOWN_WAIT_TIME:I = 0x7530
+.field private static final MAX_SHUTDOWN_WAIT_TIME:I = 0x4e20
+
+.field private static final PHONE_STATE_POLL_SLEEP_MSEC:I = 0x1f4
 
 .field public static final REBOOT_SAFEMODE_PROPERTY:Ljava/lang/String; = "persist.sys.safemode"
 
@@ -32,130 +29,58 @@
 
 .field private static final TAG:Ljava/lang/String; = "ShutdownThread"
 
-.field private static dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-.field private static mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-.field private static mFakeShutdown:Z
-
 .field private static mReboot:Z
 
 .field private static mRebootReason:Ljava/lang/String;
 
 .field private static mRebootSafeMode:Z
 
-.field private static mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-.field private static mSlient:Z
-
-.field private static pd:Landroid/app/ProgressDialog;
-
 .field private static final sInstance:Lcom/android/server/pm/ShutdownThread;
-
-.field private static sIsConfirming:Z
 
 .field private static sIsStarted:Z
 
 .field private static sIsStartedGuard:Ljava/lang/Object;
 
-.field private static soundThread:Ljava/lang/Thread;
-
 
 # instance fields
 .field private mActionDone:Z
 
-.field private mActionDoneMount:Z
-
 .field private final mActionDoneSync:Ljava/lang/Object;
 
-.field private final mActionDoneSyncMount:Ljava/lang/Object;
-
 .field private mContext:Landroid/content/Context;
+
+.field private mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
 
 .field private mHandler:Landroid/os/Handler;
 
 .field private mPowerManager:Landroid/os/PowerManager;
 
+.field private mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
+
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 1
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 115
+    .line 64
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
 
-    .line 116
-    sput-boolean v2, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
+    .line 65
+    const/4 v0, 0x0
 
-    .line 117
-    sput-boolean v2, Lcom/android/server/pm/ShutdownThread;->sIsConfirming:Z
+    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
 
-    .line 131
+    .line 78
     new-instance v0, Lcom/android/server/pm/ShutdownThread;
 
     invoke-direct {v0}, Lcom/android/server/pm/ShutdownThread;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    .line 143
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "/log/power_off_reset_reason.txt"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->LOG_FILE_NAME:Ljava/lang/String;
-
-    .line 144
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "/log/power_off_reset_reason_backup.txt"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->LOG_BACKUP_FILE_NAME:Ljava/lang/String;
-
-    .line 169
-    sput-boolean v2, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
 
     return-void
 .end method
@@ -164,1183 +89,329 @@
     .locals 1
 
     .prologue
-    .line 151
-    const-string v0, "ShutdownThread"
+    .line 88
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    invoke-direct {p0, v0}, Lcom/android/server/pm/ShutdownThreadFeature;-><init>(Ljava/lang/String;)V
-
-    .line 133
+    .line 80
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSync:Ljava/lang/Object;
 
-    .line 134
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSyncMount:Ljava/lang/Object;
-
-    .line 152
+    .line 89
     return-void
 .end method
 
-.method public static IsShutDownConfirming()Z
-    .locals 2
-
-    .prologue
-    .line 707
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 708
-    :try_start_0
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsConfirming:Z
-
-    monitor-exit v1
-
-    return v0
-
-    .line 709
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public static IsShutDownStarted()Z
-    .locals 3
-
-    .prologue
-    .line 695
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 696
-    :try_start_0
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
-
-    if-eqz v0, :cond_0
-
-    .line 697
-    const-string v0, "ShutdownThread"
-
-    const-string v2, "shut down already running , return true"
-
-    invoke-static {v0, v2}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 698
-    const/4 v0, 0x1
-
-    monitor-exit v1
-
-    .line 701
-    :goto_0
-    return v0
-
-    .line 700
-    :cond_0
-    const-string v0, "ShutdownThread"
-
-    const-string v2, "shut down is not started , return false"
-
-    invoke-static {v0, v2}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 701
-    const/4 v0, 0x0
-
-    monitor-exit v1
-
-    goto :goto_0
-
-    .line 703
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Z)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 103
-    invoke-static {p0, p1}, Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$100()Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 103
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$202(Z)Z
+.method static synthetic access$000(Landroid/content/Context;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 103
-    sput-boolean p0, Lcom/android/server/pm/ShutdownThread;->sIsConfirming:Z
+    .line 51
+    invoke-static {p0}, Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
 
-    return p0
-.end method
-
-.method static synthetic access$500()Z
-    .locals 1
-
-    .prologue
-    .line 103
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
-
-    return v0
-.end method
-
-.method static synthetic access$600()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 103
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method private static beginShutdownSequence(Landroid/content/Context;Z)V
-    .locals 10
-    .parameter "context"
-    .parameter "confirm"
-
-    .prologue
-    const/4 v5, 0x0
-
-    const/4 v2, 0x1
-
-    const/4 v4, 0x0
-
-    .line 381
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 382
-    :try_start_0
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
-
-    if-eqz v0, :cond_0
-
-    .line 383
-    const-string v0, "ShutdownThread"
-
-    const-string v2, "!@Request to shutdown already running, returning."
-
-    invoke-static {v0, v2}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 384
-    monitor-exit v1
-
-    .line 505
-    :goto_0
     return-void
-
-    .line 386
-    :cond_0
-    const/4 v0, 0x1
-
-    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
-
-    .line 387
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread$Log;->startState()V
-
-    .line 388
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 389
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "beginShutdownSequence"
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 392
-    invoke-static {v2}, Lcom/android/server/pm/ShutdownThread;->setInputKeys(Z)V
-
-    .line 396
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v0
-
-    const-string v1, "CscFeature_IMS_EnableVoLTE"
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 397
-    new-instance v9, Landroid/content/Intent;
-
-    invoke-direct {v9}, Landroid/content/Intent;-><init>()V
-
-    .line 398
-    .local v9, intent:Landroid/content/Intent;
-    const-string v0, "com.sec.android.internal.ims.FLIGHT_MODE"
-
-    invoke-virtual {v9, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 399
-    invoke-virtual {p0, v9}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 404
-    .end local v9           #intent:Landroid/content/Intent;
-    :cond_1
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
-
-    sget-boolean v1, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
-
-    sget-object v3, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    invoke-static {p0, v0, v1, p1, v3}, Lcom/android/server/pm/FakeShutdown;->needFake(Landroid/content/Context;ZZZLjava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
-
-    .line 406
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    iput-object p0, v0, Lcom/android/server/pm/ShutdownThread;->mContext:Landroid/content/Context;
-
-    .line 407
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    const-string v0, "power"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/PowerManager;
-
-    iput-object v0, v1, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
-
-    .line 410
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sput-object v4, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    .line 412
-    :try_start_1
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    iget-object v0, v0, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
-
-    const/4 v1, 0x1
-
-    const-string v3, "ShutdownThread-cpu"
-
-    invoke-virtual {v0, v1, v3}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    .line 414
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
-
-    .line 415
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
-
-    .line 421
-    :goto_1
-    const-string v0, "audio"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/media/AudioManager;
-
-    .line 423
-    .local v6, audioManager:Landroid/media/AudioManager;
-    const-string v0, "shutdown"
-
-    const-string v1, "1"
-
-    invoke-virtual {v6, v0, v1}, Landroid/media/AudioManager;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 426
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
-
-    if-eqz v0, :cond_4
-
-    .line 470
-    :cond_2
-    :goto_2
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sput-object v4, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    .line 471
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    iget-object v0, v0, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isScreenOn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
-
-    if-nez v0, :cond_3
-
-    .line 473
-    :try_start_2
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    iget-object v0, v0, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
-
-    const/16 v1, 0x1a
-
-    const-string v3, "ShutdownThread-screen"
-
-    invoke-virtual {v0, v1, v3}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    .line 475
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
-
-    .line 476
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
-    :try_end_2
-    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_1
-
-    .line 483
-    :cond_3
-    :goto_3
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
-
-    if-eqz v0, :cond_7
-
-    .line 484
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "mFakeShutdown, start"
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 485
-    new-instance v8, Lcom/android/server/pm/FakeShutdown;
-
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    invoke-direct {v8, p0, v0}, Lcom/android/server/pm/FakeShutdown;-><init>(Landroid/content/Context;Lcom/android/server/pm/ShutdownDialog;)V
-
-    .line 486
-    .local v8, fake:Lcom/android/server/pm/FakeShutdown;
-    invoke-virtual {v8}, Ljava/lang/Thread;->start()V
-
-    goto/16 :goto_0
-
-    .line 388
-    .end local v6           #audioManager:Landroid/media/AudioManager;
-    .end local v8           #fake:Lcom/android/server/pm/FakeShutdown;
-    :catchall_0
-    move-exception v0
-
-    :try_start_3
-    monitor-exit v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    throw v0
-
-    .line 416
-    :catch_0
-    move-exception v7
-
-    .line 417
-    .local v7, e:Ljava/lang/SecurityException;
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "!@No permission to acquire wake lock"
-
-    invoke-static {v0, v1, v7}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
-
-    .line 418
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sput-object v4, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    goto :goto_1
-
-    .line 429
-    .end local v7           #e:Ljava/lang/SecurityException;
-    .restart local v6       #audioManager:Landroid/media/AudioManager;
-    :cond_4
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
-
-    if-eqz v0, :cond_5
-
-    .line 431
-    new-instance v0, Lcom/android/server/pm/ShutdownDialog;
-
-    invoke-direct {v0, p0}, Lcom/android/server/pm/ShutdownDialog;-><init>(Landroid/content/Context;)V
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    .line 432
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    const-string v1, "/system/media/video/shutdown/warmdown.qmg"
-
-    const-string v3, "/system/media/audio/ui/Tab.ogg"
-
-    invoke-virtual {v0, v1, v3}, Lcom/android/server/pm/ShutdownDialog;->prepareShutdown(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 434
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
-
-    goto :goto_2
-
-    .line 436
-    :cond_5
-    invoke-static {}, Lcom/android/server/pm/ShutdownDialog;->existAnim()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    .line 438
-    new-instance v0, Lcom/android/server/pm/ShutdownDialog;
-
-    invoke-direct {v0, p0}, Lcom/android/server/pm/ShutdownDialog;-><init>(Landroid/content/Context;)V
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    .line 439
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    invoke-virtual {v0, v4, v4}, Lcom/android/server/pm/ShutdownDialog;->prepareShutdown(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 440
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
-
-    goto/16 :goto_2
-
-    .line 446
-    :cond_6
-    new-instance v0, Landroid/app/ProgressDialog;
-
-    invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    .line 447
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    const v1, 0x10401ab
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 448
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    const v1, 0x10401af
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
-
-    .line 449
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
-
-    .line 450
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0, v5}, Landroid/app/Dialog;->setCancelable(Z)V
-
-    .line 451
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x7d9
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
-
-    .line 453
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/high16 v1, 0x20
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    .line 454
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x80
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    .line 456
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    .line 457
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/high16 v1, 0x40
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    .line 458
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/high16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    .line 460
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->pd:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
-
-    .line 462
-    const-string v0, "SCH-I425"
-
-    const-string v1, "ro.product.model"
-
-    invoke-static {v1, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-static {}, Lcom/android/server/pm/ShutdownDialog;->existSound()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 464
-    new-instance v0, Ljava/lang/Thread;
-
-    new-instance v1, Lcom/android/server/pm/ShutdownDialog$SoundRunnable;
-
-    invoke-direct {v1, p0, v4}, Lcom/android/server/pm/ShutdownDialog$SoundRunnable;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    sput-object v0, Lcom/android/server/pm/ShutdownThread;->soundThread:Ljava/lang/Thread;
-
-    .line 465
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->soundThread:Ljava/lang/Thread;
-
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
-
-    goto/16 :goto_2
-
-    .line 477
-    :catch_1
-    move-exception v7
-
-    .line 478
-    .restart local v7       #e:Ljava/lang/SecurityException;
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "!@No permission to acquire wake lock"
-
-    invoke-static {v0, v1, v7}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
-
-    .line 479
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    sput-object v4, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    goto/16 :goto_3
-
-    .line 488
-    .end local v7           #e:Ljava/lang/SecurityException;
-    :cond_7
-    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
-
-    if-eqz v0, :cond_8
-
-    .line 490
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "shutdown thread slient shutdown"
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 491
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
-
-    .line 493
-    const/4 v0, 0x5
-
-    const/4 v1, 0x2
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    sget-object v4, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    iget-object v4, v4, Lcom/android/server/pm/ShutdownThread;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "System shutting down."
-
-    invoke-static/range {v0 .. v5}, Landroid/sec/enterprise/auditlog/AuditLog;->log(IIZILjava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 500
-    :cond_8
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "normal shutdown thread will start"
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 501
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    new-instance v1, Lcom/android/server/pm/ShutdownThread$3;
-
-    invoke-direct {v1}, Lcom/android/server/pm/ShutdownThread$3;-><init>()V
-
-    iput-object v1, v0, Lcom/android/server/pm/ShutdownThread;->mHandler:Landroid/os/Handler;
-
-    .line 503
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
-
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
-
-    goto/16 :goto_0
 .end method
 
-.method public static canGlobalActionsShow()Z
-    .locals 1
-
-    .prologue
-    .line 689
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->IsShutDownStarted()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->IsShutDownConfirming()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public static fakeShutdown(Landroid/content/Context;Ljava/lang/String;Z)V
+.method private static beginShutdownSequence(Landroid/content/Context;)V
     .locals 7
     .parameter "context"
-    .parameter "reason"
-    .parameter "confirm"
 
     .prologue
-    const/4 v6, 0x0
-
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 346
-    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
+    const/4 v6, 0x0
 
-    monitor-enter v2
+    .line 200
+    sget-object v3, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
 
-    .line 347
+    monitor-enter v3
+
+    .line 201
     :try_start_0
-    sget-boolean v1, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
+    sget-boolean v2, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 348
-    const-string v1, "ShutdownThread"
+    .line 202
+    const-string v2, "ShutdownThread"
 
-    const-string v3, "!@fakeShutdown : shut down already running."
+    const-string v4, "Shutdown sequence already running, returning."
 
-    invoke-static {v1, v3}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 349
-    monitor-exit v2
+    .line 203
+    monitor-exit v3
 
-    .line 378
+    .line 252
     :goto_0
     return-void
 
-    .line 351
+    .line 205
     :cond_0
-    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->fakeState()I
+    const/4 v2, 0x1
 
-    move-result v1
+    sput-boolean v2, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
 
-    if-eqz v1, :cond_1
-
-    .line 352
-    const-string v1, "ShutdownThread"
-
-    const-string v3, "!@fakeShutdown : fakeshutdown already done"
-
-    invoke-static {v1, v3}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 353
-    monitor-exit v2
-
-    goto :goto_0
-
-    .line 355
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
+    .line 206
+    monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    .line 210
+    new-instance v1, Landroid/app/ProgressDialog;
 
-    :cond_1
-    :try_start_1
-    monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-direct {v1, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
-    .line 357
-    const-string v1, "ShutdownThread"
+    .line 211
+    .local v1, pd:Landroid/app/ProgressDialog;
+    const v2, #android:string@power_off#t
 
-    const-string v2, "get cpulock while 2 secs"
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
-    invoke-static {v1, v2}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    .line 358
+    invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
+
+    const v2, #android:string@shutdown_progress#t
+
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
+
+    invoke-static {p0, v1}, Lcom/android/server/pm/ShutdownThread$BaiduInjector;->rebootProgressDialogBaidu(Landroid/content/Context;Landroid/app/ProgressDialog;)V
+
+    .line 213
+    invoke-virtual {v1, v5}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
+
+    .line 214
+    invoke-virtual {v1, v4}, Landroid/app/ProgressDialog;->setCancelable(Z)V
+
+    .line 215
+    invoke-virtual {v1}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    const/16 v3, 0x7d9
+
+    invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
+
+    .line 217
+    invoke-virtual {v1}, Landroid/app/ProgressDialog;->show()V
+
+    .line 219
     sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    const-string v1, "power"
+    iput-object p0, v2, Lcom/android/server/pm/ShutdownThread;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 220
+    sget-object v3, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    move-result-object v1
+    const-string v2, "power"
 
-    check-cast v1, Landroid/os/PowerManager;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iput-object v1, v2, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
+    move-result-object v2
 
-    .line 361
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+    check-cast v2, Landroid/os/PowerManager;
 
-    sput-object v6, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
+    iput-object v2, v3, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
 
-    .line 363
-    :try_start_2
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+    .line 223
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+    iput-object v6, v2, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    iget-object v1, v1, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
+    .line 225
+    :try_start_1
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    const/4 v2, 0x1
+    sget-object v3, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    const-string v3, "ShutdownThread-cpu"
+    iget-object v3, v3, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    const-string v5, "ShutdownThread-cpu"
 
-    sput-object v1, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v3, v4, v5}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    .line 365
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+    move-result-object v3
 
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
+    iput-object v3, v2, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    const/4 v2, 0x0
+    .line 227
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    invoke-virtual {v1, v2}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
+    iget-object v2, v2, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 366
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+    const/4 v3, 0x0
 
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v2, v3}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    const-wide/16 v2, 0x7d0
+    .line 228
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
-    :try_end_2
-    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
+    iget-object v2, v2, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 372
+    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+
+    .line 235
     :goto_1
-    sput-boolean v4, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    .line 373
-    const-string v1, "ShutdownThread"
+    iput-object v6, v2, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 236
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v2, v2, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
 
-    const-string v3, "reboot reason : "
+    invoke-virtual {v2}, Landroid/os/PowerManager;->isScreenOn()Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    move-result-object v2
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 238
+    :try_start_2
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    move-result-object v2
+    sget-object v3, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v3, v3, Lcom/android/server/pm/ShutdownThread;->mPowerManager:Landroid/os/PowerManager;
 
-    move-result-object v2
+    const/16 v4, 0x1a
 
-    invoke-static {v1, v2}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v5, "ShutdownThread-screen"
 
-    .line 374
-    sput-boolean v4, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+    invoke-virtual {v3, v4, v5}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    .line 375
-    sput-object p1, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
+    move-result-object v3
 
-    .line 376
-    sput-boolean v5, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
+    iput-object v3, v2, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 377
-    invoke-static {p0, p2}, Lcom/android/server/pm/ShutdownThread;->shutdown(Landroid/content/Context;Z)V
+    .line 240
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    goto :goto_0
+    iget-object v2, v2, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 367
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
+
+    .line 241
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+
+    iget-object v2, v2, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    :try_end_2
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_1
+
+    .line 249
+    :cond_1
+    :goto_2
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+
+    new-instance v3, Lcom/android/server/pm/ShutdownThread$2;
+
+    invoke-direct {v3}, Lcom/android/server/pm/ShutdownThread$2;-><init>()V
+
+    iput-object v3, v2, Lcom/android/server/pm/ShutdownThread;->mHandler:Landroid/os/Handler;
+
+    .line 251
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+
+    invoke-virtual {v2}, Lcom/android/server/pm/ShutdownThread;->start()V
+
+    goto/16 :goto_0
+
+    .line 206
+    .end local v1           #pd:Landroid/app/ProgressDialog;
+    :catchall_0
+    move-exception v2
+
+    :try_start_3
+    monitor-exit v3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    throw v2
+
+    .line 229
+    .restart local v1       #pd:Landroid/app/ProgressDialog;
     :catch_0
     move-exception v0
 
-    .line 368
+    .line 230
     .local v0, e:Ljava/lang/SecurityException;
-    const-string v1, "ShutdownThread"
+    const-string v2, "ShutdownThread"
 
-    const-string v2, "!@No permission to acquire wake lock"
+    const-string v3, "No permission to acquire wake lock"
 
-    invoke-static {v1, v2, v0}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 369
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
+    .line 231
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    sput-object v6, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
+    iput-object v6, v2, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
 
     goto :goto_1
-.end method
 
-.method private static getReasonforshutdownFileName()Ljava/io/File;
-    .locals 10
+    .line 242
+    .end local v0           #e:Ljava/lang/SecurityException;
+    :catch_1
+    move-exception v0
 
-    .prologue
-    const/16 v9, 0x1b0
+    .line 243
+    .restart local v0       #e:Ljava/lang/SecurityException;
+    const-string v2, "ShutdownThread"
 
-    const/4 v8, -0x1
+    const-string v3, "No permission to acquire wake lock"
 
-    .line 742
-    new-instance v0, Ljava/io/File;
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    sget-object v4, Lcom/android/server/pm/ShutdownThread;->LOG_FILE_NAME:Ljava/lang/String;
+    .line 244
+    sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
 
-    invoke-direct {v0, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    iput-object v6, v2, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 743
-    .local v0, fname:Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4, v9, v8, v8}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
-
-    .line 745
-    invoke-virtual {v0}, Ljava/io/File;->length()J
-
-    move-result-wide v4
-
-    const-wide/16 v6, 0x2800
-
-    cmp-long v4, v4, v6
-
-    if-lez v4, :cond_1
-
-    .line 746
-    new-instance v1, Ljava/io/File;
-
-    sget-object v4, Lcom/android/server/pm/ShutdownThread;->LOG_BACKUP_FILE_NAME:Ljava/lang/String;
-
-    invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 747
-    .local v1, mBackupfname:Ljava/io/File;
-    const-string v4, "ShutdownThread"
-
-    const-string v5, "The size of power_off_reset_reason.txt is over than 10KB. Rename to power_off_reset_reason_backup.txt for backup."
-
-    invoke-static {v4, v5}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 749
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 750
-    const-string v4, "ShutdownThread"
-
-    const-string v5, "power_off_reset_reason_backup.txt file is already exist. So, delete it."
-
-    invoke-static {v4, v5}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 751
-    invoke-virtual {v1}, Ljava/io/File;->delete()Z
-
-    .line 754
-    :cond_0
-    invoke-virtual {v0, v1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-
-    move-result v3
-
-    .line 755
-    .local v3, rename:Z
-    if-eqz v3, :cond_1
-
-    .line 756
-    const-string v4, "ShutdownThread"
-
-    const-string v5, "rename to power_off_reset_reason_backup.txt"
-
-    invoke-static {v4, v5}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 757
-    new-instance v2, Ljava/io/File;
-
-    sget-object v4, Lcom/android/server/pm/ShutdownThread;->LOG_FILE_NAME:Ljava/lang/String;
-
-    invoke-direct {v2, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 758
-    .local v2, new_fname:Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4, v9, v8, v8}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
-
-    .line 759
-    const-string v4, "ShutdownThread"
-
-    const-string v5, "power_off_reset_reason.txt is re-created."
-
-    invoke-static {v4, v5}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 763
-    .end local v1           #mBackupfname:Ljava/io/File;
-    .end local v2           #new_fname:Ljava/io/File;
-    .end local v3           #rename:Z
-    :goto_0
-    return-object v2
-
-    :cond_1
-    move-object v2, v0
-
-    goto :goto_0
+    goto :goto_2
 .end method
 
 .method public static reboot(Landroid/content/Context;Ljava/lang/String;Z)V
-    .locals 4
+    .locals 1
     .parameter "context"
     .parameter "reason"
     .parameter "confirm"
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 315
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->IsShutDownStarted()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 324
-    :goto_0
-    return-void
-
-    .line 318
-    :cond_0
-    const-string v0, "ShutdownThread"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "reboot reason : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", confirm : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 319
+    .line 179
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
-    .line 320
-    sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+    .line 180
+    const/4 v0, 0x0
 
-    .line 321
+    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+
+    .line 181
     sput-object p1, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
 
-    .line 322
-    sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
+    .line 182
+    invoke-static {p0, p2}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;Z)V
 
-    .line 323
-    invoke-static {p0, p2, v3}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;ZZ)V
-
-    goto :goto_0
+    .line 183
+    return-void
 .end method
 
 .method public static rebootOrShutdown(ZLjava/lang/String;)V
@@ -1349,17 +420,17 @@
     .parameter "reason"
 
     .prologue
-    .line 657
-    if-eqz p0, :cond_1
+    .line 488
+    if-eqz p0, :cond_0
 
-    .line 658
+    .line 489
     const-string v2, "ShutdownThread"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "!@Rebooting, reason: "
+    const-string v4, "Rebooting, reason: "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1373,69 +444,59 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 660
+    .line 491
     :try_start_0
     invoke-static {p1}, Lcom/android/server/PowerManagerService;->lowLevelReboot(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 681
-    :cond_0
+    .line 513
     :goto_0
-    #calls: Lcom/android/server/pm/ShutdownThread$Led;->Off()V
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread$Led;->access$400()V
-
-    .line 684
     const-string v2, "ShutdownThread"
 
     const-string v3, "Performing low-level shutdown..."
 
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 685
+    .line 514
     invoke-static {}, Lcom/android/server/PowerManagerService;->lowLevelShutdown()V
 
-    .line 686
+    .line 515
     return-void
 
-    .line 661
+    .line 492
     :catch_0
     move-exception v0
 
-    .line 662
+    .line 493
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "ShutdownThread"
 
-    const-string v3, "!@Reboot failed, will attempt shutdown instead"
+    const-string v3, "Reboot failed, will attempt shutdown instead"
 
-    invoke-static {v2, v3, v0}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 664
+    .line 497
     .end local v0           #e:Ljava/lang/Exception;
-    :cond_1
-    sget-boolean v2, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
-
-    if-nez v2, :cond_0
-
-    .line 666
+    :cond_0
     new-instance v1, Landroid/os/SystemVibrator;
 
     invoke-direct {v1}, Landroid/os/SystemVibrator;-><init>()V
 
-    .line 668
+    .line 499
     .local v1, vibrator:Landroid/os/Vibrator;
     const-wide/16 v2, 0x1f4
 
     :try_start_1
-    invoke-virtual {v1, v2, v3}, Landroid/os/SystemVibrator;->vibrate(J)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Vibrator;->vibrate(J)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 676
+    .line 507
     :goto_1
     const-wide/16 v2, 0x1f4
 
@@ -1446,473 +507,51 @@
 
     goto :goto_0
 
-    .line 677
+    .line 508
     :catch_1
     move-exception v2
 
     goto :goto_0
 
-    .line 669
+    .line 500
     :catch_2
     move-exception v0
 
-    .line 671
+    .line 502
     .restart local v0       #e:Ljava/lang/Exception;
     const-string v2, "ShutdownThread"
 
-    const-string v3, "!@Failed to vibrate during shutdown."
+    const-string v3, "Failed to vibrate during shutdown."
 
-    invoke-static {v2, v3, v0}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method
 
-.method public static rebootSafeMode(Landroid/content/Context;Ljava/lang/String;Z)V
-    .locals 5
+.method public static rebootSafeMode(Landroid/content/Context;Z)V
+    .locals 1
     .parameter "context"
-    .parameter "reason"
     .parameter "confirm"
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v0, 0x1
 
-    const/4 v3, 0x0
-
-    .line 334
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->IsShutDownStarted()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 343
-    :goto_0
-    return-void
-
-    .line 337
-    :cond_0
-    const-string v0, "ShutdownThread"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "reboot safe reason : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", confirm : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 338
-    sput-boolean v4, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
-
-    .line 339
-    sput-boolean v4, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
-
-    .line 340
-    sput-object p1, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    .line 341
-    sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
-
-    .line 342
-    invoke-static {p0, p2, v3}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;ZZ)V
-
-    goto :goto_0
-.end method
-
-.method public static releaseWakeLocks()V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 780
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    if-eqz v0, :cond_0
-
-    .line 781
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 782
-    sput-object v1, Lcom/android/server/pm/ShutdownThread;->mCpuWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    .line 784
-    :cond_0
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    if-eqz v0, :cond_1
-
-    .line 785
-    sget-object v0, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 786
-    sput-object v1, Lcom/android/server/pm/ShutdownThread;->mScreenWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    .line 788
-    :cond_1
-    return-void
-.end method
-
-.method public static resetVars()V
-    .locals 2
-
-    .prologue
-    .line 768
-    const-string v0, "ShutdownThread"
-
-    const-string v1, "reset shutdown variables"
-
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 770
-    sget-object v1, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 771
-    const/4 v0, 0x0
-
-    :try_start_0
-    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
-
-    .line 772
-    const/4 v0, 0x0
-
+    .line 193
     sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
-    .line 773
+    .line 194
+    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+
+    .line 195
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
 
-    .line 774
-    const/4 v0, 0x0
+    .line 196
+    invoke-static {p0, p1}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;Z)V
 
-    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsConfirming:Z
-
-    .line 775
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
-
-    .line 776
-    monitor-exit v1
-
-    .line 777
+    .line 197
     return-void
-
-    .line 776
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public static saveReasonforshutdown(Ljava/lang/Exception;)V
-    .locals 10
-    .parameter "ex"
-
-    .prologue
-    .line 713
-    invoke-static {}, Landroid/os/Debug;->isProductShip()I
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    .line 739
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 716
-    :cond_1
-    const-string v7, "ShutdownThread"
-
-    const-string v8, "ShutdownThread.saveReasonforshutdown"
-
-    invoke-static {v7, v8}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 717
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->getReasonforshutdownFileName()Ljava/io/File;
-
-    move-result-object v2
-
-    .line 718
-    .local v2, fname:Ljava/io/File;
-    const/4 v4, 0x0
-
-    .line 720
-    .local v4, out:Ljava/io/FileOutputStream;
-    :try_start_0
-    new-instance v5, Ljava/io/FileOutputStream;
-
-    const/4 v7, 0x1
-
-    invoke-direct {v5, v2, v7}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 721
-    .end local v4           #out:Ljava/io/FileOutputStream;
-    .local v5, out:Ljava/io/FileOutputStream;
-    :try_start_1
-    new-instance v6, Ljava/io/PrintWriter;
-
-    invoke-direct {v6, v5}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
-
-    .line 722
-    .local v6, pw:Ljava/io/PrintWriter;
-    new-instance v3, Ljava/text/SimpleDateFormat;
-
-    invoke-direct {v3}, Ljava/text/SimpleDateFormat;-><init>()V
-
-    .line 723
-    .local v3, formatter:Ljava/text/SimpleDateFormat;
-    new-instance v7, Ljava/util/Date;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v8
-
-    invoke-direct {v7, v8, v9}, Ljava/util/Date;-><init>(J)V
-
-    invoke-virtual {v3, v7}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 724
-    .local v0, dateString:Ljava/lang/String;
-    invoke-virtual {v6, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 725
-    invoke-virtual {p0, v6}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
-
-    .line 726
-    invoke-virtual {v6}, Ljava/io/PrintWriter;->flush()V
-
-    .line 727
-    invoke-virtual {v6}, Ljava/io/PrintWriter;->close()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
-
-    .line 731
-    if-eqz v5, :cond_2
-
-    .line 733
-    :try_start_2
-    invoke-virtual {v5}, Ljava/io/FileOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
-
-    :cond_2
-    :goto_1
-    move-object v4, v5
-
-    .line 738
-    .end local v5           #out:Ljava/io/FileOutputStream;
-    .restart local v4       #out:Ljava/io/FileOutputStream;
-    goto :goto_0
-
-    .line 731
-    .end local v0           #dateString:Ljava/lang/String;
-    .end local v3           #formatter:Ljava/text/SimpleDateFormat;
-    .end local v6           #pw:Ljava/io/PrintWriter;
-    :catchall_0
-    move-exception v7
-
-    :goto_2
-    if-eqz v4, :cond_3
-
-    .line 733
-    :try_start_3
-    invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
-
-    .line 731
-    :cond_3
-    :goto_3
-    throw v7
-
-    .line 728
-    :catch_0
-    move-exception v7
-
-    .line 731
-    :goto_4
-    if-eqz v4, :cond_0
-
-    .line 733
-    :try_start_4
-    invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
-
-    goto :goto_0
-
-    .line 734
-    :catch_1
-    move-exception v1
-
-    .line 735
-    .local v1, e:Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_0
-
-    .line 734
-    .end local v1           #e:Ljava/io/IOException;
-    :catch_2
-    move-exception v1
-
-    .line 735
-    .restart local v1       #e:Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_3
-
-    .line 734
-    .end local v1           #e:Ljava/io/IOException;
-    .end local v4           #out:Ljava/io/FileOutputStream;
-    .restart local v0       #dateString:Ljava/lang/String;
-    .restart local v3       #formatter:Ljava/text/SimpleDateFormat;
-    .restart local v5       #out:Ljava/io/FileOutputStream;
-    .restart local v6       #pw:Ljava/io/PrintWriter;
-    :catch_3
-    move-exception v1
-
-    .line 735
-    .restart local v1       #e:Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_1
-
-    .line 731
-    .end local v0           #dateString:Ljava/lang/String;
-    .end local v1           #e:Ljava/io/IOException;
-    .end local v3           #formatter:Ljava/text/SimpleDateFormat;
-    .end local v6           #pw:Ljava/io/PrintWriter;
-    :catchall_1
-    move-exception v7
-
-    move-object v4, v5
-
-    .end local v5           #out:Ljava/io/FileOutputStream;
-    .restart local v4       #out:Ljava/io/FileOutputStream;
-    goto :goto_2
-
-    .line 728
-    .end local v4           #out:Ljava/io/FileOutputStream;
-    .restart local v5       #out:Ljava/io/FileOutputStream;
-    :catch_4
-    move-exception v7
-
-    move-object v4, v5
-
-    .end local v5           #out:Ljava/io/FileOutputStream;
-    .restart local v4       #out:Ljava/io/FileOutputStream;
-    goto :goto_4
-.end method
-
-.method static setInputKeys(Z)V
-    .locals 5
-    .parameter "bool"
-
-    .prologue
-    .line 919
-    const-string v2, "input"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/hardware/input/IInputManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/input/IInputManager;
-
-    move-result-object v1
-
-    .line 922
-    .local v1, im:Landroid/hardware/input/IInputManager;
-    :try_start_0
-    const-string v2, "ShutdownThread"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "setStartedShutdown to "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 923
-    invoke-interface {v1, p0}, Landroid/hardware/input/IInputManager;->setStartedShutdown(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 928
-    :goto_0
-    return-void
-
-    .line 924
-    :catch_0
-    move-exception v0
-
-    .line 925
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v2, "ShutdownThread"
-
-    const-string v3, "error occur while input disable"
-
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 926
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_0
 .end method
 
 .method public static shutdown(Landroid/content/Context;Z)V
@@ -1923,530 +562,285 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 163
+    .line 100
     sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
-    .line 164
+    .line 101
     sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
-    .line 166
-    invoke-static {p0, p1, v0}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;ZZ)V
+    .line 102
+    invoke-static {p0, p1}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;Z)V
 
-    .line 167
+    .line 103
     return-void
 .end method
 
-.method static shutdownInner(Landroid/content/Context;ZZ)V
-    .locals 13
-    .parameter "aContext"
+.method static shutdownInner(Landroid/content/Context;Z)V
+    .locals 7
+    .parameter "context"
     .parameter "confirm"
-    .parameter "systemRequest"
 
     .prologue
-    const/4 v12, 0x2
+    .line 108
+    sget-object v5, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
 
-    const/4 v11, 0x1
+    monitor-enter v5
 
-    .line 190
-    sget-object v9, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
-
-    monitor-enter v9
-
-    .line 191
+    .line 109
     :try_start_0
-    sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
+    sget-boolean v4, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v4, :cond_0
 
-    .line 192
-    const-string v8, "ShutdownThread"
+    .line 110
+    const-string v4, "ShutdownThread"
 
-    const-string v10, "!@Request to shutdown already running, returning."
+    const-string v6, "Request to shutdown already running, returning."
 
-    invoke-static {v8, v10}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
-    monitor-exit v9
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .line 111
+    monitor-exit v5
 
-    .line 279
+    .line 146
     :goto_0
     return-void
 
-    .line 198
+    .line 113
     :cond_0
-    :try_start_1
-    sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+    monitor-exit v5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v8, :cond_1
-
-    sget-object v8, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    if-eqz v8, :cond_2
-
-    sget-object v8, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    const-string v10, "GlobalActions restart"
-
-    invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    .line 199
-    :cond_1
-    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/sec/enterprise/RestrictionPolicy;
-
-    move-result-object v7
-
-    .line 200
-    .local v7, rp:Landroid/sec/enterprise/RestrictionPolicy;
-    if-eqz v7, :cond_2
-
-    .line 201
-    if-nez p2, :cond_2
-
-    const/4 v8, 0x1
-
-    invoke-virtual {v7, v8}, Landroid/sec/enterprise/RestrictionPolicy;->isPowerOffAllowed(Z)Z
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
-    .line 202
-    const-string v8, "ShutdownThread"
-
-    const-string v10, "Shutdown Disabled by Administrator"
-
-    invoke-static {v8, v10}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    .line 203
-    :try_start_2
-    monitor-exit v9
-
-    goto :goto_0
-
-    .line 212
-    .end local v7           #rp:Landroid/sec/enterprise/RestrictionPolicy;
-    :catchall_0
-    move-exception v8
-
-    monitor-exit v9
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v8
-
-    .line 207
-    :catch_0
-    move-exception v8
-
-    .line 211
-    :cond_2
-    const/4 v8, 0x1
-
-    :try_start_3
-    sput-boolean v8, Lcom/android/server/pm/ShutdownThread;->sIsConfirming:Z
-
-    .line 212
-    monitor-exit v9
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 216
+    .line 115
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v8
-
-    iget v8, v8, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
-
-    const/16 v9, 0x258
-
-    if-lt v8, v9, :cond_3
-
-    .line 217
-    new-instance v1, Landroid/view/ContextThemeWrapper;
-
-    const v8, 0x103012b
-
-    invoke-direct {v1, p0, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    .line 222
-    .local v1, context:Landroid/content/Context;
-    :goto_1
-    new-instance v3, Ljava/lang/Exception;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "shutdown caller:"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    sget-object v9, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    if-nez v8, :cond_4
-
-    const-string v8, ""
-
-    :goto_2
-    invoke-direct {v3, v8}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    .line 223
-    .local v3, ex:Ljava/lang/Exception;
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThread;->saveReasonforshutdown(Ljava/lang/Exception;)V
-
-    .line 225
-    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x10e0017
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v5
-
-    .line 229
-    .local v5, longPressBehavior:I
-    sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
-
-    if-eqz v8, :cond_5
-
-    .line 230
-    const v6, 0x10401b5
-
-    .line 239
-    .local v6, resourceId:I
-    :goto_3
-    const-string v8, "ShutdownThread"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "!@Notifying thread to start shutdown longPressBehavior="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 241
-    if-eqz p1, :cond_c
-
-    .line 242
-    const-string v8, "ShutdownThread"
-
-    const-string v9, "!@########POWEROFF START WITH CONFIRM######"
-
-    invoke-static {v8, v9}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 243
-    new-instance v0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
-
-    invoke-direct {v0, v1}, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;-><init>(Landroid/content/Context;)V
-
-    .line 244
-    .local v0, closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
-    new-instance v8, Landroid/app/AlertDialog$Builder;
-
-    invoke-direct {v8, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v8, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    const v9, 0x1040013
-
-    new-instance v10, Lcom/android/server/pm/ShutdownThread$2;
-
-    invoke-direct {v10, v1, p1}, Lcom/android/server/pm/ShutdownThread$2;-><init>(Landroid/content/Context;Z)V
-
-    invoke-virtual {v8, v9, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    const v9, 0x1040009
-
-    new-instance v10, Lcom/android/server/pm/ShutdownThread$1;
-
-    invoke-direct {v10}, Lcom/android/server/pm/ShutdownThread$1;-><init>()V
-
-    invoke-virtual {v8, v9, v10}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object v2
-
-    .line 258
-    .local v2, dialog:Landroid/app/AlertDialog;
-    sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
-
-    if-eqz v8, :cond_9
-
-    .line 259
-    const v8, #string@power_off#t
-
-    invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v2, v8}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 265
-    :goto_4
-    iput-object v2, v0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;->dialog:Landroid/app/Dialog;
-
-    .line 266
-    invoke-virtual {v2, v0}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
-
-    .line 267
-    invoke-virtual {v2, v11}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
-
-    .line 268
-    const-string v8, "keyguard"
-
-    invoke-virtual {v1, v8}, Landroid/view/ContextThemeWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Landroid/app/KeyguardManager;
+    const v5, #android:integer@config_longPressOnPowerBehavior#t
 
-    .line 269
-    .local v4, kgm:Landroid/app/KeyguardManager;
-    if-eqz v4, :cond_b
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
-    invoke-virtual {v4}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
+    move-result v2
 
-    move-result v8
+    .line 117
+    .local v2, longPressBehavior:I
+    sget-boolean v4, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
-    if-eqz v8, :cond_b
+    if-eqz v4, :cond_1
 
-    .line 270
-    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    const v3, #android:string@reboot_safemode_confirm#t
 
-    move-result-object v8
+    .line 123
+    .local v3, resourceId:I
+    :goto_1
+    const-string v4, "ShutdownThread"
 
-    const/16 v9, 0x7d9
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Landroid/view/Window;->setType(I)V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 274
-    :goto_5
-    invoke-virtual {v2}, Landroid/app/Dialog;->show()V
+    const-string v6, "Notifying thread to start shutdown longPressBehavior="
 
-    goto/16 :goto_0
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 219
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 125
+    if-eqz p1, :cond_4
+
+    .line 126
+    new-instance v0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
+
+    invoke-direct {v0, p0}, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;-><init>(Landroid/content/Context;)V
+
+    .line 127
+    .local v0, closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
+    new-instance v5, Landroid/app/AlertDialog$Builder;
+
+    invoke-direct {v5, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    sget-boolean v4, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+
+    if-eqz v4, :cond_3
+
+    const v4, #android:string@reboot_safemode_title#t
+
+    :goto_2
+    invoke-virtual {v5, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    const v5, #android:string@yes#t
+
+    new-instance v6, Lcom/android/server/pm/ShutdownThread$1;
+
+    invoke-direct {v6, p0}, Lcom/android/server/pm/ShutdownThread$1;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    const v5, #android:string@no#t
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v1
+
+    .line 139
+    .local v1, dialog:Landroid/app/AlertDialog;
+    invoke-static {p0, v1}, Lcom/android/server/pm/ShutdownThread$BaiduInjector;->createRebootDialogBaidu(Landroid/content/Context;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;->dialog:Landroid/app/Dialog;
+
+    .line 140
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    .line 141
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v4
+
+    const/16 v5, 0x7d9
+
+    invoke-virtual {v4, v5}, Landroid/view/Window;->setType(I)V
+
+    .line 142
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+
+    goto :goto_0
+
+    .line 113
     .end local v0           #closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
-    .end local v1           #context:Landroid/content/Context;
-    .end local v2           #dialog:Landroid/app/AlertDialog;
-    .end local v3           #ex:Ljava/lang/Exception;
-    .end local v4           #kgm:Landroid/app/KeyguardManager;
-    .end local v5           #longPressBehavior:I
-    .end local v6           #resourceId:I
-    :cond_3
-    new-instance v1, Landroid/view/ContextThemeWrapper;
+    .end local v1           #dialog:Landroid/app/AlertDialog;
+    .end local v2           #longPressBehavior:I
+    .end local v3           #resourceId:I
+    :catchall_0
+    move-exception v4
 
-    const v8, #style@Theme.DeviceDefault.Light#t
+    :try_start_1
+    monitor-exit v5
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-direct {v1, p0, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    throw v4
 
-    .restart local v1       #context:Landroid/content/Context;
-    goto/16 :goto_1
+    .line 117
+    .restart local v2       #longPressBehavior:I
+    :cond_1
+    const/4 v4, 0x2
 
-    .line 222
-    :cond_4
-    sget-object v8, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
+    if-ne v2, v4, :cond_2
 
-    goto/16 :goto_2
+    const v3, #android:string@shutdown_confirm_question#t
 
-    .line 231
-    .restart local v3       #ex:Ljava/lang/Exception;
-    .restart local v5       #longPressBehavior:I
-    :cond_5
-    sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+    goto :goto_1
 
-    if-eqz v8, :cond_7
+    :cond_2
+    const v3, #android:string@shutdown_confirm#t
 
-    .line 232
-    if-ne v5, v12, :cond_6
+    goto :goto_1
 
-    const v6, 0x10401b3
-
-    .restart local v6       #resourceId:I
-    :goto_6
-    goto/16 :goto_3
-
-    .end local v6           #resourceId:I
-    :cond_6
-    const v6, 0x10401b1
-
-    goto :goto_6
-
-    .line 235
-    :cond_7
-    if-ne v5, v12, :cond_8
-
-    const v6, 0x10401b2
-
-    .restart local v6       #resourceId:I
-    :goto_7
-    goto/16 :goto_3
-
-    .end local v6           #resourceId:I
-    :cond_8
-    const v6, 0x10401b0
-
-    goto :goto_7
-
-    .line 260
+    .line 127
     .restart local v0       #closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
-    .restart local v2       #dialog:Landroid/app/AlertDialog;
-    .restart local v6       #resourceId:I
-    :cond_9
-    sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+    .restart local v3       #resourceId:I
+    :cond_3
+    const v4, #android:string@power_off#t
 
-    if-eqz v8, :cond_a
+    goto :goto_2
 
-    .line 261
-    const v8, 0x10401bb
-
-    invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v2, v8}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
-
-    goto :goto_4
-
-    .line 263
-    :cond_a
-    const v8, 0x10401ba
-
-    invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v2, v8}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
-
-    goto :goto_4
-
-    .line 272
-    .restart local v4       #kgm:Landroid/app/KeyguardManager;
-    :cond_b
-    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v8
-
-    const/16 v9, 0x7d8
-
-    invoke-virtual {v8, v9}, Landroid/view/Window;->setType(I)V
-
-    goto :goto_5
-
-    .line 276
+    .line 144
     .end local v0           #closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
-    .end local v2           #dialog:Landroid/app/AlertDialog;
-    .end local v4           #kgm:Landroid/app/KeyguardManager;
-    :cond_c
-    const-string v8, "ShutdownThread"
-
-    const-string v9, "!@########POWEROFF START WITHOUT CONFIRM######"
-
-    invoke-static {v8, v9}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 277
-    invoke-static {v1, p1}, Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;Z)V
+    :cond_4
+    invoke-static {p0}, Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
 
     goto/16 :goto_0
 .end method
 
-.method public static silentShutdown(Landroid/content/Context;)V
-    .locals 2
-    .parameter "context"
+.method private shutdownRadios(I)V
+    .locals 8
+    .parameter "timeout"
 
     .prologue
-    const/4 v1, 0x0
+    .line 371
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    .line 171
-    const/4 v0, 0x1
+    move-result-wide v4
 
-    sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
+    int-to-long v6, p1
 
-    .line 172
-    sput-boolean v1, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+    add-long v1, v4, v6
 
-    .line 173
-    sput-boolean v1, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+    .line 372
+    .local v1, endTime:J
+    const/4 v4, 0x1
 
-    .line 174
-    sput-boolean v1, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
+    new-array v0, v4, [Z
 
-    .line 175
-    invoke-static {p0, v1, v1}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;ZZ)V
+    .line 373
+    .local v0, done:[Z
+    new-instance v3, Lcom/android/server/pm/ShutdownThread$5;
 
-    .line 176
+    invoke-direct {v3, p0, v1, v2, v0}, Lcom/android/server/pm/ShutdownThread$5;-><init>(Lcom/android/server/pm/ShutdownThread;J[Z)V
+
+    .line 470
+    .local v3, t:Ljava/lang/Thread;
+    invoke-virtual {v3}, Ljava/lang/Thread;->start()V
+
+    .line 472
+    int-to-long v4, p1
+
+    :try_start_0
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Thread;->join(J)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 475
+    :goto_0
+    const/4 v4, 0x0
+
+    aget-boolean v4, v0, v4
+
+    if-nez v4, :cond_0
+
+    .line 476
+    const-string v4, "ShutdownThread"
+
+    const-string v5, "Timed out waiting for NFC, Radio and Bluetooth shutdown."
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 478
+    :cond_0
     return-void
-.end method
 
-.method public static systemShutdown(Landroid/content/Context;)V
-    .locals 2
-    .parameter "context"
+    .line 473
+    :catch_0
+    move-exception v4
 
-    .prologue
-    const/4 v1, 0x0
-
-    .line 180
-    sput-boolean v1, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
-
-    .line 181
-    sput-boolean v1, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
-
-    .line 183
-    const/4 v0, 0x1
-
-    invoke-static {p0, v1, v0}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;ZZ)V
-
-    .line 184
-    return-void
+    goto :goto_0
 .end method
 
 
@@ -2455,66 +849,29 @@
     .locals 2
 
     .prologue
-    .line 508
+    .line 255
     iget-object v1, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSync:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 509
+    .line 256
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/pm/ShutdownThread;->mActionDone:Z
 
-    .line 510
+    .line 257
     iget-object v0, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSync:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 511
+    .line 258
     monitor-exit v1
 
-    .line 512
+    .line 259
     return-void
 
-    .line 511
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method actionDoneMount()V
-    .locals 2
-
-    .prologue
-    .line 515
-    iget-object v1, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSyncMount:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 516
-    const/4 v0, 0x1
-
-    :try_start_0
-    iput-boolean v0, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneMount:Z
-
-    .line 517
-    iget-object v0, p0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSyncMount:Ljava/lang/Object;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
-
-    .line 518
-    monitor-exit v1
-
-    .line 519
-    return-void
-
-    .line 518
+    .line 258
     :catchall_0
     move-exception v0
 
@@ -2529,46 +886,22 @@
     .locals 21
 
     .prologue
-    .line 526
-    #calls: Lcom/android/server/pm/ShutdownThread$Led;->On()V
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread$Led;->access$300()V
-
-    .line 527
-    new-instance v5, Lcom/android/server/pm/ShutdownThread$4;
+    .line 266
+    new-instance v5, Lcom/android/server/pm/ShutdownThread$3;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v5, v0}, Lcom/android/server/pm/ShutdownThread$4;-><init>(Lcom/android/server/pm/ShutdownThread;)V
+    invoke-direct {v5, v0}, Lcom/android/server/pm/ShutdownThread$3;-><init>(Lcom/android/server/pm/ShutdownThread;)V
 
-    .line 534
+    .line 279
     .local v5, br:Landroid/content/BroadcastReceiver;
-    const-string v2, "BUILD_DESC"
-
-    const-string v3, "ro.build.description"
-
-    const-string v4, ""
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 535
-    const/16 v2, 0x2ee0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v2}, Lcom/android/server/pm/ShutdownThreadFeature;->preShutdownRadios(I)V
-
-    .line 542
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     sget-boolean v2, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     const-string v2, "1"
 
@@ -2579,7 +912,7 @@
 
     sget-object v2, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     sget-object v2, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
 
@@ -2592,7 +925,7 @@
 
     move-result-object v20
 
-    .line 543
+    .line 280
     .local v20, reason:Ljava/lang/String;
     const-string v2, "sys.shutdown.requested"
 
@@ -2600,34 +933,34 @@
 
     invoke-static {v2, v0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 550
+    .line 287
     sget-boolean v2, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
     if-eqz v2, :cond_0
 
-    .line 551
+    .line 288
     const-string v2, "persist.sys.safemode"
 
     const-string v3, "1"
 
     invoke-static {v2, v3}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 554
+    .line 291
     :cond_0
     const-string v2, "ShutdownThread"
 
     const-string v3, "Sending shutdown broadcast..."
 
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 557
+    .line 294
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Lcom/android/server/pm/ShutdownThread;->mActionDone:Z
 
-    .line 558
+    .line 295
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/pm/ShutdownThread;->mContext:Landroid/content/Context;
@@ -2652,7 +985,7 @@
 
     invoke-virtual/range {v2 .. v9}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 561
+    .line 298
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
@@ -2661,7 +994,7 @@
 
     add-long v16, v2, v6
 
-    .line 562
+    .line 299
     .local v16, endTime:J
     move-object/from16 v0, p0
 
@@ -2669,7 +1002,7 @@
 
     monitor-enter v3
 
-    .line 563
+    .line 300
     :goto_2
     :try_start_0
     move-object/from16 v0, p0
@@ -2678,43 +1011,43 @@
 
     if-nez v2, :cond_1
 
-    .line 564
+    .line 301
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
 
     sub-long v11, v16, v6
 
-    .line 565
+    .line 302
     .local v11, delay:J
     const-wide/16 v6, 0x0
 
     cmp-long v2, v11, v6
 
-    if-gtz v2, :cond_7
+    if-gtz v2, :cond_6
 
-    .line 566
+    .line 303
     const-string v2, "ShutdownThread"
 
-    const-string v4, "!@Shutdown broadcast timed out"
+    const-string v4, "Shutdown broadcast timed out"
 
-    invoke-static {v2, v4}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 574
+    .line 311
     .end local v11           #delay:J
     :cond_1
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 576
+    .line 313
     const-string v2, "ShutdownThread"
 
-    const-string v3, "!@Shutting down activity manager..."
+    const-string v3, "Shutting down activity manager..."
 
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 578
+    .line 315
     const-string v2, "activity"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -2725,75 +1058,69 @@
 
     move-result-object v10
 
-    .line 580
+    .line 317
     .local v10, am:Landroid/app/IActivityManager;
     if-eqz v10, :cond_2
 
-    .line 582
+    .line 319
     const/16 v2, 0x2710
 
     :try_start_1
     invoke-interface {v10, v2}, Landroid/app/IActivityManager;->shutdown(I)Z
     :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_4
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_3
 
-    .line 588
+    .line 325
     :cond_2
     :goto_3
     const/16 v2, 0x2ee0
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/server/pm/ShutdownThread;->mContext:Landroid/content/Context;
+    invoke-direct {v0, v2}, Lcom/android/server/pm/ShutdownThread;->shutdownRadios(I)V
 
-    sget-boolean v4, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v2, v3, v4}, Lcom/android/server/pm/ShutdownThreadFeature;->shutdownRadios(ILandroid/content/Context;Z)V
-
-    .line 591
-    new-instance v19, Lcom/android/server/pm/ShutdownThread$5;
+    .line 328
+    new-instance v19, Lcom/android/server/pm/ShutdownThread$4;
 
     move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
-    invoke-direct {v0, v1}, Lcom/android/server/pm/ShutdownThread$5;-><init>(Lcom/android/server/pm/ShutdownThread;)V
+    invoke-direct {v0, v1}, Lcom/android/server/pm/ShutdownThread$4;-><init>(Lcom/android/server/pm/ShutdownThread;)V
 
-    .line 598
+    .line 335
     .local v19, observer:Landroid/os/storage/IMountShutdownObserver;
     const-string v2, "ShutdownThread"
 
-    const-string v3, "!@Shutting down MountService"
+    const-string v3, "Shutting down MountService"
 
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 601
+    .line 338
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Lcom/android/server/pm/ShutdownThread;->mActionDone:Z
 
-    .line 602
+    .line 339
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
-    const-wide/16 v6, 0x7530
+    const-wide/16 v6, 0x4e20
 
     add-long v14, v2, v6
 
-    .line 603
+    .line 340
     .local v14, endShutTime:J
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSyncMount:Ljava/lang/Object;
+    iget-object v3, v0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSync:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 605
+    .line 342
     :try_start_2
     const-string v2, "mount"
 
@@ -2805,146 +1132,86 @@
 
     move-result-object v18
 
-    .line 607
+    .line 344
     .local v18, mount:Landroid/os/storage/IMountService;
-    if-eqz v18, :cond_8
+    if-eqz v18, :cond_7
 
-    .line 608
+    .line 345
     invoke-interface/range {v18 .. v19}, Landroid/os/storage/IMountService;->shutdown(Landroid/os/storage/IMountShutdownObserver;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 615
+    .line 352
     .end local v18           #mount:Landroid/os/storage/IMountService;
     :goto_4
     :try_start_3
     move-object/from16 v0, p0
 
-    iget-boolean v2, v0, Lcom/android/server/pm/ShutdownThread;->mActionDoneMount:Z
+    iget-boolean v2, v0, Lcom/android/server/pm/ShutdownThread;->mActionDone:Z
 
     if-nez v2, :cond_3
 
-    .line 616
+    .line 353
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
 
     sub-long v11, v14, v6
 
-    .line 617
+    .line 354
     .restart local v11       #delay:J
-    const-string v2, "ShutdownThread"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "!@MountService delay : "
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v11, v12}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v6, ", systemTime : "
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v6
-
-    invoke-virtual {v4, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v2, v4}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 618
     const-wide/16 v6, 0x0
 
     cmp-long v2, v11, v6
 
-    if-gtz v2, :cond_9
+    if-gtz v2, :cond_8
 
-    .line 619
+    .line 355
     const-string v2, "ShutdownThread"
 
-    const-string v4, "!@Shutdown wait timed out"
+    const-string v4, "Shutdown wait timed out"
 
-    invoke-static {v2, v4}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 628
+    .line 363
     .end local v11           #delay:J
     :cond_3
     monitor-exit v3
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 630
-    sget-object v2, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    if-eqz v2, :cond_a
-
-    sget-boolean v2, Lcom/android/server/pm/ShutdownThread;->mSlient:Z
-
-    if-nez v2, :cond_a
-
-    .line 632
-    sget-object v2, Lcom/android/server/pm/ShutdownThread;->dlgAnim:Lcom/android/server/pm/ShutdownDialog;
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v2, v3}, Lcom/android/server/pm/ShutdownDialog;->waitForAnimEnd(I)Z
-
-    .line 644
-    :cond_4
-    :goto_5
-    const-string v2, "power_off=on"
-
-    invoke-static {v2}, Landroid/media/AudioSystem;->setParameters(Ljava/lang/String;)I
-
-    .line 646
+    .line 365
     sget-boolean v2, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
     sget-object v3, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
 
     invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread;->rebootOrShutdown(ZLjava/lang/String;)V
 
-    .line 647
+    .line 366
     return-void
 
-    .line 542
+    .line 279
     .end local v10           #am:Landroid/app/IActivityManager;
     .end local v14           #endShutTime:J
     .end local v16           #endTime:J
     .end local v19           #observer:Landroid/os/storage/IMountShutdownObserver;
     .end local v20           #reason:Ljava/lang/String;
-    :cond_5
+    :cond_4
     const-string v2, "0"
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_5
     const-string v2, ""
 
     goto/16 :goto_1
 
-    .line 570
+    .line 307
     .restart local v11       #delay:J
     .restart local v16       #endTime:J
     .restart local v20       #reason:Ljava/lang/String;
-    :cond_7
+    :cond_6
     :try_start_4
     move-object/from16 v0, p0
 
@@ -2957,13 +1224,13 @@
 
     goto/16 :goto_2
 
-    .line 571
+    .line 308
     :catch_0
     move-exception v2
 
     goto/16 :goto_2
 
-    .line 574
+    .line 311
     .end local v11           #delay:J
     :catchall_0
     move-exception v2
@@ -2975,41 +1242,41 @@
 
     throw v2
 
-    .line 610
+    .line 347
     .restart local v10       #am:Landroid/app/IActivityManager;
     .restart local v14       #endShutTime:J
     .restart local v18       #mount:Landroid/os/storage/IMountService;
     .restart local v19       #observer:Landroid/os/storage/IMountShutdownObserver;
-    :cond_8
+    :cond_7
     :try_start_6
     const-string v2, "ShutdownThread"
 
-    const-string v4, "!@MountService unavailable for shutdown"
+    const-string v4, "MountService unavailable for shutdown"
 
-    invoke-static {v2, v4}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
 
     goto :goto_4
 
-    .line 612
+    .line 349
     .end local v18           #mount:Landroid/os/storage/IMountService;
     :catch_1
     move-exception v13
 
-    .line 613
+    .line 350
     .local v13, e:Ljava/lang/Exception;
     :try_start_7
     const-string v2, "ShutdownThread"
 
-    const-string v4, "!@Exception during MountService shutdown"
+    const-string v4, "Exception during MountService shutdown"
 
-    invoke-static {v2, v4, v13}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+    invoke-static {v2, v4, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_4
+    goto :goto_4
 
-    .line 628
+    .line 363
     .end local v13           #e:Ljava/lang/Exception;
     :catchall_1
     move-exception v2
@@ -3020,88 +1287,62 @@
 
     throw v2
 
-    .line 623
+    .line 359
     .restart local v11       #delay:J
-    :cond_9
+    :cond_8
     :try_start_8
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSyncMount:Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/server/pm/ShutdownThread;->mActionDoneSync:Ljava/lang/Object;
 
     invoke-virtual {v2, v11, v12}, Ljava/lang/Object;->wait(J)V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
     .catch Ljava/lang/InterruptedException; {:try_start_8 .. :try_end_8} :catch_2
 
-    goto/16 :goto_4
+    goto :goto_4
 
-    .line 624
+    .line 360
     :catch_2
-    move-exception v13
+    move-exception v2
 
-    .line 625
-    .local v13, e:Ljava/lang/InterruptedException;
-    :try_start_9
-    invoke-virtual {v13}, Ljava/lang/Throwable;->printStackTrace()V
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    goto :goto_4
 
-    goto/16 :goto_4
-
-    .line 633
+    .line 320
     .end local v11           #delay:J
-    .end local v13           #e:Ljava/lang/InterruptedException;
-    :cond_a
-    sget-object v2, Lcom/android/server/pm/ShutdownThread;->soundThread:Ljava/lang/Thread;
-
-    if-eqz v2, :cond_4
-
-    .line 635
-    :try_start_a
-    const-string v2, "ShutdownThread"
-
-    const-string v3, "sound finish wait start"
-
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 636
-    sget-object v2, Lcom/android/server/pm/ShutdownThread;->soundThread:Ljava/lang/Thread;
-
-    const-wide/16 v3, 0x1388
-
-    invoke-virtual {v2, v3, v4}, Ljava/lang/Thread;->join(J)V
-
-    .line 637
-    const-string v2, "ShutdownThread"
-
-    const-string v3, "sound finished"
-
-    invoke-static {v2, v3}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_a
-    .catch Ljava/lang/InterruptedException; {:try_start_a .. :try_end_a} :catch_3
-
-    goto :goto_5
-
-    .line 638
-    :catch_3
-    move-exception v13
-
-    .line 639
-    .restart local v13       #e:Ljava/lang/InterruptedException;
-    const-string v2, "ShutdownThread"
-
-    const-string v3, "sound thread join exception"
-
-    invoke-static {v2, v3, v13}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
-
-    goto :goto_5
-
-    .line 583
-    .end local v13           #e:Ljava/lang/InterruptedException;
     .end local v14           #endShutTime:J
     .end local v19           #observer:Landroid/os/storage/IMountShutdownObserver;
-    :catch_4
+    :catch_3
     move-exception v2
 
     goto/16 :goto_3
+.end method
+
+.method static synthetic access$sput-mRebootReason-4d6e43(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    sput-object p0, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static synthetic access$sget-mReboot-0a52af()Z
+    .locals 1
+
+    .prologue
+    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+
+    return v0
+.end method
+
+.method static synthetic access$sput-mReboot-f45f2d(Z)Z
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    sput-boolean p0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+
+    return p0
 .end method

@@ -52,7 +52,7 @@
     iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$BaiduInjector$1PositiveClickListener;->val$context:Landroid/content/Context;
 
     #calls: Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
-    invoke-static {v0}, Lcom/android/server/pm/ShutdownThread;->access$invoke-beginShutdownSequence-c75801(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/android/server/pm/ShutdownThread;->access$000(Landroid/content/Context;)V
 
     .line 228
     return-void

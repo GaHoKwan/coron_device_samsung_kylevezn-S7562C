@@ -33035,17 +33035,15 @@
 .end method
 
 .method public rebootSafeMode()V
-    .locals 3
+    .locals 2
 
     .prologue
     .line 6421
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const-string v1, "GlobalActions restart"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/pm/ShutdownThread;->rebootSafeMode(Landroid/content/Context;Ljava/lang/String;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread;->rebootSafeMode(Landroid/content/Context;Z)V
 
     .line 6422
     return-void

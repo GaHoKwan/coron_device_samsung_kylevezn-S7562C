@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tw_indexview_rect_width">65.0dip</dimen>
+    <dimen name="tw_indexview_rect_height">61.0dip</dimen>
+    <dimen name="tw_indexview_index_textsize">69.0dip</dimen>
+    <dimen name="tw_indexview_index_textbg_top_margin">178.0dip</dimen>
+    <dimen name="tw_indexview_first_handle_textsize">14.0dip</dimen>
+    <dimen name="tw_indexview_first_handle_top_margin">1.0dip</dimen>
+    <dimen name="tw_indexview_first_handle_width">22.0dip</dimen>
+    <dimen name="tw_indexview_first_handle_height_atoz">430.0dip</dimen>
+    <dimen name="tw_indexview_second_handle_width">22.0dip</dimen>
+    <dimen name="tw_indexview_second_handle_gap">8.0dip</dimen>
+    <dimen name="tw_indexview_characters_width">28.0dip</dimen>
+    <dimen name="tw_indexview_first_handle_width_clock">40.0dip</dimen>
+    <dimen name="tw_indexview_index_textbg_top_margin_horizontal">69.29999dip</dimen>
+    <dimen name="tw_indexview_first_handle_textgap">17.0dip</dimen>
+    <dimen name="tw_indexview_second_handle_textgap">17.0dip</dimen>
+    <dimen name="tw_indexview_first_handle_toppading">0.0dip</dimen>
+    <dimen name="tw_indexview_second_handle_toppading">0.0dip</dimen>
+</resources>

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;ZZ)V
+    value = Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,13 +17,20 @@
 .end annotation
 
 
+# instance fields
+.field final synthetic val$context:Landroid/content/Context;
+
+
 # direct methods
-.method constructor <init>()V
+.method constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .parameter
 
     .prologue
-    .line 251
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 132
+    iput-object p1, p0, Lcom/android/server/pm/ShutdownThread$1;->val$context:Landroid/content/Context;
+
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -31,25 +38,17 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 253
-    const-string v0, "ShutdownThread"
+    .line 134
+    iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$1;->val$context:Landroid/content/Context;
 
-    const-string v1, "Negative button Clicked "
+    #calls: Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/android/server/pm/ShutdownThread;->access$000(Landroid/content/Context;)V
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 254
-    const-string v0, "persist.sys.shutdown"
-
-    const-string v1, "Default"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 255
+    .line 135
     return-void
 .end method

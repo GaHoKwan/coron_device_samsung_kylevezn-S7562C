@@ -572,6 +572,16 @@
     return-object v0
 .end method
 
+.method static synthetic access$300(Landroid/view/VolumePanel;)Landroid/media/AudioManager;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/view/VolumePanel;->mAudioManager:Landroid/media/AudioManager;
+
+    return-object v0
+.end method
+
 .method private collapse()V
     .locals 4
 
