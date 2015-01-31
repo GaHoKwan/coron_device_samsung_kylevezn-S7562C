@@ -54,8 +54,9 @@ vendor_remove_files := etc/PowerOn.wav media/audio/ui/PowerOn.ogg media/bootsams
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2  SecContactsProvider SecTelephonyProviderMultiSIM LogsProvider
+vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2 LogsProvider
 
+#SecContactsProvider SecTelephonyProviderMultiSIM
 ##############################################################################
 # The value decides which vendor apk you want to modify.
 # The modify jar will build from the directory named the vendor apk name in the current project root directory.
@@ -63,8 +64,9 @@ vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpA
 # You need ro decode FMRadio.apk to the project directory(use apktool d FMRadio.apk) first,
 # and then you can make it by:   make FMRadio
 #-----------------------------------------------------------------------------
-vendor_modify_apps := SecContacts SecMmsMultiSIM SecPhoneMultiSIM
+vendor_modify_apps := SecPhoneMultiSIM SamsungCamera
 
+#SecMmsMultiSIM SecContacts 
 ##############################################################################
 # The value decides which vendor jar you want to modify.
 # The modify jar will build from the *.jar.out directory in the current project root directory.

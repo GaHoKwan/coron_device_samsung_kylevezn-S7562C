@@ -45,32 +45,32 @@
 
     const/4 v1, 0x0
 
-    .line 9587
+    .line 9462
     iput-object p1, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 9588
+    .line 9463
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/TextView$StylusEventListener;->mDirLTR:Z
 
-    .line 9589
+    .line 9464
     iput v2, p0, Landroid/widget/TextView$StylusEventListener;->mOldCursorPostion:I
 
-    .line 9590
+    .line 9465
     iput v1, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
-    .line 9591
+    .line 9466
     iput v1, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
-    .line 9592
+    .line 9467
     iput-boolean v2, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
-    .line 9593
+    .line 9468
     iput v1, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
-    .line 9594
+    .line 9469
     const/16 v0, 0xf
 
     iput v0, p0, Landroid/widget/TextView$StylusEventListener;->DELTA:I
@@ -84,7 +84,7 @@
     .parameter "x1"
 
     .prologue
-    .line 9587
+    .line 9462
     invoke-direct {p0, p1}, Landroid/widget/TextView$StylusEventListener;-><init>(Landroid/widget/TextView;)V
 
     return-void
@@ -98,20 +98,20 @@
     .parameter "clipboardId"
 
     .prologue
-    .line 9597
+    .line 9472
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    .line 9598
+    .line 9473
     .local v0, action:I
     const/4 v6, 0x0
 
-    .line 9599
+    .line 9474
     .local v6, startCurPosition:I
     const/4 v1, 0x0
 
-    .line 9602
+    .line 9477
     .local v1, endCurPosition:I
     const/4 v8, 0x0
 
@@ -123,12 +123,12 @@
 
     if-eq v8, v9, :cond_1
 
-    .line 9723
+    .line 9598
     :cond_0
     :goto_0
     return-void
 
-    .line 9606
+    .line 9481
     :cond_1
     const-string v8, "TextView"
 
@@ -136,10 +136,10 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 9608
+    .line 9483
     packed-switch v0, :pswitch_data_0
 
-    .line 9722
+    .line 9597
     :cond_2
     :goto_1
     const-string v8, "TextView"
@@ -150,13 +150,13 @@
 
     goto :goto_0
 
-    .line 9610
+    .line 9485
     :pswitch_0
     iget-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
     if-eqz v8, :cond_2
 
-    .line 9614
+    .line 9489
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
     const/4 v9, 0x0
@@ -165,7 +165,7 @@
 
     if-nez v8, :cond_4
 
-    .line 9615
+    .line 9490
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -190,12 +190,12 @@
 
     if-gez v8, :cond_3
 
-    .line 9616
+    .line 9491
     const/4 v8, 0x1
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mDirLTR:Z
 
-    .line 9617
+    .line 9492
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v8
@@ -204,7 +204,7 @@
 
     goto :goto_1
 
-    .line 9618
+    .line 9493
     :cond_3
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
@@ -230,12 +230,12 @@
 
     if-lez v8, :cond_2
 
-    .line 9619
+    .line 9494
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mDirLTR:Z
 
-    .line 9620
+    .line 9495
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v8
@@ -244,13 +244,13 @@
 
     goto :goto_1
 
-    .line 9622
+    .line 9497
     :cond_4
     iget-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mDirLTR:Z
 
     if-eqz v8, :cond_6
 
-    .line 9623
+    .line 9498
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -261,7 +261,7 @@
 
     if-gtz v8, :cond_5
 
-    .line 9624
+    .line 9499
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v8
@@ -270,7 +270,7 @@
 
     goto :goto_1
 
-    .line 9625
+    .line 9500
     :cond_5
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
@@ -286,27 +286,27 @@
 
     if-lez v8, :cond_2
 
-    .line 9626
+    .line 9501
     const-string v8, "TextView"
 
     const-string v9, "TextSelection is canceled because of wrong X position, DirLTR"
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 9627
+    .line 9502
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
     goto/16 :goto_1
 
-    .line 9629
+    .line 9504
     :cond_6
     iget-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mDirLTR:Z
 
     if-nez v8, :cond_2
 
-    .line 9630
+    .line 9505
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -317,7 +317,7 @@
 
     if-ltz v8, :cond_7
 
-    .line 9631
+    .line 9506
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v8
@@ -326,7 +326,7 @@
 
     goto/16 :goto_1
 
-    .line 9632
+    .line 9507
     :cond_7
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
@@ -342,21 +342,21 @@
 
     if-gez v8, :cond_2
 
-    .line 9633
+    .line 9508
     const-string v8, "TextView"
 
     const-string v9, "TextSelection is canceled because of wrong X position, DirRTL"
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 9634
+    .line 9509
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
     goto/16 :goto_1
 
-    .line 9641
+    .line 9516
     :pswitch_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -364,67 +364,67 @@
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
-    .line 9642
+    .line 9517
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v8
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
-    .line 9643
+    .line 9518
     const/4 v8, 0x1
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
-    .line 9644
+    .line 9519
     const/4 v8, 0x0
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
     goto/16 :goto_1
 
-    .line 9650
+    .line 9525
     :pswitch_2
     const/4 v2, 0x0
 
-    .line 9651
+    .line 9526
     .local v2, endX:F
     const/4 v3, 0x0
 
-    .line 9653
+    .line 9528
     .local v3, endY:F
     iget-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
     if-eqz v8, :cond_0
 
-    .line 9656
+    .line 9531
     new-instance v5, Landroid/graphics/Rect;
 
     invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
 
-    .line 9657
+    .line 9532
     .local v5, rect:Landroid/graphics/Rect;
     new-instance v4, Landroid/graphics/Point;
 
     invoke-direct {v4}, Landroid/graphics/Point;-><init>()V
 
-    .line 9658
+    .line 9533
     .local v4, offset:Landroid/graphics/Point;
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v8, v5, v4}, Landroid/view/View;->getGlobalVisibleRect(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
+    invoke-virtual {v8, v5, v4}, Landroid/widget/TextView;->getGlobalVisibleRect(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
 
-    .line 9659
+    .line 9534
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
 
-    .line 9660
+    .line 9535
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
 
-    .line 9661
+    .line 9536
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
     iget v9, v5, Landroid/graphics/Rect;->top:I
@@ -461,7 +461,7 @@
 
     if-lez v8, :cond_9
 
-    .line 9662
+    .line 9537
     :cond_8
     const/4 v8, 0x0
 
@@ -469,7 +469,7 @@
 
     goto/16 :goto_0
 
-    .line 9666
+    .line 9541
     :cond_9
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
@@ -480,12 +480,12 @@
 
     if-eqz v8, :cond_a
 
-    .line 9667
+    .line 9542
     iget v8, v4, Landroid/graphics/Point;->x:I
 
     iget-object v9, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/widget/TextView;->mScrollX:I
     invoke-static {v9}, Landroid/widget/TextView;->access$1200(Landroid/widget/TextView;)I
 
     move-result v9
@@ -494,7 +494,7 @@
 
     iput v8, v4, Landroid/graphics/Point;->x:I
 
-    .line 9669
+    .line 9544
     :cond_a
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
@@ -506,7 +506,7 @@
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
-    .line 9670
+    .line 9545
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
     iget v9, v4, Landroid/graphics/Point;->y:I
@@ -517,7 +517,7 @@
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
-    .line 9671
+    .line 9546
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
     const/4 v9, 0x0
@@ -526,12 +526,12 @@
 
     if-gez v8, :cond_b
 
-    .line 9672
+    .line 9547
     const/4 v8, 0x0
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartX:F
 
-    .line 9674
+    .line 9549
     :cond_b
     iget v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
@@ -541,12 +541,12 @@
 
     if-gez v8, :cond_c
 
-    .line 9675
+    .line 9550
     const/4 v8, 0x0
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mStartY:F
 
-    .line 9677
+    .line 9552
     :cond_c
     iget v8, v4, Landroid/graphics/Point;->x:I
 
@@ -554,24 +554,24 @@
 
     sub-float/2addr v2, v8
 
-    .line 9678
+    .line 9553
     iget v8, v4, Landroid/graphics/Point;->y:I
 
     int-to-float v8, v8
 
     sub-float/2addr v3, v8
 
-    .line 9679
+    .line 9554
     const/4 v8, 0x0
 
     cmpg-float v8, v2, v8
 
     if-gez v8, :cond_d
 
-    .line 9680
+    .line 9555
     const/4 v2, 0x0
 
-    .line 9682
+    .line 9557
     :cond_d
     const/4 v8, 0x0
 
@@ -579,10 +579,10 @@
 
     if-gez v8, :cond_e
 
-    .line 9683
+    .line 9558
     const/4 v3, 0x0
 
-    .line 9685
+    .line 9560
     :cond_e
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
@@ -600,12 +600,12 @@
 
     if-eq v8, v9, :cond_f
 
-    .line 9686
+    .line 9561
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
-    .line 9687
+    .line 9562
     const-string v8, "TextView"
 
     const-string v9, "TextSelection is canceled because the lines are different."
@@ -614,7 +614,7 @@
 
     goto/16 :goto_0
 
-    .line 9690
+    .line 9565
     :cond_f
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
@@ -626,22 +626,22 @@
 
     move-result v6
 
-    .line 9691
+    .line 9566
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     invoke-virtual {v8, v2, v3}, Landroid/widget/TextView;->getOffsetForPosition(FF)I
 
     move-result v1
 
-    .line 9692
+    .line 9567
     if-ne v6, v1, :cond_10
 
-    .line 9693
+    .line 9568
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
-    .line 9694
+    .line 9569
     const-string v8, "TextView"
 
     const-string v9, "TextSelection is canceled because the positions are same."
@@ -650,21 +650,21 @@
 
     goto/16 :goto_0
 
-    .line 9697
+    .line 9572
     :cond_10
     if-le v6, v1, :cond_11
 
-    .line 9698
+    .line 9573
     move v7, v1
 
-    .line 9699
+    .line 9574
     .local v7, temp:I
     move v1, v6
 
-    .line 9700
+    .line 9575
     move v6, v7
 
-    .line 9702
+    .line 9577
     .end local v7           #temp:I
     :cond_11
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -675,7 +675,7 @@
 
     iput v8, p0, Landroid/widget/TextView$StylusEventListener;->mOldCursorPostion:I
 
-    .line 9703
+    .line 9578
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
@@ -696,7 +696,7 @@
 
     if-eqz v8, :cond_12
 
-    .line 9704
+    .line 9579
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
@@ -706,15 +706,15 @@
 
     invoke-virtual {v8}, Landroid/widget/Editor;->stopSelectionActionMode()V
 
-    .line 9706
+    .line 9581
     :cond_12
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     const/16 v9, 0x16
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->performHapticFeedback(I)Z
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->performHapticFeedback(I)Z
 
-    .line 9707
+    .line 9582
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mText:Ljava/lang/CharSequence;
@@ -726,7 +726,7 @@
 
     invoke-static {v8, v6, v1}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;II)V
 
-    .line 9708
+    .line 9583
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
@@ -736,7 +736,7 @@
 
     invoke-virtual {v8}, Landroid/widget/Editor;->startSelectionActionMode()Z
 
-    .line 9709
+    .line 9584
     iget-object v8, p0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
@@ -748,14 +748,14 @@
 
     iput-boolean v9, v8, Landroid/widget/Editor;->mCreatedWithASelection:Z
 
-    .line 9711
+    .line 9586
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
     goto/16 :goto_1
 
-    .line 9717
+    .line 9592
     .end local v2           #endX:F
     .end local v3           #endY:F
     .end local v4           #offset:Landroid/graphics/Point;
@@ -767,7 +767,7 @@
 
     goto/16 :goto_1
 
-    .line 9608
+    .line 9483
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
