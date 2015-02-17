@@ -120,4 +120,12 @@
     return-void
 .end method
 
+.method public isStatusBarVisible()Z
+    .locals 1
 
+    .prologue
+    .line 8482
+    const/4 v0, 0x0
+
+    return v0
+.end method

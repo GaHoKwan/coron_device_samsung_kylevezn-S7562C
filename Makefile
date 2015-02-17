@@ -95,7 +95,7 @@ vendor_modify_jars := framework framework2 pm services twframework
 # The default value is nothing.
 # You can configure the baidu system apk name in the value.
 #-----------------------------------------------------------------------------
-baidu_remove_apps := BaiduCamera BaiduGallery3D
+baidu_remove_apps := BaiduUpdate BaiduCamera BaiduGallery3D
 
 ##############################################################################
 # The value decides which apk you want to modify, when the apk is based on the baidu system apk.

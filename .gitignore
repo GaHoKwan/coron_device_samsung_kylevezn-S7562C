@@ -4,4 +4,5 @@
 /rec/*
 /backup/*
 /releasetools.pyc
-/log*
+/history_package/*
+/*log*

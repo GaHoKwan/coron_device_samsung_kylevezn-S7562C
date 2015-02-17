@@ -924,7 +924,6 @@ service mdnsd /system/bin/mdnsd
 service sysinit /system/bin/sysinit
     user root
     oneshot
-    disabled
 
 # SA, System SW, SAMSUNG
 service bugreport /system/bin/bugmailer.sh -v

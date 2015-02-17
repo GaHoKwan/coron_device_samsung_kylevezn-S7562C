@@ -10,6 +10,10 @@ UPDATE_DIR=/home/jay/baidurom/4.1/devices/S7562C/out/update-single-phone
 #mv -f $FILES_DIR/SYSTEM/app/ContactsProvider.apk $UPDATE_DIR/system/app
 rm  -rf $FILES_DIR/SYSTEM/app/Phone.apk #$UPDATE_DIR/system/app
 #rm  -rf $FILES_DIR/SYSTEM/app/TelephonyProvider.apk #$UPDATE_DIR/system/app
+echo 'romjd.rom.id=6e824dfc-7f5b-4329-a897-6fe42d0c51c7' >> $FILES_DIR/SYSTEM/build.prop
+echo 'romjd.rom.version=2.2.66.23' >> $FILES_DIR/SYSTEM/build.prop
+echo 'romjd.rom.version.code=1' >> $FILES_DIR/SYSTEM/build.prop
+echo 'romjd.cp.list=com.chaozh.iReaderFree:98127D058CBD88018F3ADA43D37C5585;com.baidu.BaiduMap:6D9AC2A282B85326BAEA648182147A54;' >> $FILES_DIR/SYSTEM/build.prop
 
 #cd $UPDATE_DIR
 #zip -r $OUT_DIR/update.zip ./*

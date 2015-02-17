@@ -18299,18 +18299,6 @@
     return-void
 .end method
 
-.method public canGlobalActionsShow()Z
-    .locals 1
-
-    .prologue
-    .line 6438
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->canGlobalActionsShow()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method checkCallingPermission(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 4
     .parameter "permission"
