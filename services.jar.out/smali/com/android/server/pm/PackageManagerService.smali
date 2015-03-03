@@ -21,6 +21,7 @@
         Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;,
         Lcom/android/server/pm/PackageManagerService$ActivityIntentResolver;,
         Lcom/android/server/pm/PackageManagerService$DeniedPermissions;,
+        Lcom/android/server/pm/PackageManagerService$BaiduInjector;,
         Lcom/android/server/pm/PackageManagerService$PackageHandler;,
         Lcom/android/server/pm/PackageManagerService$PostInstallData;,
         Lcom/android/server/pm/PackageManagerService$PackageObjectMap;,

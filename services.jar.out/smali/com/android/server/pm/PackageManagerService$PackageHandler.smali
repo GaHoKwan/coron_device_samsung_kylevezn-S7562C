@@ -1249,18 +1249,26 @@
 
     invoke-virtual {v2, v5}, Lcom/android/server/pm/PackageManagerService$InstallArgs;->doPostDeleteLI(Z)Z
 
-    .line 1033
     monitor-exit v3
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    .line 1035
     :cond_16
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    move-object/from16 v0, v29
+
+    iget v3, v0, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
+
+    #calls: Lcom/android/server/pm/PackageManagerService$BaiduInjector;->reportInstallOrMoveStatus(Lcom/android/server/pm/PackageManagerService;I)V
+    invoke-static {v2, v3}, Lcom/android/server/pm/PackageManagerService$BaiduInjector;->access$invoke-reportInstallOrMoveStatus-ca0a1d(Lcom/android/server/pm/PackageManagerService;I)V
+
     iget-object v2, v11, Lcom/android/server/pm/PackageManagerService$InstallArgs;->observer:Landroid/content/pm/IPackageInstallObserver;
 
     if-eqz v2, :cond_0
 
-    .line 1037
     :try_start_5
     iget-object v2, v11, Lcom/android/server/pm/PackageManagerService$InstallArgs;->observer:Landroid/content/pm/IPackageInstallObserver;
 
