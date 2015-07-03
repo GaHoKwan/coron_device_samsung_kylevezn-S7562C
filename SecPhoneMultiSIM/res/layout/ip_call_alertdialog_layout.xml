@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="295.32812dip" android:layout_height="120.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <EditText android:gravity="fill_horizontal" android:id="@id/alertdialogedit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="13.329987dip" android:layout_marginRight="11.329987dip" android:scrollHorizontally="true" android:maxLength="11" android:numeric="integer" android:capitalize="none" android:autoText="false" />
-</LinearLayout>

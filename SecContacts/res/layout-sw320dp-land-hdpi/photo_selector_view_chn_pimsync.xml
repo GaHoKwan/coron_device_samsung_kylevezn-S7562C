@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="128.0dip" android:layout_height="128.0dip" android:layout_marginLeft="@dimen/detail_contact_photo_margin" android:layout_marginTop="@dimen/detail_contact_photo_margin" android:layout_marginRight="@dimen/detail_contact_photo_margin"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/photo" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
-    <ImageView android:layout_gravity="bottom|left|center" android:id="@id/no_sync_icon" android:visibility="visible" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginRight="0.6700001dip" android:layout_marginBottom="0.6700001dip" android:src="@drawable/pbook_no_sync" android:scaleType="fitXY" />
-    <View android:id="@id/photo_touch_intercept_overlay" android:background="?android:selectableItemBackground" android:focusable="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@string/label_photo" />
-</FrameLayout>

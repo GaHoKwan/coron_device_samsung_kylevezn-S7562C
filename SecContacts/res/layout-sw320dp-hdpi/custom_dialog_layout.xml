@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/layout_root" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/TwTextAppearanceListTwoLinePrimary" android:textSize="18.0dip" android:gravity="left" android:id="@id/custom_dialog_warning_textview" android:paddingLeft="17.0dip" android:paddingRight="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="23.0dip" android:layout_marginBottom="12.0dip" />
-    <LinearLayout android:layout_gravity="left" android:orientation="horizontal" android:paddingLeft="17.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip">
-        <com.sec.android.touchwiz.widget.TwCheckBox android:id="@id/history_do_not_show_again_check_box" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textAppearance="@style/TwMainListContactTipsDialogTextAppearance" android:id="@id/text" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/history_delete_show_never_again" android:singleLine="true" />
-    </LinearLayout>
-</LinearLayout>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <com.android.contacts.widget.ContactsGridView android:gravity="center" android:id="@id/speed_dial" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:listSelector="@*android:color/transparent" android:scrollingCache="false" android:horizontalSpacing="8.0dip" android:verticalSpacing="17.0dip" android:stretchMode="none" android:columnWidth="96.0dip" android:numColumns="3" />
-    </LinearLayout>
-    <include layout="@layout/speed_dial_floating" />
-</LinearLayout>

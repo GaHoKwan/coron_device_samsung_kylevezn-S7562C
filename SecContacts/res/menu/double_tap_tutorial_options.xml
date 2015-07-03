@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:icon="@drawable/motion_header_icon" android:id="@id/menu_information" android:title="@string/information" android:contentDescription="@string/information" android:showAsAction="always|withText" />
-</menu>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@id/menuOpenFile" android:title="@string/file_option_menu_open_file" />
-    <item android:id="@id/menuRestoreFile" android:title="@string/restore_conversation" />
-    <item android:id="@id/menuDeleteFile" android:title="@string/delete" />
-    <item android:id="@id/menuRenameFile" android:title="@string/file_option_menu_rename_file" />
-</menu>

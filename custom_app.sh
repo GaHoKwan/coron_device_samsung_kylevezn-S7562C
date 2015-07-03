@@ -7,8 +7,8 @@ if [ "$apkBaseName" = "Settings" ];then
 		echo ">>> in custom_app $apkBaseName"
 	find $tempSmaliDir/ -name "*.smali" | xargs sed -i 's#/proc/version#/cmdline/version#g' 
 	sed -i '3a\    <Preference android:title="ROM作者" android:summary="JKwan嘉豪仔" style="?android:preferenceInformationStyle" />'  $tempSmaliDir/res/xml/device_info_settings.xml
-	sed -i 's/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.Settings"/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings"/g'  $tempSmaliDir/res/xml/settings_headers.xml
-	sed -i 's/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.Settings"/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings"/g'  $tempSmaliDir/res/xml/wireless_settings.xml
+#	sed -i 's/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.Settings"/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings"/g'  $tempSmaliDir/res/xml/settings_headers.xml
+#	sed -i 's/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.Settings"/android:targetPackage="com.android.phone" android:action="android.intent.action.MAIN" android:targetClass="com.android.phone.MobileNetworkSettings"/g'  $tempSmaliDir/res/xml/wireless_settings.xml
 	cp -f 'Settings/res/mipmap-hdpi/ic_launcher_settings.png'  $tempSmaliDir/res/mipmap-hdpi/ic_launcher_settings.png
 
 elif [ "$apkBaseName" = "HomePro" ];then

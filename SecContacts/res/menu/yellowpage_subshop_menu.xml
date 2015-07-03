@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:icon="@drawable/yellowpage_action_bar_icon_changeorder_holo_dark" android:id="@id/menu_sortby_distance_enable" android:checked="false" android:title="@string/yellowPage_dist_sortby_enable" android:checkable="true" />
-</menu>

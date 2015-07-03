@@ -54,7 +54,7 @@ vendor_remove_files := etc/PowerOn.wav media/audio/ui/PowerOn.ogg media/bootsams
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2 LogsProvider
+vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpApplication Stk Stk2 SecMediaProvider LogsProvider
 
 #SecContactsProvider SecTelephonyProviderMultiSIM
 ##############################################################################
@@ -64,9 +64,9 @@ vendor_saved_apps := BluetoothAvrcp BluetoothMap BluetoothTest SecBluetooth MtpA
 # You need ro decode FMRadio.apk to the project directory(use apktool d FMRadio.apk) first,
 # and then you can make it by:   make FMRadio
 #-----------------------------------------------------------------------------
-vendor_modify_apps := SecPhoneMultiSIM SamsungCamera
+vendor_modify_apps := SamsungCamera
 
-#SecMmsMultiSIM SecContacts 
+#SecMmsMultiSIM SecContacts SecPhoneMultiSIM 
 ##############################################################################
 # The value decides which vendor jar you want to modify.
 # The modify jar will build from the *.jar.out directory in the current project root directory.
@@ -74,7 +74,7 @@ vendor_modify_apps := SecPhoneMultiSIM SamsungCamera
 # You need to decode android.policy.jar to the project directory (use apktool d android.policy.jar) first,
 # and then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := framework framework2 pm services twframework
+vendor_modify_jars := framework framework2 pm services
 
 ##############################################################################
 # The value decides which baidu system directory you want to save.
@@ -181,7 +181,7 @@ RECOVERY_OTA_ASSERT := false
 # Generally, it will reduce the size of system, but it will also cost much more time to build.
 # It can be false, when you use a baidu.zip which is not a full resource package, but has the same resolution with your device.
 #-----------------------------------------------------------------------------
-MINI_SYSTEM := false
+#MINI_SYSTEM := false
 
 ##############################################################################
 # The value decides whether build the system image.

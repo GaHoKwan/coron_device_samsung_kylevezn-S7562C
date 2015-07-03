@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:id="@id/dialpadAdditionalButtons" android:layout_width="360.0dip" android:layout_height="69.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="4.0dip" android:layout_marginRight="5.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:id="@id/callbutton" android:background="@drawable/call_dial_btn01" android:layout_width="67.0dip" android:layout_height="69.0dip" android:src="@drawable/call_outgoingcall_icon" android:scaleType="centerCrop" android:contentDescription="@string/description_dial_button" />
-    <ImageButton android:id="@id/ipcallbutton" android:background="@drawable/call_dial_btn01" android:layout_width="67.0dip" android:layout_height="69.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/call_ipcall_icon" android:scaleType="fitCenter" />
-    <ImageButton android:id="@id/videocallbutton" android:background="@drawable/call_dial_btn02" android:layout_width="67.0dip" android:layout_height="69.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/call_contacts_icon" android:scaleType="fitCenter" />
-    <ImageButton android:id="@id/messagebutton" android:background="@drawable/call_dial_btn03" android:layout_width="67.0dip" android:layout_height="69.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/call_message_icon" android:scaleType="fitCenter" />
-    <ImageButton android:id="@id/deleteButton" android:background="@drawable/call_dial_btn04" android:layout_width="66.0dip" android:layout_height="69.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/call_clear_btn" android:scaleType="fitCenter" />
-</LinearLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/container" android:background="@drawable/select_all_item_bg" android:layout_width="fill_parent" android:layout_height="56.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.sec.android.touchwiz.widget.TwCheckBox android:id="@id/checkbox" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?list_item_check_box_margin_left" android:layout_marginRight="?list_item_check_box_margin_right" />
-    <View android:id="@id/group_ringtone_devider" android:background="@color/checkbox_divider_color" android:layout_width="1.0dip" android:layout_height="28.0dip" android:layout_marginLeft="?list_item_photo_margin_left" />
-    <TextView android:textAppearance="@style/SelectAllTextAppearance" android:ellipsize="marquee" android:gravity="center_vertical" android:paddingLeft="12.0dip" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_marginLeft="11.0dip" android:text="@string/menu_select_all" android:shadowColor="#ff000000" android:shadowDy="-1.0" android:shadowRadius="0.2" android:layout_weight="1.0" />
-</LinearLayout>

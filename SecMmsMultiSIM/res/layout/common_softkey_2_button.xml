@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="@drawable/tw_dialog_bottom_holo_dark" android:layout_width="fill_parent" android:layout_height="59.329987dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:paddingLeft="3.3299866dip" android:paddingTop="2.669983dip" android:paddingRight="3.3299866dip" android:paddingBottom="2.669983dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
-      xmlns:android="http://schemas.android.com/apk/res/android">
-        <Button android:textSize="16.0dip" android:ellipsize="marquee" android:gravity="center" android:id="@id/common_softkey_left_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:singleLine="true" android:layout_weight="1.0" />
-        <Button android:textSize="16.0dip" android:ellipsize="marquee" android:gravity="center" android:id="@id/common_softkey_right_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no" android:singleLine="true" android:layout_weight="1.0" android:layout_alignParentRight="true" />
-    </LinearLayout>
-</RelativeLayout>

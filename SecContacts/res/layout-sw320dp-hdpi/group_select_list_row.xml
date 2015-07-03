@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/list_one_line_height"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="horizontal" android:id="@id/select_list_row_container" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-        <TextView android:textAppearance="@style/TwContactDetailTextAppearanceListTwoLinePrimary" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/select_list_row_text" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="11.0dip" android:layout_marginRight="11.0dip" android:singleLine="true" android:layout_weight="1.0" />
-        <com.sec.android.touchwiz.widget.TwCheckBox android:layout_gravity="center_vertical" android:id="@id/select_list_row_checkbox" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" />
-    </LinearLayout>
-    <View android:id="@id/list_item_divider_bottom" android:background="?android:dividerHorizontal" android:layout_width="fill_parent" android:layout_height="1.0px" />
-</LinearLayout>

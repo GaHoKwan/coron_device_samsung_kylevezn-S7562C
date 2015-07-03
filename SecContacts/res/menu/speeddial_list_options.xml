@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:icon="@drawable/tw_action_bar_icon_changeorder_holo_dark" android:id="@id/menu_speeddial_changeorder" android:title="@string/change_order" />
-    <item android:icon="@drawable/tw_action_bar_icon_delete_holo_dark" android:id="@id/menu_speeddial_remove" android:title="@string/removePhoto" />
-</menu>

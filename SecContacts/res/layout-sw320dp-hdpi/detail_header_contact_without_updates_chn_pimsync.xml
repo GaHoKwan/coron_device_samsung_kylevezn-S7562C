@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<view android:layout_width="fill_parent" android:layout_height="wrap_content" ex:direction="widthToHeight" ex:ratio="@dimen/detail_tab_width_to_height_ratio" class="com.android.contacts.widget.ProportionalLayout"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:ex="http://schemas.android.com/apk/res/com.android.contacts">
-    <include layout="@layout/photo_selector_view_chn_pimsync" />
-</view>

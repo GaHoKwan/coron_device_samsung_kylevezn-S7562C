@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.mms.ui.MessageStatusIconsArea android:gravity="center" android:id="@id/message_status_icons" android:layout_width="wrap_content" android:layout_height="25.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/title_icon01" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-    <ImageView android:id="@id/title_icon02" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-    <ImageView android:id="@id/title_icon03" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-    <ImageView android:layout_gravity="right|center" android:id="@id/sim_icon_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
-</com.android.mms.ui.MessageStatusIconsArea>

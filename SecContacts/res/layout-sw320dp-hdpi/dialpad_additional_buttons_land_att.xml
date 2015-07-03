@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:id="@id/dialpadAdditionalButtons_land" android:background="@drawable/dialer_bg_h_02" android:layout_width="263.0dip" android:layout_height="53.0dip" android:layout_marginLeft="3.0dip" android:layout_marginTop="10.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:id="@id/voicemailbutton" android:background="@drawable/call_dial_btn_bg_blue_h" android:layout_width="85.0dip" android:layout_height="53.0dip" android:src="@drawable/call_voice_mail_icon_h" android:scaleType="fitXY" android:contentDescription="@string/description_voicemail_button" />
-    <ImageButton android:id="@id/callbutton" android:background="@drawable/call_dial_btn_bg_blue_h" android:layout_width="85.0dip" android:layout_height="53.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/call_outgoingcall_icon_h" android:scaleType="fitXY" android:contentDescription="@string/description_dial_button" />
-    <ImageButton android:id="@id/deleteButton" android:background="@drawable/call_dial_btn_bg_blue_h" android:layout_width="85.0dip" android:layout_height="53.0dip" android:layout_marginLeft="4.0dip" android:src="@drawable/call_clear_btn_h" android:scaleType="fitXY" android:contentDescription="@string/description_delete_button" />
-</LinearLayout>

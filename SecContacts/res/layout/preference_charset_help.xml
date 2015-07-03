@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/charset_help_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:isScrollContainer="false"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView android:id="@*android:id/list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="false" />
-    <TextView android:gravity="center_vertical" android:id="@id/charset_instruction_title" android:paddingLeft="8.0px" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0px" android:text="@string/charset_instruction_title" style="?android:attr/listSeparatorTextViewStyle" />
-    <TextView android:textSize="18.0dip" android:textColor="@color/send_contact_explain_text_color" android:id="@*android:attr/theme" android:paddingLeft="24.0px" android:paddingTop="20.0px" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/charset_instruction" />
-</LinearLayout>

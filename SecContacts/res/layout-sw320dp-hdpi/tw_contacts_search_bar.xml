@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/tw_search_bar" android:background="@drawable/message_bottom_bg" android:focusable="true" android:descendantFocusability="afterDescendants" android:layout_width="fill_parent" android:layout_height="56.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:id="@id/menu_button" android:background="@drawable/contacts_list_menu_button_background" android:layout_width="53.0dip" android:layout_height="fill_parent" android:src="@drawable/tw_list_icon_more_option" android:scaleType="center" android:contentDescription="@string/menu_button_description" />
-    <SearchView android:id="@id/search_view" android:layout_width="0.0dip" android:layout_height="44.0dip" android:layout_weight="1.0" android:iconifiedByDefault="false" />
-    <ImageButton android:id="@id/create_button" android:background="@drawable/contacts_list_create_contact_button" android:layout_width="38.0dip" android:layout_height="38.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="7.0dip" android:scaleType="center" android:contentDescription="@string/pickerNewContactHeader" />
-</LinearLayout>

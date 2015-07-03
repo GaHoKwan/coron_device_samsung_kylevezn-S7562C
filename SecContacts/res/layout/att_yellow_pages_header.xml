@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="?android:selectableItemBackground" android:paddingLeft="?list_item_photo_margin_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?list_item_padding_left" android:layout_marginRight="?list_item_padding_right" android:minHeight="?list_item_height"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_width="?list_item_photo_size" android:layout_height="?list_item_photo_size" android:src="@drawable/yellow_page_icon" />
-    <TextView android:textAppearance="@style/TwMainListProfileButtonTextAppearance" android:ellipsize="end" android:id="@id/yellow_pages_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?list_item_text_indent" android:text="@string/att_yellow_pages" android:singleLine="true" />
-</LinearLayout>

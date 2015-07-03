@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.mms.ui.ToButtonLayout android:orientation="horizontal" android:id="@id/to_button_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="18.0dip" android:textColor="#ffebebeb" android:gravity="left" android:id="@id/to_text" android:visibility="gone" android:layout_width="38.0dip" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="15.0dip" android:text="@string/to_hint" />
-    <LinearLayout android:id="@id/to_button_panel_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="51.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:layout_weight="1.0" />
-</com.android.mms.ui.ToButtonLayout>
